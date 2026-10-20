@@ -32,3 +32,32 @@ export function prototypeImage(key: PrototypeImageKey | null | undefined): strin
   }
   return PROTOTYPE_IMAGES[key] ?? null;
 }
+
+/**
+ * Placeholder portraits for the leadership directory.
+ *
+ * The committee members are fictional, so these are photographs of real people
+ * used as illustrations of the roles — chosen to represent a mature club — and
+ * not pictures of the named members. They are only used when no CMS image is
+ * set, and the page states that the people and photographs are illustrative.
+ */
+export const PROTOTYPE_PORTRAITS = {
+  georgewill:
+    'https://images.unsplash.com/photo-1564541558234-ef406c118d0c?auto=format&fit=crop&w=700&h=875&q=80',
+  nwosu: 'https://images.unsplash.com/photo-1654027678170-2f16d4e87787?auto=format&fit=crop&w=700&h=875&q=80',
+  ogan: 'https://images.unsplash.com/photo-1748343953815-6174e3821377?auto=format&fit=crop&w=700&h=875&q=80',
+  briggs: 'https://images.unsplash.com/photo-1656959706608-ad47bee4619d?auto=format&fit=crop&w=700&h=875&q=80',
+  tariah: 'https://images.unsplash.com/photo-1678225892094-97b21e4fb8f1?auto=format&fit=crop&w=700&h=875&q=80',
+  'kalabari-obi':
+    'https://images.unsplash.com/photo-1621165486204-5a5797521c90?auto=format&fit=crop&w=700&h=875&q=80',
+} as const;
+
+export type PrototypePortraitKey = keyof typeof PROTOTYPE_PORTRAITS;
+
+/** Returns the placeholder portrait URL for a key, or null when unknown. */
+export function prototypePortrait(key: PrototypePortraitKey | null | undefined): string | null {
+  if (!key) {
+    return null;
+  }
+  return PROTOTYPE_PORTRAITS[key] ?? null;
+}

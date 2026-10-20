@@ -85,9 +85,13 @@ export default async function BusinessHubPage() {
                   <h2>{business.name}</h2>
                   {business.category ? <p>{business.category}</p> : null}
                 </div>
-                <div>{business.location ? <b>{business.location}</b> : null}</div>
-                <div>
-                  {business.link ? <ButtonLink href={business.link} variant="text">View</ButtonLink> : null}
+                <div className="business-list-meta">
+                  {business.location ? <b>{business.location}</b> : null}
+                  {business.link ? (
+                    <ButtonLink href={business.link} variant="text">
+                      View
+                    </ButtonLink>
+                  ) : null}
                 </div>
               </div>
             ))}

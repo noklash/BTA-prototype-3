@@ -335,6 +335,27 @@ export interface DiasporaRegistration {
   status: 'Registered' | 'Contacted'
 }
 
+/**
+ * A committee member shown on the public leadership page.
+ *
+ * The person's name, location and profession are read from `members` through
+ * `memberId`, so the leadership page and the members' directory can never
+ * disagree about who someone is.
+ */
+export interface Leader {
+  id: string
+  /** The member this leader is, so names and details stay in one place. */
+  memberId: string
+  /** The office or committee the person holds. */
+  role: string
+  /** One line describing what the person is responsible for. */
+  remit: string
+  /** Year the person took the role. */
+  since: string
+  /** Placeholder portrait key; a CMS image replaces it in production. */
+  portrait: string
+}
+
 export interface DemoDataset {
   members: Member[]
   transactions: Transaction[]
@@ -355,4 +376,5 @@ export interface DemoDataset {
   adminRoles: AdminRole[]
   activity: ActivityEntry[]
   diasporaRegistrations: DiasporaRegistration[]
+  leaders: Leader[]
 }

@@ -1,15 +1,18 @@
-import { DEMONSTRATION_NOTICE } from '@/lib/site'
+import { PROTOTYPE_NOTE } from '@/lib/site'
 
 /**
- * The honesty banner carried by every inner page, in the design system's
- * `.note` treatment: the site is a fictional association built as a portfolio
- * demonstration, and this states it above the content rather than only in the
- * footer.
+ * The note carried by every inner page, in the design system's `.note`
+ * treatment.
+ *
+ * It sits directly under the page hero, exactly where the approved reference
+ * prototype places its note, and states that the page's names, dates, figures
+ * and documents are illustrative. The organisation-level statement appears once,
+ * in the footer, so it is not repeated on every page.
  */
 export function DemonstrationNote() {
   return (
     <div className="shell">
-      <p className="note">{DEMONSTRATION_NOTICE}</p>
+      <p className="note">{PROTOTYPE_NOTE}</p>
     </div>
   )
 }

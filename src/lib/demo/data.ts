@@ -896,6 +896,59 @@ export const DEMO_DATA: DemoDataset = {
     { id: 'dia-002', name: 'Ngozi Kalabari-Obi', email: 'ngozi.obi@example.org', country: 'United States', interests: ['Law', 'Funding'], willingToVolunteer: true, date: '2026-01-27', status: 'Contacted' },
     { id: 'dia-003', name: 'Bibi Oruwari', email: 'bibi.oruwari@example.org', country: 'Canada', interests: ['Mentorship', 'Healthcare'], willingToVolunteer: true, date: '2026-02-08', status: 'Contacted' },
   ],
+
+  // The committee behind the work. Each entry points at a member record, so the
+  // leadership page and the members' directory always show the same people.
+  leaders: [
+    {
+      id: 'lead-001',
+      memberId: 'mem-009',
+      role: 'President',
+      remit: 'Leads the club, chairs the annual general meeting and represents BTA to partners.',
+      since: '2024',
+      portrait: 'georgewill',
+    },
+    {
+      id: 'lead-002',
+      memberId: 'mem-001',
+      role: 'Vice President',
+      remit: 'Deputises for the president and coordinates the committee work plan.',
+      since: '2024',
+      portrait: 'nwosu',
+    },
+    {
+      id: 'lead-003',
+      memberId: 'mem-004',
+      role: 'Secretary',
+      remit: 'Keeps the institutional record: minutes, notices, circulars and the annual report.',
+      since: '2025',
+      portrait: 'ogan',
+    },
+    {
+      id: 'lead-004',
+      memberId: 'mem-002',
+      role: 'Treasurer',
+      remit: 'Oversees subscriptions, contributions and the published financial statements.',
+      since: '2025',
+      portrait: 'briggs',
+    },
+    {
+      id: 'lead-005',
+      memberId: 'mem-005',
+      role: 'Education & Youth Lead',
+      remit: 'Runs the scholarship, mentoring and school support programmes.',
+      since: '2025',
+      portrait: 'tariah',
+    },
+    {
+      id: 'lead-006',
+      memberId: 'mem-007',
+      role: 'Diaspora & Partnerships Lead',
+      remit: 'Connects the diaspora network and builds partnerships that fund community work.',
+      since: '2026',
+      portrait: 'kalabari-obi',
+    },
+  ],
 }
 
 /* ---------------------------------------------------------------------------

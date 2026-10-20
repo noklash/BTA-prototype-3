@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { LeadershipTeaser } from '@/components/demo/leadership'
 import { EditorialPageRoute } from '@/components/editorial-page'
 import { getEditorialPageByKind } from '@/lib/sanity/content'
 
@@ -14,5 +15,12 @@ export const metadata: Metadata = {
 export default async function OurPeoplePage() {
   const result = await getEditorialPageByKind('people')
 
-  return <EditorialPageRoute result={result} label="Our People" prototypeKey="people" />
+  return (
+    <EditorialPageRoute
+      result={result}
+      label="Our People"
+      prototypeKey="people"
+      after={<LeadershipTeaser />}
+    />
+  )
 }

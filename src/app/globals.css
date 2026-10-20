@@ -800,6 +800,12 @@
     background: var(--gold);
   }
 
+  /* The band is sometimes rendered through the `Section` component, which adds
+     the generic section padding. The reference band keeps its own 75px. */
+  .section.partner-home {
+    padding: 75px 0;
+  }
+
   .partner-home > .shell {
     display: grid;
     grid-template-columns: 1fr 1fr auto;
@@ -1697,8 +1703,9 @@
   .business-list > div {
     min-height: 120px;
     display: grid;
-    grid-template-columns: 50px 1fr 180px 25px;
+    grid-template-columns: 50px 1fr auto;
     align-items: center;
+    gap: 24px;
     border-bottom: 1px solid var(--line);
   }
 
@@ -1716,6 +1723,15 @@
     margin: 0;
     color: var(--muted);
     font-size: 10px;
+  }
+
+  /* The location and the action sit together in the last cell, so the row
+     collapses to two columns on a phone without anything overflowing. */
+  .business-list-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
   }
 
   /* LIBRARY */
@@ -2027,15 +2043,15 @@
   }
 
   .panel-grid.cols-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .panel-grid.cols-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .panel-grid.cols-4 {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .panel-grid > div {
@@ -2056,7 +2072,7 @@
 
   .split {
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
     gap: 44px;
     align-items: start;
   }
@@ -2066,11 +2082,134 @@
     gap: 26px;
   }
 
-  /* METRICS */
+  /* LEADERSHIP DIRECTORY */
 
+  .leadership-grid {
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .leader-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .leader-card:hover {
+    position: relative;
+    z-index: 1;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(6, 29, 53, 0.14);
+  }
+
+  .leader-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 380px;
+    object-fit: cover;
+    background: var(--mist);
+  }
+
+  .leader-card-body {
+    flex: 1;
+    padding: 24px 26px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 3px solid var(--gold);
+  }
+
+  .leader-role {
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .leader-card h3 {
+    margin: 0;
+    font: 600 28px/1.12 var(--serif);
+  }
+
+  .leader-remit {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .leader-meta {
+    margin: auto 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .leadership-note {
+    margin: 26px 0 0;
+    max-width: 720px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .leadership-teaser {
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .teaser-person {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teaser-person img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 240px;
+    object-fit: cover;
+    background: #fff;
+    transition: transform 0.25s;
+  }
+
+  .teaser-person span {
+    font: 600 19px var(--serif);
+  }
+
+  .teaser-person small {
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .teaser-person:hover img {
+    transform: translateY(-4px);
+  }
+
+  .teaser-person:hover span {
+    color: var(--mid);
+  }
+
+  /* METRICS */
   .metric-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     border: 1px solid var(--line);
   }
 
@@ -2102,6 +2241,27 @@
 
   .table-wrap {
     overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Grid and flex children default to a min-content width, which lets a wide
+     table, a long word or a wide select push the layout past the viewport.
+     These rules keep every block inside its column; the tables then scroll
+     inside their own container instead of the page. */
+  .panel,
+  .panel-grid > *,
+  .metric-grid > *,
+  .row-list > *,
+  .split > *,
+  .form-page > .shell > *,
+  .app-main > * {
+    min-width: 0;
+  }
+
+  select,
+  input,
+  textarea {
+    max-width: 100%;
   }
 
   .data-table {
@@ -2597,11 +2757,24 @@
     }
 
     .metric-grid > div {
+      padding: 16px 14px;
       border-bottom: 1px solid var(--line);
+    }
+
+    .metric-grid b {
+      font-size: 26px;
+    }
+
+    .panel-grid > div {
+      padding: 18px;
     }
 
     .split {
       grid-template-columns: 1fr;
+    }
+
+    .leadership-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -2610,6 +2783,15 @@
     .panel-grid.cols-3,
     .panel-grid.cols-4 {
       grid-template-columns: 1fr;
+    }
+
+    .leadership-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .leadership-teaser {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .before-after {
@@ -2711,9 +2893,15 @@
     }
 
     .intro > .shell,
+    .knowledge-home > .shell,
+    .form-page > .shell,
     .application {
       grid-template-columns: 1fr;
       gap: 50px;
+    }
+
+    .stats > .shell {
+      grid-template-columns: 1fr 1fr;
     }
 
     .model-grid,
@@ -2721,9 +2909,28 @@
       grid-template-columns: 1fr 1fr;
     }
 
+    .impact,
+    .heritage-home {
+      grid-template-columns: 1fr;
+    }
+
+    .impact > img,
+    .heritage-home > img {
+      height: 520px;
+    }
+
     .docs,
     .vision-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .library {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .library .featured {
+      grid-row: auto;
+      grid-column: span 2;
     }
 
     .partner-home > .shell {
@@ -2745,6 +2952,10 @@
 
     .footer-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .newsletter {
+      grid-column: 2;
     }
   }
 
@@ -2801,6 +3012,14 @@
       font-size: 18px;
     }
 
+    .stats .shell > div {
+      padding: 26px 16px;
+    }
+
+    .stats b {
+      font-size: 37px;
+    }
+
     .model-grid,
     .steps-grid {
       grid-template-columns: 1fr;
@@ -2827,6 +3046,25 @@
       font-size: 23px;
     }
 
+    .impact > img,
+    .heritage-home > img {
+      height: 400px;
+    }
+
+    .impact > div,
+    .heritage-home > div {
+      padding: 58px 24px;
+    }
+
+    .featured-session {
+      min-height: 360px;
+      padding: 28px;
+    }
+
+    .featured-session h3 {
+      font-size: 35px;
+    }
+
     .event-list > a {
       padding: 18px 0;
       min-height: 0;
@@ -2848,6 +3086,49 @@
 
     .event-list h3 {
       font-size: 20px;
+    }
+
+    .vision-home h2 {
+      font-size: 55px;
+    }
+
+    .news > a {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .news img {
+      height: 240px;
+    }
+
+    .news h2 {
+      font-size: 32px;
+    }
+
+    .library {
+      display: block;
+      border: 0;
+    }
+
+    .library > a {
+      min-height: 250px;
+      margin-bottom: 1px;
+    }
+
+    .business-list > div {
+      padding: 18px 0;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+    }
+
+    .business-list h2 {
+      font-size: 22px;
+    }
+
+    .business-list-meta {
+      grid-column: 2;
+      justify-content: flex-start;
+      gap: 16px;
     }
 
     .page-hero,
@@ -2922,6 +3203,10 @@
 
     .footlinks {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .newsletter {
+      grid-column: auto;
     }
 
     .modal > div {

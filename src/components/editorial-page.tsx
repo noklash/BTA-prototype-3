@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import { DemonstrationNote } from './demonstration-note'
 import { PageHero } from './page-hero'
 import { ButtonLink } from './ui/button-link'
@@ -15,9 +17,12 @@ import type { PrototypeImageKey } from '@/content/prototype-images'
 export function EditorialPage({
   page,
   prototypeKey,
+  after,
 }: {
   page: EditorialPage | null
   prototypeKey?: PrototypeImageKey
+  /** Rendered after the editorial content, before the closing CTA. */
+  after?: ReactNode
 }) {
   if (!page) {
     return null
@@ -51,6 +56,8 @@ export function EditorialPage({
         </Section>
       ) : null}
 
+      {after}
+
       {page.cta ? (
         <Section className="partner-home">
           <div className="shell">
@@ -63,6 +70,7 @@ export function EditorialPage({
               <ButtonLink
                 href={page.cta.buttonHref ?? '/membership'}
                 variant="outline"
+                
               >
                 {page.cta.buttonLabel ?? 'Participate in BTA'}
               </ButtonLink>
@@ -82,10 +90,12 @@ export function EditorialPageRoute({
   result,
   label,
   prototypeKey,
+  after,
 }: {
   result: ContentResult<EditorialPage | null>
   label: string
   prototypeKey?: PrototypeImageKey
+  after?: ReactNode
 }) {
   if (!result.ok) {
     return (
@@ -106,5 +116,5 @@ export function EditorialPageRoute({
     )
   }
 
-  return <EditorialPage page={result.value} prototypeKey={prototypeKey} />
+  return <EditorialPage page={result.value} prototypeKey={prototypeKey} after={after} />
 }

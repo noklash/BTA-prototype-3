@@ -11,9 +11,19 @@ export const BRAND_NAME = 'Bainbo Taria Awo Club'
 export const BRAND_DESCRIPTION =
   'A fictional community association website demonstrating a Next.js and Sanity CMS integration.'
 
-/** Shown on every page footer so the demonstration is never mistaken for the real organization. */
+/** Shown in the site footer so the demonstration is never mistaken for the real organization. */
 export const DEMONSTRATION_NOTICE =
   'Bainbo Taria Awo Club is a fictional organisation created for a portfolio demonstration. It is not affiliated with any real association.'
+
+/**
+ * The note carried by every inner page, above the content.
+ *
+ * It repeats the reference prototype's own wording, so the page states once
+ * that its figures and documents are illustrative. The organisation-level
+ * statement lives in the footer only, and is not repeated on every page.
+ */
+export const PROTOTYPE_NOTE =
+  'Prototype content — names, dates, figures and documents are illustrative and will be replaced with verified BTA information.'
 
 /** Default `metadataBase`, used when `NEXT_PUBLIC_SITE_URL` is not set. */
 export const DEFAULT_SITE_URL = 'http://localhost:3000'

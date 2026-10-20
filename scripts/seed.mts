@@ -245,7 +245,7 @@ const siteSettings: SeedDocument = {
   contactPhone: '+44 20 7946 0958',
   address: 'The Old Library Hall\n12 Market Street\nNorthbridge\nNB1 4HC',
   footerText:
-    'All Rights Reserved © 2026 BAINBO TARIA AWO (BTA) built by DIFURRENT LTD.',
+    'Connecting generations, sharing knowledge, creating opportunities and building a lasting legacy.',
   socialLinks: [
     { _key: 'social-facebook', platform: 'Facebook', url: 'https://example.org/bainbotariaawo' },
     { _key: 'social-instagram', platform: 'Instagram', url: 'https://example.org/bainbotariaawo' },

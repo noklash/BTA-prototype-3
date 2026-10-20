@@ -9,6 +9,7 @@ import { DEMONSTRATION_NOTICE } from '@/lib/site'
 const EXPLORE_LINKS = [
   { href: '/about', label: 'About BTA' },
   { href: '/our-people', label: 'Our People' },
+  { href: '/our-people/leadership', label: 'Leadership' },
   { href: '/heritage', label: 'Heritage' },
   { href: '/events', label: 'Events' },
 ] as const
