@@ -1,12 +1,20 @@
 # Bainbo Taria Awo Club
 
-A small community-association website for a **fictional** organisation, built as a
+A community-association website for a **fictional** organisation, built as a
 portfolio demonstration of a production-minded **Next.js (App Router) + TypeScript +
 Tailwind CSS + Sanity CMS** integration.
 
 > Bainbo Taria Awo Club (BTA) is not a real association. It is not affiliated with any
-> real organisation, and the membership/support forms deliberately do not store or send
-> anything.
+> real organisation, and every form, payment, receipt, business listing and
+> partnership in this project is simulated.
+
+The site is delivered in two layers:
+
+- **The public site** — editorial content driven by Sanity, rendered on the server.
+- **Prototype 3** — the community/membership platform (project bank, transparency,
+  diaspora hub, youth and scholarships, business directory, volunteer database,
+  feedback and proposals, members' portal and an administrative dashboard) built as an
+  extension of the same design system, never as a redesign.
 
 ---
 
@@ -16,7 +24,9 @@ Tailwind CSS + Sanity CMS** integration.
   and **19 reusable object types**, validation, sensible defaults, singleton documents
   and an editor-friendly structure.
 - A typed content layer that never throws, never substitutes fake content, and
-  distinguishes "no content" from "CMS unreachable".
+  distinguishes "no content" from "CMS unreachable" — and that keeps serving the last
+  known good content during a short Content Lake outage instead of replacing a live
+  page with an error state.
 - A clear publication model: draft/publish workflow **and** an editor-facing status
   field, both enforced in GROQ so unpublished content cannot reach a public page.
 - Server-rendered pages with time-based ISR plus an on-demand revalidation webhook.
@@ -26,8 +36,9 @@ Tailwind CSS + Sanity CMS** integration.
   for body copy.
 - A validated, clearly-labelled demonstration form with matching client- and
   server-side rules.
-- Unit/component tests (Vitest + React Testing Library), linting, type checking and a
-  production build.
+- Unit/component tests (Vitest + React Testing Library), linting, type checking, a
+  production build, a scripted responsive audit and a scripted interaction check.
+
 
 ## Stack
 
