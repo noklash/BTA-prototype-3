@@ -39,7 +39,10 @@ import EventDetailRoute, {
   generateMetadata as eventGenerateMetadata,
   generateStaticParams as eventGenerateStaticParams,
 } from '@/app/events/[slug]/page'
+import ForumRoute from '@/app/knowledge/forum/page'
+import ForumThreadRoute from '@/app/knowledge/forum/[slug]/page'
 import HomeRoute from '@/app/page'
+import LeadershipRoute from '@/app/our-people/leadership/page'
 import LibraryRoute from '@/app/library/page'
 import MembershipRoute from '@/app/membership/page'
 import NotFoundRoute from '@/app/not-found'
@@ -101,6 +104,14 @@ describe('required routes', () => {
     ['/partner', PartnerRoute],
     ['/community-needs', CommunityNeedsRoute],
   ])('exposes the Prototype 3 public route %s', (_route, component) => {
+    expect(typeof component).toBe('function')
+  })
+
+  it.each([
+    ['/knowledge/forum', ForumRoute],
+    ['/knowledge/forum/[slug]', ForumThreadRoute],
+    ['/our-people/leadership', LeadershipRoute],
+  ])('exposes the forum and leadership route %s', (_route, component) => {
     expect(typeof component).toBe('function')
   })
 

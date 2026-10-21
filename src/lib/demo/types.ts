@@ -336,6 +336,40 @@ export interface DiasporaRegistration {
 }
 
 /**
+ * A block of a mock article.
+ *
+ * The published articles use Portable Text; the demonstration mirror uses these
+ * blocks so both render with the same typography.
+ */
+export interface ForumArticleBlock {
+  kind: 'paragraph' | 'heading' | 'quote' | 'list'
+  text?: string
+  items?: string[]
+}
+
+/**
+ * A forum article held in the demonstration layer.
+ *
+ * The published articles live in the CMS; these mirror them so the forum still
+ * reads as a forum when the Content Lake cannot be reached.
+ */
+export interface ForumThreadRecord {
+  id: string
+  slug: string
+  title: string
+  excerpt: string
+  /** The article, in reading order. */
+  body: ForumArticleBlock[]
+  author: string
+  authorRole: string
+  category: string
+  /** ISO date. */
+  date: string
+  /** Prototype image key used when the CMS has no image for the article. */
+  image: string
+}
+
+/**
  * A reply to a comment on a forum thread.
  */
 export interface ForumReply {
@@ -409,4 +443,5 @@ export interface DemoDataset {
   diasporaRegistrations: DiasporaRegistration[]
   leaders: Leader[]
   forumComments: ForumComment[]
+  forumThreads: ForumThreadRecord[]
 }

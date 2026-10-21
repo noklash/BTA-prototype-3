@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import { MAX_ABOUT_VALUES } from '../../shared/limits'
+import { PageIcon } from '../../icons'
 
 /**
  * Singleton document: the about page.
@@ -9,6 +10,7 @@ export const aboutPage = defineType({
   name: 'aboutPage',
   title: 'About page',
   type: 'document',
+  icon: PageIcon,
   fields: [
     defineField({
       name: 'title',

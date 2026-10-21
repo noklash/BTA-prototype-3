@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { PeopleIcon } from '../../icons'
 
 /**
  * Singleton: Community Needs page (form page).
@@ -7,6 +8,7 @@ export const communityNeeds = defineType({
   name: 'communityNeeds',
   title: 'Community Needs',
   type: 'document',
+  icon: PeopleIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'content', title: 'Form' },

@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import { MAX_EDITORIAL_ARTICLES } from '../../shared/limits'
+import { ArticleIcon } from '../../icons'
 
 /**
  * Kinds of editorial pages, matching the prototype's Editorial component.
@@ -33,6 +34,7 @@ export const editorialPage = defineType({
   name: 'editorialPage',
   title: 'Editorial page',
   type: 'document',
+  icon: ArticleIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'content', title: 'Articles' },

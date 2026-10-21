@@ -5,6 +5,7 @@ import {
   MAX_HOME_INITIATIVES,
   MAX_MODEL_PILLARS,
 } from '../../shared/limits'
+import { PageIcon } from '../../icons'
 
 /**
  * Singleton document: the home page with all prototype sections.
@@ -26,6 +27,7 @@ export const homepage = defineType({
   name: 'homepage',
   title: 'Home page',
   type: 'document',
+  icon: PageIcon,
   groups: [
     { name: 'hero', title: '1. Hero', default: true },
     { name: 'intro', title: '2. Intro' },

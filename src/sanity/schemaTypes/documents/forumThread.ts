@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { ForumIcon } from '../../icons'
 
 /**
  * Topics a forum thread can belong to. Kept small and stable so the index can
@@ -26,6 +27,7 @@ export const forumThread = defineType({
   name: 'forumThread',
   title: 'Forum thread',
   type: 'document',
+  icon: ForumIcon,
   groups: [
     { name: 'article', title: 'Article', default: true },
     { name: 'meta', title: 'Details' },
@@ -105,6 +107,17 @@ export const forumThread = defineType({
     }),
   ],
   preview: {
-    select: { title: 'title', subtitle: 'author', media: 'image' },
+    select: {
+      title: 'title',
+      author: 'author',
+      category: 'category',
+      publishedAt: 'publishedAt',
+      media: 'image',
+    },
+    prepare: ({ title, author, category, publishedAt, media }) => ({
+      title: title ?? 'Forum thread',
+      subtitle: [author, category].filter(Boolean).join(' · ') || undefined,
+      media,
+    }),
   },
 })

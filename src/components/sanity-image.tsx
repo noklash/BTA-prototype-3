@@ -25,6 +25,11 @@ export interface SanityImageProps {
    * key instead (BTA-prototype-2/src/app/data.ts `photos`).
    */
   prototypeKey?: PrototypeImageKey
+  /**
+   * A direct image URL used when no CMS image is set. Takes precedence over
+   * `prototypeKey`, and lets a page choose the right picture per record.
+   */
+  fallbackUrl?: string | null
 }
 
 /**
@@ -49,6 +54,7 @@ export function SanityImage({
   fallback = null,
   priority = false,
   prototypeKey,
+  fallbackUrl,
 }: SanityImageProps) {
   const contentImage = buildContentImage(image, { widths, fallbackAlt: alt })
 
@@ -67,21 +73,20 @@ export function SanityImage({
     )
   }
 
-  // No CMS image: fall back to the prototype's exact image URL.
-  if (prototypeKey) {
-    const url = prototypeImage(prototypeKey)
-    if (url) {
-      return (
-        <img
-          src={url}
-          alt={alt}
-          sizes={sizes}
-          className={className}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
-        />
-      )
-    }
+  // No CMS image: use the page's own fallback URL, then the prototype URL.
+  const fallbackImage = fallbackUrl ?? (prototypeKey ? prototypeImage(prototypeKey) : null)
+
+  if (fallbackImage) {
+    return (
+      <img
+        src={fallbackImage}
+        alt={alt}
+        sizes={sizes}
+        className={className}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+    )
   }
 
   return <>{fallback}</>

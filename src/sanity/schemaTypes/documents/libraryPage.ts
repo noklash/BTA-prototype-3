@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import { MAX_LIBRARY_RESOURCES } from '../../shared/limits'
+import { ArticleIcon } from '../../icons'
 
 /**
  * Singleton: Knowledge Library page.
@@ -9,6 +10,7 @@ export const libraryPage = defineType({
   name: 'libraryPage',
   title: 'Library page',
   type: 'document',
+  icon: ArticleIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'content', title: 'Resources' },

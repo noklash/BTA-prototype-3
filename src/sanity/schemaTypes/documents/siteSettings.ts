@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { SettingsIcon } from '../../icons'
 
 /**
  * Singleton document: global identity, contact details, navigation and footer content.
@@ -10,6 +11,7 @@ export const siteSettings = defineType({
   name: 'siteSettings',
   title: 'Site settings',
   type: 'document',
+  icon: SettingsIcon,
   groups: [
     { name: 'identity', title: 'Identity', default: true },
     { name: 'navigation', title: 'Navigation' },

@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import { MAX_WHAT_TO_EXPECT } from '../../shared/limits'
+import { PageIcon } from '../../icons'
 
 /**
  * Types of detail pages, matching the prototype's Detail component.
@@ -39,6 +40,7 @@ export const detailPage = defineType({
   name: 'detailPage',
   title: 'Detail page',
   type: 'document',
+  icon: PageIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'about', title: 'About this Initiative' },

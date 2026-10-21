@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { MarkIcon } from '../../icons'
 
 /**
  * A community initiative highlighted on the home page and reusable elsewhere.
@@ -7,6 +8,7 @@ export const featuredActivity = defineType({
   name: 'featuredActivity',
   title: 'Featured activity',
   type: 'document',
+  icon: MarkIcon,
   fields: [
     defineField({
       name: 'title',

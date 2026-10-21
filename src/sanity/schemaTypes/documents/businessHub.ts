@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import { MAX_BUSINESS_ENTRIES } from '../../shared/limits'
+import { BusinessIcon } from '../../icons'
 
 /**
  * Singleton: Business Hub page.
@@ -9,6 +10,7 @@ export const businessHub = defineType({
   name: 'businessHub',
   title: 'Business Hub',
   type: 'document',
+  icon: BusinessIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'content', title: 'Business Directory' },

@@ -20,14 +20,17 @@ export function PageHero({
   intro,
   image,
   prototypeKey,
+  fallbackUrl,
 }: {
   eyebrow: string
   title: string
   intro?: string
   image?: SanityImageValue | null
   prototypeKey?: PrototypeImageKey
+  /** A direct image URL used when the CMS has no image for this page. */
+  fallbackUrl?: string | null
 }) {
-  const hasImage = Boolean(image?.asset?._ref || prototypeKey)
+  const hasImage = Boolean(image?.asset?._ref || prototypeKey || fallbackUrl)
 
   return (
     <section className={hasImage ? 'page-hero image' : 'page-hero'}>
@@ -40,6 +43,7 @@ export function PageHero({
           priority
           className="h-full w-full object-cover"
           prototypeKey={prototypeKey}
+          fallbackUrl={fallbackUrl}
         />
       ) : null}
 

@@ -22,9 +22,34 @@ import {
 import { schemaTypes } from './src/sanity/schemaTypes'
 import { structure } from './src/sanity/structure'
 
+/**
+ * The Studio is themed with the same palette as the website, so editing feels
+ * like an extension of the site rather than a different product.
+ *
+ * Navy carries the chrome, gold marks the accent, and the mist/line tones come
+ * from the site tokens in `src/app/globals.css`.
+ */
+const studioTheme = {
+  colors: {
+    background: '#ffffff',
+    text: '#11263a',
+    textMuted: '#607181',
+    textCard: '#11263a',
+    textInput: '#11263a',
+    spotlight: '#061d35',
+    base: '#f3f6f7',
+    primary: '#0a3157',
+    positive: '#145587',
+    caution: '#d5a62e',
+    critical: '#9d2b23',
+    input: '#f3f6f7',
+    inputBorder: '#d9e1e6',
+  },
+}
+
 export const studioConfig = defineConfig({
   name: 'heritage-circle',
-  title: 'The Heritage Circle',
+  title: 'Bainbo Taria Awo Club',
   projectId: getSanityProjectId() ?? '',
   dataset: getSanityDataset() ?? '',
   basePath: '/studio',
@@ -42,6 +67,12 @@ export const studioConfig = defineConfig({
       creationContext.type === 'global'
         ? previous.filter((template) => !SINGLETON_DOCUMENT_TYPES.includes(template.templateId))
         : previous,
+  },
+  workspace: {
+    name: 'default',
+    title: 'Bainbo Taria Awo Club',
+    basePath: '/studio',
+    theme: studioTheme,
   },
 })
 

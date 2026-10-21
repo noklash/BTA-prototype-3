@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { PeopleIcon } from '../../icons'
 
 /**
  * Singleton: Membership/Join/Support page (multi-step form).
@@ -7,6 +8,7 @@ export const membershipPage = defineType({
   name: 'membershipPage',
   title: 'Membership page',
   type: 'document',
+  icon: PeopleIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'steps', title: 'Steps' },

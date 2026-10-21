@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { CalendarIcon } from '../../icons'
 
 /** The value used by the public queries to identify events that may be shown. */
 export const EVENT_STATUS_PUBLISHED = 'published'
@@ -31,6 +32,7 @@ export const event = defineType({
   name: 'event',
   title: 'Event',
   type: 'document',
+  icon: CalendarIcon,
   fields: [
     defineField({
       name: 'title',

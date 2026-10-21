@@ -15,6 +15,8 @@ const {
   CONTENT_TAGS,
   eventBySlugQuery,
   eventsQuery,
+  forumThreadBySlugQuery,
+  forumThreadsQuery,
   homepageQuery,
   publishedEventSlugsQuery,
   siteSettingsQuery,
@@ -27,6 +29,8 @@ const allQueries = {
   eventsQuery,
   eventBySlugQuery,
   publishedEventSlugsQuery,
+  forumThreadsQuery,
+  forumThreadBySlugQuery,
 }
 
 describe('query definitions', () => {
@@ -78,6 +82,23 @@ describe('projections', () => {
 
   it('selects the call to action fields explicitly', () => {
     expect(homepageQuery).toContain('heroCtaPrimary{ heading, body, buttonLabel, buttonHref }')
+  })
+
+  it('projects the forum thread fields the article page renders', () => {
+    for (const query of [forumThreadsQuery, forumThreadBySlugQuery]) {
+      for (const field of [
+        'title',
+        'excerpt',
+        'body',
+        'image',
+        'author',
+        'authorRole',
+        'category',
+        'publishedAt',
+      ]) {
+        expect(query).toContain(field)
+      }
+    }
   })
 
   it('does not select the private read token or dataset from documents', () => {

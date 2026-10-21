@@ -62,6 +62,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((item) => item.status === 'Published')
     .map((item) => route(`/library/${item.slug}`, 'yearly', 0.5))
 
+  const forumRoutes: MetadataRoute.Sitemap = DEMO_DATA.forumThreads.map((thread) =>
+    route(`/knowledge/forum/${thread.slug}`, 'weekly', 0.6),
+  )
+
   const businessRoutes: MetadataRoute.Sitemap = DEMO_DATA.businesses
     .filter((business) => business.status === 'Published')
     .map((business) => route(`/enterprise/business-hub/${business.slug}`, 'yearly', 0.5))
@@ -73,6 +77,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...projectRoutes,
     ...opportunityRoutes,
     ...knowledgeRoutes,
+    ...forumRoutes,
     ...businessRoutes,
     ...events.map(({ slug }) => route(`/events/${slug}`, 'monthly', 0.6)),
   ]

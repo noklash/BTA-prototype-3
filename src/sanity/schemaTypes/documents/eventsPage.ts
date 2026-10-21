@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { CalendarIcon } from '../../icons'
 
 /**
  * Singleton: Events listing page configuration.
@@ -7,6 +8,7 @@ export const eventsPage = defineType({
   name: 'eventsPage',
   title: 'Events page',
   type: 'document',
+  icon: CalendarIcon,
   groups: [
     { name: 'hero', title: 'Page Hero', default: true },
     { name: 'content', title: 'Content' },

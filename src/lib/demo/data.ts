@@ -950,6 +950,271 @@ export const DEMO_DATA: DemoDataset = {
     },
   ],
 
+  // Forum articles. These mirror the threads published in the CMS, so the forum
+  // still reads as a forum when the Content Lake cannot be reached.
+  forumThreads: [
+    {
+      id: 'fth-001',
+      slug: 'understanding-personal-investment-in-nigeria',
+      title: 'Understanding Personal Investment in Nigeria',
+      excerpt:
+        'What personal investment actually means in the Nigerian context: where to start, what to avoid, and how much of your income should be committed.',
+      body: [
+        {
+          kind: 'paragraph',
+          text: 'Every month someone in the club asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'Nothing here is financial advice, and no member of the club is a licensed adviser. It is what has worked for people in this club, written down so that the next person can start from a clearer place than we did.',
+        },
+        { kind: 'heading', text: 'Start with the boring part' },
+        {
+          kind: 'paragraph',
+          text: 'Before any investment, the money that comes in has to be divided: the part that pays for the month, the part that covers the surprises, and only then the part that can be committed for years. Members who skip this step tend to start again from zero, usually at a worse moment than the first one.',
+        },
+        {
+          kind: 'list',
+          items: [
+            'The month: rent, food, transport, school fees and the household share of everything else.',
+            'The surprise: three to six months of the month money, held somewhere you can reach it the same day.',
+            'The commitment: what is genuinely spare once the first two are covered, and can stay put for years.',
+          ],
+        },
+        {
+          kind: 'paragraph',
+          text: 'The order matters more than the percentages. Most arguments we have had about investing were really arguments about which of these three boxes had not been filled yet.',
+        },
+        { kind: 'heading', text: 'Three questions before you buy anything' },
+        {
+          kind: 'list',
+          items: [
+            'Do I understand exactly what I am buying? If you cannot explain it to somebody else in two sentences, you do not understand it yet.',
+            'What happens to it if I need the money next year? A commitment you might have to break is a hope, not a plan.',
+            'Who is taking a fee from me, and how much? The fee is the one number that is always certain.',
+          ],
+        },
+        {
+          kind: 'paragraph',
+          text: 'Those three questions have removed more bad decisions in this club than any product recommendation ever has. They are deliberately dull. That is the point.',
+        },
+        {
+          kind: 'quote',
+          text: 'The best time to start was ten years ago. The second best time is after the month is already under control.',
+        },
+        { kind: 'heading', text: 'What the club does with it' },
+        {
+          kind: 'paragraph',
+          text: 'Once the month and the surprise are covered, several members in the club set aside a small monthly amount for the projects we run together: the school hall, the water work, the scholarships. It is the same discipline as above, pointed at something the whole club can see.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'If you would like to talk this through with somebody before you commit to anything, that is what the monthly session is for. Bring your questions, not your answers.',
+        },
+      ],
+      author: 'Tamuno Georgewill',
+      authorRole: 'Treasurer',
+      category: 'Knowledge & Ideas',
+      date: '2026-10-18',
+      image: 'community',
+    },
+    {
+      id: 'fth-002',
+      slug: 'running-a-fisheries-cooperative',
+      title: 'Running a fisheries cooperative: what worked and what did not',
+      excerpt:
+        'Three years of running a cooperative on the river, written honestly: the decisions that paid off, the ones that did not, and the bookkeeping we should have kept from day one.',
+      body: [
+        {
+          kind: 'paragraph',
+          text: 'Our cooperative now supplies four neighbouring communities, and it nearly did not survive its second year. This is the version of the story I would have wanted before we started, written while the details are still honest and nobody has yet had time to make them sound better.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'We were six members with two boats and a shared freezer that did not work. Everything below is what three years of that produced.',
+        },
+        { kind: 'heading', text: 'What worked' },
+        {
+          kind: 'list',
+          items: [
+            'Writing the rules down before we needed them. Membership, prices, dividends and the order of decisions were all on one page, signed by everyone.',
+            'Buying cold storage together rather than individually. The saving paid for the first year of the record keeping we had not budgeted for.',
+            'Meeting on the same day every month, whatever the weather. A fixed date is the cheapest governance there is.',
+            'Paying the same day we sold. Delayed payment is where small cooperatives quietly lose their working capital.',
+          ],
+        },
+        { kind: 'heading', text: 'What did not' },
+        {
+          kind: 'paragraph',
+          text: 'We started without a bookkeeper. For eleven months the money was tracked in a notebook, and reconciling it at the end of the year took a fortnight and two arguments. We also took on a member who wanted to sell to us below the market price, and the disagreement nearly ended the cooperative.',
+        },
+        {
+          kind: 'quote',
+          text: 'The record of a decision is worth more than the decision itself.',
+        },
+        { kind: 'heading', text: 'What we would do differently' },
+        {
+          kind: 'list',
+          items: [
+            'Appoint a treasurer in the first meeting, and make the role a two-year commitment rather than a favour.',
+            'Buy the cold storage before the second boat, not after.',
+            'Write the buying rule down before the first difficult supplier conversation, not during it.',
+          ],
+        },
+        {
+          kind: 'paragraph',
+          text: 'We are not an example to copy. We are an example of what happens when a group of people with no experience decide to do something anyway, and write down what they learn so that the next group starts further along.',
+        },
+      ],
+      author: 'Precious Abbey',
+      authorRole: 'Committee member',
+      category: 'Aquaculture & Blue Economy',
+      date: '2026-09-29',
+      image: 'boats',
+    },
+    {
+      id: 'fth-003',
+      slug: 'getting-a-first-role-in-technology',
+      title: 'Getting a first role in technology without a computer science degree',
+      excerpt:
+        'A practical path into the technology industry for people who studied something else: what to learn, what to build, and how to answer the interview question nobody prepares for.',
+      body: [
+        {
+          kind: 'paragraph',
+          text: 'Several members came into technology from law, education and engineering management. Here is the route that worked for them, in the order it actually happened rather than the order it is usually described.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'The first thing to accept is that the industry hires for judgement, not for the certificate. What is missing is evidence that you have judgement, and that evidence is a project.',
+        },
+        { kind: 'heading', text: 'Pick one thing and build it for someone real' },
+        {
+          kind: 'paragraph',
+          text: 'A portfolio of five small, finished projects beats a certificate every time. The projects do not need to be impressive; they need to be real, used by someone, and explainable in three minutes.',
+        },
+        {
+          kind: 'list',
+          items: [
+            'The club membership list, searchable and mobile friendly. A real problem, a real user, a real deadline.',
+            'A tool that turns a printed record into a searchable one for a small organisation.',
+            'A page that loads on a slow connection. Unglamorous, and rarer than it should be.',
+          ],
+        },
+        { kind: 'heading', text: 'The question nobody prepares for' },
+        {
+          kind: 'paragraph',
+          text: 'Expect to be asked what you have changed in the work of other people. Answer with a specific example: a process you shortened, a report you automated, a colleague you handed something to that used to be lost.',
+        },
+        {
+          kind: 'quote',
+          text: 'It does not have to be technical. Reporting, filing, scheduling, teaching. It has to be real and yours.',
+        },
+        { kind: 'heading', text: 'What to do in the meantime' },
+        {
+          kind: 'paragraph',
+          text: 'Take the work you have and make one part of it measurably better. Write down what you did, who it helped and what you would do differently. That paragraph is the beginning of every interview you will ever give.',
+        },
+      ],
+      author: 'Ibifuro Amachree',
+      authorRole: 'Diaspora member',
+      category: 'Technology',
+      date: '2026-09-12',
+      image: 'river',
+    },
+    {
+      id: 'fth-004',
+      slug: 'oral-history-project-notes',
+      title: 'Notes from the Oral History Project: recording an elder’s story',
+      excerpt:
+        'What we have learned after twelve recorded conversations: how to prepare, how to listen, and why the pauses matter more than the answers.',
+      body: [
+        {
+          kind: 'paragraph',
+          text: 'Twelve conversations in, the project has taught us more about listening than about recording. These are the working notes we share before the recordings are archived, so that any member who is asked to take part knows what they are agreeing to.',
+        },
+        { kind: 'heading', text: 'Before the visit' },
+        {
+          kind: 'list',
+          items: [
+            'Ask what the elder wants remembered, and write it down before you press record.',
+            'Agree with the family who may hear it, and be specific about who will hear it.',
+            'Test the equipment in the room, not in the car. A generator hum and a high ceiling will ruin the recording.',
+            'Bring water, and a second person who is there to take notes rather than to talk.',
+          ],
+        },
+        { kind: 'heading', text: 'During' },
+        {
+          kind: 'paragraph',
+          text: 'Leave the silence alone. The pause before an answer is usually where the memory is being located, and filling it takes the memory with it. Two people, one recorder, and no hurry.',
+        },
+        {
+          kind: 'quote',
+          text: 'Every generation holds a part of the story. Our responsibility is to carry it forward.',
+        },
+        { kind: 'heading', text: 'After' },
+        {
+          kind: 'paragraph',
+          text: 'The same day, we write three lines: what was said, what was asked to stay private, and who we should thank. Six weeks later, the recording is much harder to remember accurately, and six months later it is a summary.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'Twelve conversations is not a history. It is a beginning, and it is a way of remembering that the elders in this district are still here, and still willing to be asked.',
+        },
+      ],
+      author: 'Ada Nwosu',
+      authorRole: 'Vice President',
+      category: 'Heritage',
+      date: '2026-08-20',
+      image: 'elder',
+    },
+    {
+      id: 'fth-005',
+      slug: 'building-in-public-project-numbers',
+      title: 'Building in public: why we publish our project numbers',
+      excerpt:
+        'Somebody asked why we publish costs and shortfalls alongside our successes. The short answer is trust; the long answer is in how decisions get made.',
+      body: [
+        {
+          kind: 'paragraph',
+          text: 'Publishing the numbers is not a favour we do to supporters. It is how the committee makes decisions, because a number that everybody can see is a number that has to be explained.',
+        },
+        { kind: 'heading', text: 'What we publish' },
+        {
+          kind: 'list',
+          items: [
+            'The cost of each project, and what it was estimated at when the project was approved.',
+            'How much has been raised, and from where, so that a single large gift does not look like broad support.',
+            'Where the money went, including the parts that did not work.',
+            'The decisions the committee took afterwards, and why.',
+          ],
+        },
+        { kind: 'heading', text: 'Why it is uncomfortable' },
+        {
+          kind: 'paragraph',
+          text: 'Publishing a project that fell short feels like an attack on the people who ran it. We have learned that the opposite is true: a shortfall that is published is the cheapest lesson the club will ever buy, and the one that protects the members who fund it.',
+        },
+        {
+          kind: 'quote',
+          text: 'A project that fell short and was published is worth more to the club than a project that succeeded quietly and taught us nothing.',
+        },
+        { kind: 'heading', text: 'How to read a statement' },
+        {
+          kind: 'paragraph',
+          text: 'Each statement lists the income, the expenditure, the closing balance and a short note explaining anything unusual. Where a figure is an estimate rather than a final amount, it says so. Where a project is still running, the statement shows the money committed so far, not the whole budget.',
+        },
+        {
+          kind: 'paragraph',
+          text: 'If a number looks wrong to you, that is the point of publishing it. Write to the committee and ask.',
+        },
+      ],
+      author: 'Soala Ogan',
+      authorRole: 'Secretary',
+      category: 'Leadership & Governance',
+      date: '2026-08-04',
+      image: 'people',
+    },
+  ],
+
   // Forum discussions. The articles themselves are editorial content in the
   // CMS; these are the member comments and replies held in the demonstration
   // layer so a thread can be discussed before it is read.

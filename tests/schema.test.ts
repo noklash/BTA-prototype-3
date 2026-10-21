@@ -69,6 +69,7 @@ describe('schema registration', () => {
       'event',
       'eventsPage',
       'featuredActivity',
+      'forumThread',
       'homepage',
       'libraryPage',
       'membershipPage',
