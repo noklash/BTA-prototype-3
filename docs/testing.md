@@ -16,6 +16,10 @@ actually been run from what still requires a real Sanity project.
   each produce the intended result rather than a crash.
 - **No fabricated results.** Where a check needs credentials or a live project, it is
   listed as unverified in §7 instead of being claimed.
+- **Check the running site, not only the code.** Layout at real breakpoints and the
+  interactive flows (search, menus, forms, checkouts, admin actions) are verified with
+  scripted headless-browser checks against the production build, because unit tests
+  cannot see a clipped panel or a dead button.
 
 ## 2. Tools and configuration
 
@@ -159,21 +163,27 @@ the seeder produces.
 ## 6. Recorded results (this repository)
 
 Environment: Windows, Node **v24.18.0**, npm, Vitest 5.0.5, Next.js 16.4.2. Recorded on
-2026-10-18 against the current working tree.
+2026-10-21 against the current working tree.
 
 | Command | Result |
 | --- | --- |
-| `npm test` | **21 files passed, 207 tests passed** (exit 0). Vitest prints a non-fatal warning that `vitest.config.ts` uses ESM syntax while being loaded as CommonJS; it suggests a `.mjs` extension. It does not affect results |
+| `npm test` | **24 files passed, 254 tests passed** (exit 0). Vitest prints a non-fatal warning that `vitest.config.ts` uses ESM syntax while being loaded as CommonJS; it suggests a `.mjs` extension. It does not affect results |
 | `npm run typecheck` | Passed, no output (exit 0) |
-| `npm run lint` | Passed, no output (exit 0) |
-| `npm run build` (no Sanity config) | Compiled successfully; 10/10 static pages generated. Route table: `/`, `/_not-found`, `/about`, `/events`, `/membership`, `/robots.txt`, `/sitemap.xml` static; `/` `/about` `/events` `/membership` revalidate every 2m; `/events/[slug]` SSG; `/api/membership-inquiry`, `/api/revalidate`, `/studio/[[...tool]]` dynamic |
-| `npm run build` (with `.env.local`) | Compiled successfully; 14/14 static pages generated, with one SSG entry per **published** event and none for the draft (see §5) |
-| HTTP checks without a configuration (§5) | All 14 requests matched expectations |
-| HTTP checks with the seeded dataset (§5) | All 11 integration requests matched expectations, including **404 for the draft event** |
+| `npm run lint` | Passed with one intentional warning: `@next/next/no-img-element` in `src/components/sanity-image.tsx` (the Sanity CDN already resizes and crops, so the images are deliberately not routed through the Next.js optimiser — see `docs/architecture.md` §8) |
+| `npm run build` | Compiled successfully; **95 static pages** generated, including every Prototype 3 public, portal and admin route. The route table lists the new `/projects`, `/donate`, `/transparency`, `/diaspora`, `/youth`, `/library`, `/volunteer`, `/feedback`, `/roadmap`, `/our-people/leadership`, `/portal/*` and `/admin/*` routes |
+| `npm run seed` | 34 documents written to `ws42qk2s/production` (idempotent `createOrReplace`) |
 
-Vitest also suggests reusing the jsdom environment across files (`pool: 'vmThreads'` or
-`isolate: false`) to reduce the ~60s wall time. That is a performance note only and was
-left as-is to keep per-file isolation.
+### Scripted browser checks (run against the production build)
+
+Three scripted checks were run against `npm run start` on port 3322 with headless
+Chrome, because they cover behaviour that unit tests cannot: layout at real
+breakpoints, and the interactive flows.
+
+| Check | Scope | Result |
+| --- | --- | --- |
+| Responsive audit | 32 routes × 8 widths (320, 360, 390, 414, 768, 1024, 1280, 1440) — measures `document.scrollWidth` and every element's box against the viewport | **No horizontal overflow on any route at any width.** Data tables are the only wide elements, and they scroll inside their own `.table-wrap` container instead of moving the page |
+| Mobile navigation check | 5 routes × 2 small screens (390×844, 360×568) — menu closed by default, opens on tap, fits the viewport, scrolls, and the last action stays reachable | **30/30 checks passed** on both screens |
+| Interaction check | 20 scripted flows: logo → home, global search (open, filter, navigate), newsletter (reject/accept), mobile menu (open/close), feedback submission, donation checkout → receipt, portal sign-in → dashboard, dues payment → receipt, admin status change, project filtering, and link resolution on six pages | **20/20 checks passed** |
 
 ## 7. Not yet covered
 
@@ -193,6 +203,9 @@ assets that do not exist yet.
 - **Image CDN rendering.** `buildContentImage` is unit-tested against the URL builder, but
   no real asset has been uploaded (the seeder is text-only), so no image has been fetched
   from the CDN. Uploading one image in the Studio and reloading the homepage exercises it.
+- **Cross-device persistence.** The platform layer is browser-local by design, so a
+  submission made in one browser is not visible in another. Only same-browser behaviour
+  has been verified.
 
 ## 8. Adding tests
 

@@ -40,6 +40,44 @@ The site is delivered in two layers:
   production build, a scripted responsive audit and a scripted interaction check.
 
 
+## Prototype 3 — the community platform
+
+Prototype 3 implements the committee's recommendations A–L as an extension of the
+approved design, not a redesign. Every new page uses the same tokens, type scale,
+buttons, cards, tables and navigation as the reference site.
+
+| Recommendation | Where it lives |
+| --- | --- |
+| A — Members' portal | `/portal` (dashboard, profile, dues, meetings, directory) behind a simulated session |
+| B — Diaspora hub | `/diaspora` with a registration form |
+| C — Transparency & accountability | `/transparency` (statements, budgets, expenditure) and `/roadmap` |
+| D — Project bank and tracker | `/projects` and `/projects/[slug]` with stage, funding and milestone tracking |
+| E — Donations | `/donate` with a simulated checkout and an illustrative receipt |
+| F — Knowledge-sharing hub | `/library` and `/library/[slug]` |
+| G — Youth and scholarships | `/youth` and `/youth/[slug]` with an application flow |
+| H — Business and investment directory | `/enterprise/business-hub` and its detail pages |
+| I — Volunteer skills database | `/volunteer` with registration and matching |
+| J — Feedback, surveys and proposals | `/feedback` with moderation states |
+| K — Partnerships and grants | `/partner` with an enquiry form and partnership pipeline |
+| L — Administrative dashboard | `/admin` (members, content, projects, dues, scholarships, volunteers, businesses, feedback, partnerships, roles) |
+
+**How the data works.** `src/lib/demo/data.ts` is the single baseline dataset for the
+platform: members, projects, knowledge, opportunities, businesses, volunteers,
+feedback, partnerships, statements and the committee. Public server pages read that
+dataset directly (SSR). Interactive areas read it through
+`src/lib/demo/store.tsx`, which layers browser-side mutations on top and persists
+them to `localStorage` under `bta-prototype3-demo-v1`. A submission made on a public
+form therefore appears in the admin area, and an admin decision is reflected in the
+portal and the directories — **within one browser session only**. Nothing is sent to
+a server, and no payment, identity, email or messaging provider is connected.
+
+**How the honesty requirements are met.** Every figure, name, business, partnership,
+receipt and document is labelled as illustrative on the page that shows it; the
+organisation-level statement appears once, in the footer; the inner pages carry the
+reference prototype's "prototype content" note; and the admin area carries its own
+demonstration notice. The admin area is deliberately not authenticated (it is a
+demonstration), but it is marked `noindex` and disallowed in `robots.txt`.
+
 ## Stack
 
 | Area | Choice | Version |
@@ -121,7 +159,8 @@ do.
 | `/about/story` | ISR (2 min) | Our story: origins, growth, today, future |
 | `/about/leadership` | ISR (2 min) | Leadership & governance: constitution, minutes, reports |
 | `/about/bta-2035` | ISR (2 min) | BTA 2035 vision: 11 long-term goals |
-| `/our-people` | ISR (2 min) | The people behind BTA |
+| `/our-people` | ISR (2 min) | The people behind BTA, with a preview of the committee |
+| `/our-people/leadership` | ISR (2 min) | Leadership directory: names, offices, remits and portraits |
 | `/knowledge` | ISR (2 min) | Knowledge sessions and forums |
 | `/knowledge/forum` | ISR (2 min) | Knowledge & Ideas Forum detail |
 | `/enterprise` | ISR (2 min) | Enterprise: Business Hub intro |
@@ -141,6 +180,19 @@ do.
 | `/partner` | ISR (2 min) | Partner with BTA |
 | `/membership` | ISR (2 min) | Membership: join, process, demonstration inquiry form |
 | `/support` | ISR (2 min) | Support BTA: giving choices |
+| `/projects`, `/projects/[slug]` | ISR (2 min) | Project bank with stage, funding and milestone tracking |
+| `/donate` | ISR (2 min) | Simulated contribution checkout and receipt |
+| `/transparency` | ISR (2 min) | Illustrative statements, budgets and expenditure |
+| `/diaspora` | ISR (2 min) | Diaspora hub and registration |
+| `/youth`, `/youth/[slug]` | ISR (2 min) | Scholarships, internships and mentoring |
+| `/library`, `/library/[slug]` | ISR (2 min) | Knowledge library: articles, research, webinars |
+| `/volunteer` | ISR (2 min) | Volunteer skills database |
+| `/feedback` | ISR (2 min) | Feedback, survey responses and project proposals |
+| `/roadmap` | ISR (2 min) | Phased roadmap: demonstrated, simulated, future |
+| `/portal` | Static + client | Members' portal (simulated sign-in, `noindex`) |
+| `/portal/login` | Static + client | Choose a demonstration member to explore the portal |
+| `/portal/profile`, `/portal/dues`, `/portal/meetings`, `/portal/directory` | Static + client | Member profile, dues checkout, meeting records, member directory |
+| `/admin` and `/admin/*` | Static + client | Administrative dashboard (demonstration, `noindex`) |
 | `/studio/[[...tool]]` | Dynamic | Embedded Sanity Studio (setup panel when unconfigured) |
 | `/api/membership-inquiry` | Route handler | `POST` only; validates, stores/sends nothing |
 | `/api/revalidate` | Route handler | `POST` only; secret-protected on-demand revalidation |
@@ -152,7 +204,10 @@ do.
 src/
   app/                 routes, layout, API handlers, sitemap/robots, studio
   components/          presentation components (ui/ holds the primitives)
+    demo/              Prototype 3 platform components (store-backed areas)
+  content/             prototype image fallbacks (exact prototype URLs)
   lib/
+    demo/              Prototype 3 dataset, types, formatting and the client store
     sanity/            env, client, fetch, queries, content API, image URLs
     validation/        shared membership form rules + wire types
     format.ts          locale-fixed date/time formatting
@@ -178,9 +233,18 @@ docs/                  architecture, Sanity setup, deployment, testing
 
 ## Limitations
 
-- No authentication, dashboards, payments, approval workflows, newsletters or search —
-  all deliberately out of scope.
-- The membership form validates and responds, but **nothing is stored or emailed**.
-  There is no database and no mail provider.
-- The seed script creates text content only; images are added through the Studio.
+- No authentication. The members' portal uses a simulated sign-in (choose a
+  demonstration member), and the admin area is not gated at all: it is a
+  demonstration, marked `noindex` and disallowed in `robots.txt`.
+- No payments, email, file storage, mapping or messaging provider. The donation
+  and dues checkouts are simulated and issue illustrative receipts; nothing is
+  charged and nothing is emailed.
+- The platform data layer is **browser-local**: changes live in `localStorage` and are
+  visible only in the browser that made them. Server-rendered public pages read the
+  baseline dataset, so a mutation is not guaranteed to appear after a full page
+  reload of a server-rendered page.
+- The leadership photographs are illustrations of the roles, not pictures of the named
+  members; the page says so.
+- The seed script creates text content only; images are added through the Studio, and
+  the prototype image fallbacks are used until an editor uploads one.
 - The project has not been committed to a Git repository.

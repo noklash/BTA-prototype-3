@@ -437,7 +437,7 @@ const homepage: SeedDocument = {
     cta: {
       heading: 'Explore heritage',
       body: null,
-      buttonLabel: 'Explore heritage',
+      buttonLabel: 'The story',
       buttonHref: '/heritage/oral-history',
     },
   },
@@ -466,7 +466,7 @@ const homepage: SeedDocument = {
     cta: {
       heading: 'Explore the vision',
       body: null,
-      buttonLabel: 'Explore the vision',
+      buttonLabel: 'The vision',
       buttonHref: '/about/bta-2035',
     },
   },
@@ -598,7 +598,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Participate in BTA',
       body: null,
-      buttonLabel: 'Participate in BTA',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -637,7 +637,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Explore the forum',
       body: null,
-      buttonLabel: 'Explore the forum',
+      buttonLabel: 'Open forum',
       buttonHref: '/knowledge/forum',
     },
   },
@@ -676,7 +676,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Visit the Business Hub',
       body: null,
-      buttonLabel: 'Visit the Business Hub',
+      buttonLabel: 'Open the hub',
       buttonHref: '/enterprise/business-hub',
     },
   },
@@ -715,7 +715,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Submit a community need',
       body: null,
-      buttonLabel: 'Submit a community need',
+      buttonLabel: 'Submit a need',
       buttonHref: '/community-needs',
     },
   },
@@ -754,7 +754,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Visit the Centre',
       body: null,
-      buttonLabel: 'Visit the Centre',
+      buttonLabel: 'The vision',
       buttonHref: '/blue-economy/centre',
     },
   },
@@ -793,7 +793,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Explore heritage',
       body: null,
-      buttonLabel: 'Explore heritage',
+      buttonLabel: 'The story',
       buttonHref: '/heritage/oral-history',
     },
   },
@@ -832,7 +832,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Start a conversation',
       body: null,
-      buttonLabel: 'Start a conversation',
+      buttonLabel: 'Talk to us',
       buttonHref: '/partner',
     },
   },
@@ -877,7 +877,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Explore heritage',
       body: null,
-      buttonLabel: 'Explore heritage',
+      buttonLabel: 'The story',
       buttonHref: '/heritage/oral-history',
     },
   },
@@ -934,7 +934,7 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Read the documents',
       body: null,
-      buttonLabel: 'Read the documents',
+      buttonLabel: 'The library',
       buttonHref: '/governance',
     },
   },
@@ -1021,9 +1021,182 @@ const editorialPages: SeedDocument[] = [
     cta: {
       heading: 'Explore the vision',
       body: null,
-      buttonLabel: 'Explore the vision',
+      buttonLabel: 'The vision',
       buttonHref: '/about/bta-2035',
     },
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Forum threads (articles shared by members, discussed in comments)
+// ---------------------------------------------------------------------------
+
+const forumThreads: SeedDocument[] = [
+  {
+    _id: 'forumThread-personal-investment',
+    _type: 'forumThread',
+    title: 'Understanding Personal Investment in Nigeria',
+    slug: { _type: 'slug', current: 'understanding-personal-investment-in-nigeria' },
+    excerpt:
+      'What personal investment actually means in the Nigerian context: where to start, what to avoid, and how much of your income should be committed.',
+    body: [
+      textBlock(
+        'thread-investment-1',
+        'normal',
+        'Every month someone in the club asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
+      ),
+      textBlock('thread-investment-2', 'h3', 'Start with the boring part'),
+      textBlock(
+        'thread-investment-3',
+        'normal',
+        'Before any investment, the money that comes in has to be divided: the part that pays for the month, the part that covers the surprises, and only then the part that can be committed for years. Members who skip this step tend to start again from zero.',
+      ),
+      textBlock('thread-investment-4', 'h3', 'Three questions before you buy anything'),
+      bullet('thread-investment-5', 'Do I understand exactly what I am buying?'),
+      bullet('thread-investment-6', 'What happens to it if I need the money next year?'),
+      bullet('thread-investment-7', 'Who is taking a fee from me, and how much?'),
+      textBlock(
+        'thread-investment-8',
+        'normal',
+        'None of this is financial advice, and no member is a licensed adviser. It is what has worked for people in this club, written down so that the next person can start from a clearer place.',
+      ),
+    ],
+    image: null,
+    author: 'Tamuno Georgewill',
+    authorRole: 'Treasurer',
+    category: 'Knowledge & Ideas',
+    publishedAt: '2026-10-18T09:00:00.000Z',
+  },
+  {
+    _id: 'forumThread-cooperative-lessons',
+    _type: 'forumThread',
+    title: 'Running a fisheries cooperative: what worked and what did not',
+    slug: { _type: 'slug', current: 'running-a-fisheries-cooperative' },
+    excerpt:
+      'Three years of running a cooperative on the river, written honestly: the decisions that paid off, the ones that did not, and the bookkeeping we should have kept from day one.',
+    body: [
+      textBlock(
+        'thread-coop-1',
+        'normal',
+        'Our cooperative now supplies four neighbouring communities, and it nearly did not survive its second year. This is the version of the story I would have wanted before we started, written while the details are still honest.',
+      ),
+      textBlock('thread-coop-2', 'h3', 'What worked'),
+      bullet('thread-coop-3', 'Writing the rules down before we needed them.'),
+      bullet('thread-coop-4', 'Buying cold storage together instead of individually.'),
+      bullet('thread-coop-5', 'Meeting on the same day every month, whatever the weather.'),
+      textBlock('thread-coop-3', 'h3', 'What did not'),
+      textBlock(
+        'thread-coop-6',
+        'normal',
+        'We started without a bookkeeper. For eleven months the money was tracked in a notebook, and reconciling it took a fortnight. We also took on a member who wanted to sell to us at a lower price than the market, and the disagreement nearly ended the cooperative.',
+      ),
+      textBlock(
+        'thread-coop-7',
+        'blockquote',
+        'The record of a decision is worth more than the decision itself.',
+      ),
+    ],
+    image: null,
+    author: 'Precious Abbey',
+    authorRole: 'Committee member',
+    category: 'Aquaculture & Blue Economy',
+    publishedAt: '2026-09-29T09:00:00.000Z',
+  },
+  {
+    _id: 'forumThread-first-role-in-technology',
+    _type: 'forumThread',
+    title: 'Getting a first role in technology without a computer science degree',
+    slug: { _type: 'slug', current: 'getting-a-first-role-in-technology' },
+    excerpt:
+      'A practical path into the technology industry for people who studied something else: what to learn, what to build, and how to answer the interview question nobody prepares for.',
+    body: [
+      textBlock(
+        'thread-tech-1',
+        'normal',
+        'Several members came into technology from law, education and engineering management. Here is the route that worked for them, in the order it actually happened rather than the order it is usually described.',
+      ),
+      textBlock('thread-tech-2', 'h3', 'Pick one thing and build it for someone real'),
+      textBlock(
+        'thread-tech-3',
+        'normal',
+        'A portfolio of five small, finished projects beats a certificate every time. The projects do not need to be impressive; they need to be real, used by someone, and explainable in three minutes.',
+      ),
+      textBlock('thread-tech-4', 'h3', 'The question nobody prepares for'),
+      textBlock(
+        'thread-tech-5',
+        'normal',
+        'Expect to be asked what you have changed in the work of others. Answer with a specific example: a process you shortened, a report you automated, a colleague you handed something to that used to be lost.',
+      ),
+    ],
+    image: null,
+    author: 'Ibifuro Amachree',
+    authorRole: 'Diaspora member',
+    category: 'Technology',
+    publishedAt: '2026-09-12T09:00:00.000Z',
+  },
+  {
+    _id: 'forumThread-oral-history-notes',
+    _type: 'forumThread',
+    title: 'Notes from the Oral History Project: recording an elder’s story',
+    slug: { _type: 'slug', current: 'oral-history-project-notes' },
+    excerpt:
+      'What we have learned after twelve recorded conversations: how to prepare, how to listen, and why the pauses matter more than the answers.',
+    body: [
+      textBlock(
+        'thread-oral-1',
+        'normal',
+        'Twelve conversations in, the project has taught us more about listening than about recording. These are the working notes we share before the recordings are archived.',
+      ),
+      textBlock('thread-oral-2', 'h3', 'Before the visit'),
+      bullet('thread-oral-3', 'Ask what the elder wants remembered, and write it down.'),
+      bullet('thread-oral-4', 'Agree with the family who may hear it.'),
+      bullet('thread-oral-5', 'Test the equipment in the room, not in the car.'),
+      textBlock('thread-oral-6', 'h3', 'During'),
+      textBlock(
+        'thread-oral-7',
+        'normal',
+        'Leave the silence alone. The pause before an answer is usually where the memory is being located, and filling it takes the memory with it. Two people, one recorder, and no hurry.',
+      ),
+      textBlock(
+        'thread-oral-8',
+        'blockquote',
+        'Every generation holds a part of the story. Our responsibility is to carry it forward.',
+      ),
+    ],
+    image: null,
+    author: 'Ada Nwosu',
+    authorRole: 'Vice President',
+    category: 'Heritage',
+    publishedAt: '2026-08-20T09:00:00.000Z',
+  },
+  {
+    _id: 'forumThread-building-in-public',
+    _type: 'forumThread',
+    title: 'Building in public: why we publish our project numbers',
+    slug: { _type: 'slug', current: 'building-in-public-project-numbers' },
+    excerpt:
+      'Somebody asked why we publish costs and shortfalls alongside our successes. The short answer is trust; the long answer is in how decisions get made.',
+    body: [
+      textBlock(
+        'thread-public-1',
+        'normal',
+        'Publishing the numbers is not a favour we do to supporters. It is how the committee makes decisions, because a number that everybody can see is a number that has to be explained.',
+      ),
+      textBlock('thread-public-2', 'h3', 'What we publish'),
+      bullet('thread-public-3', 'The cost of each project, and what it was estimated at.'),
+      bullet('thread-public-4', 'How much has been raised, and from where.'),
+      bullet('thread-public-5', 'Where the money went, including the parts that did not work.'),
+      textBlock(
+        'thread-public-6',
+        'normal',
+        'A project that fell short and was published is worth more to the club than a project that succeeded quietly and taught us nothing.',
+      ),
+    ],
+    image: null,
+    author: 'Soala Ogan',
+    authorRole: 'Secretary',
+    category: 'Leadership & Governance',
+    publishedAt: '2026-08-04T09:00:00.000Z',
   },
 ]
 
@@ -1032,42 +1205,48 @@ const editorialPages: SeedDocument[] = [
 // ---------------------------------------------------------------------------
 
 const detailPages: SeedDocument[] = [
-  // forum (Knowledge Forum)
+  // forum (Knowledge Forum landing page)
   {
     _id: SINGLETON_IDS.detailPageForum,
     _type: 'detailPage',
     type: 'forum',
     slug: { _type: 'slug', current: 'knowledge-forum' },
     pageHero: {
-      eyebrow: 'Knowledge Forum',
-      title: 'Understanding Personal Investment in Nigeria',
-      intro: 'With Dr. Tamuno Briggs · 18 October 2026',
+      eyebrow: 'Knowledge & Ideas Forum',
+      title: 'Bring an idea. Share knowledge.',
+      intro:
+        'A place where members publish what they know, and where the conversation continues in comments and replies.',
       image: null,
     },
     about: {
       lead:
-        'This page demonstrates the deeper architecture behind the restrained homepage. Verified objectives, activities, evidence and related documents can be managed here.',
+        'The forum is where practical knowledge is shared in writing. A member publishes an article, other members read it, and the discussion continues underneath in comments and replies.',
       body: [
         textBlock(
           'forum-about-1',
           'normal',
-          'The Knowledge & Ideas Forum is a monthly session where members share practical knowledge across finance, technology, career and care. This session, led by Dr. Tamuno Briggs, looks at personal investment in the Nigerian context — what it means, how to start and what to watch out for.',
+          'Articles are written and published by members, with an image where one helps the story. Anyone signed in to the members portal can comment, and can reply to a comment to keep the conversation going. The forum is deliberately slow and considered: a thread is a conversation over days, not minutes.',
+        ),
+        textBlock(
+          'forum-about-2',
+          'blockquote',
+          'Bring an idea. Share knowledge. Start a conversation.',
         ),
       ],
     },
     whatToExpect: [
-      { _key: 'expect-forum-1', text: 'A fifty-minute talk followed by questions' },
-      { _key: 'expect-forum-2', text: 'Refreshments in the reading room afterwards' },
-      { _key: 'expect-forum-3', text: 'Slides and reading list shared with attendees' },
+      { _key: 'expect-forum-1', text: 'Articles on finance, enterprise, health, technology and heritage' },
+      { _key: 'expect-forum-2', text: 'Comments from members, with replies that keep a thread alive' },
+      { _key: 'expect-forum-3', text: 'Reading lists and practical next steps, not theory' },
     ],
     atAGlance: {
-      title: 'Knowledge Forum',
+      title: 'Knowledge & Ideas Forum',
       status: 'ACTIVE',
     },
     cta: {
-      heading: 'Express interest',
+      heading: 'Join BTA',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1107,7 +1286,7 @@ const detailPages: SeedDocument[] = [
     cta: {
       heading: 'Express interest',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1147,7 +1326,7 @@ const detailPages: SeedDocument[] = [
     cta: {
       heading: 'Express interest',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1187,7 +1366,7 @@ const detailPages: SeedDocument[] = [
     cta: {
       heading: 'Express interest',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1227,7 +1406,7 @@ const detailPages: SeedDocument[] = [
     cta: {
       heading: 'Express interest',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1267,7 +1446,7 @@ const detailPages: SeedDocument[] = [
     cta: {
       heading: 'Express interest',
       body: null,
-      buttonLabel: 'Express interest',
+      buttonLabel: 'Join BTA',
       buttonHref: '/membership',
     },
   },
@@ -1557,6 +1736,7 @@ async function main(): Promise<void> {
     ...featuredActivities,
     ...editorialPages,
     ...detailPages,
+    ...forumThreads,
     eventsPage,
     businessHub,
     libraryPage,

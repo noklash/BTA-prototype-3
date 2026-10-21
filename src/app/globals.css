@@ -191,11 +191,30 @@
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    transition: 0.25s;
+    /* A button label never wraps: every button keeps the same height, so a
+       call to action in a narrow column looks identical to the same call to
+       action elsewhere. */
+    white-space: nowrap;
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .btn:hover {
     transform: translateY(-2px);
+  }
+
+  /* The arrow in a button slides to the right on hover, so the control reads as
+     a link that moves. */
+  .btn svg {
+    transition: transform 0.25s ease;
+  }
+
+  .btn:hover svg {
+    transform: translateX(4px);
   }
 
   .btn:disabled {
@@ -207,9 +226,18 @@
     transform: none;
   }
 
+  .btn:disabled:hover svg {
+    transform: none;
+  }
+
   .btn.primary {
     background: var(--blue);
     color: #fff;
+  }
+
+  .btn.primary:hover {
+    background: var(--navy);
+    box-shadow: 0 12px 26px rgba(6, 29, 53, 0.24);
   }
 
   .btn.gold {
@@ -217,14 +245,31 @@
     color: var(--navy);
   }
 
+  .btn.gold:hover {
+    background: #e2b43c;
+    box-shadow: 0 12px 26px rgba(10, 49, 87, 0.2);
+  }
+
   .btn.outline {
     border-color: currentColor;
+  }
+
+  /* The outline button tints towards its own text colour, so the same rule
+     works on white, on the gold band and over a dark photograph. */
+  .btn.outline:hover {
+    background: color-mix(in srgb, currentColor 12%, transparent);
+    box-shadow: 0 12px 26px rgba(6, 29, 53, 0.12);
   }
 
   .btn.text {
     min-height: auto;
     padding: 0 0 5px;
     border-bottom-color: var(--gold);
+  }
+
+  .btn.text:hover {
+    color: var(--mid);
+    border-bottom-color: currentColor;
   }
 
   /* HEADER */
@@ -807,10 +852,21 @@
   }
 
   .partner-home > .shell {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    gap: 55px;
+    /* A wrapping flex row rather than a fixed grid: the call to action keeps
+       its natural size and moves to the next line when the row is too narrow
+       for it, instead of being squeezed until its label wraps. */
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 25px 55px;
+  }
+
+  .partner-home > .shell > div:not(:last-child) {
+    flex: 1 1 320px;
+  }
+
+  .partner-home > .shell > p {
+    flex: 1 1 280px;
   }
 
   .partner-home .eyebrow {
@@ -832,9 +888,17 @@
   }
 
   .partner-home .shell > div:last-child {
+    flex: 0 0 auto;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+  }
+
+  /* The band call to action uses one size everywhere: the same box as the
+     "Support BTA" button on the About page, so the closing band of every route
+     reads as the same control. */
+  .partner-home .btn {
+    min-width: 142px;
   }
 
   /* EDITORIAL (numbered article rows) */
@@ -959,6 +1023,21 @@
     border: 0;
     border-bottom: 1px solid #aebbc5;
     background: transparent;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  form input:hover,
+  form textarea:hover {
+    border-bottom-color: var(--mid);
+  }
+
+  form input:focus,
+  form textarea:focus {
+    outline: 0;
+    border-bottom-color: var(--gold);
+    box-shadow: 0 2px 0 -1px var(--gold);
   }
 
   form input[aria-invalid='true'],
@@ -1055,7 +1134,10 @@
 
   .footer-statement {
     max-width: 290px;
-    font: 500 22px var(--serif);
+    /* The statement sits under the mark with room to breathe, so it reads as a
+       separate line rather than running into the logo's tagline. */
+    margin: 20px 0 0;
+    font: 500 22px/1.45 var(--serif);
     color: #fff;
   }
 
@@ -1147,6 +1229,14 @@
     border: 0;
     background: none;
     color: var(--gold);
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .newsletter form button:hover {
+    color: var(--pale);
+    transform: translateX(3px);
   }
 
   .newsletter small {
@@ -1242,6 +1332,14 @@
     border: 0;
     background: none;
     color: var(--ink);
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .modal > div > button:hover {
+    color: var(--mid);
+    transform: rotate(90deg);
   }
 
   .modal h2 {
@@ -2338,11 +2436,18 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease,
+      background-color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .chip:hover {
     border-color: var(--mid);
     color: var(--ink);
+    background: var(--mist);
+    transform: translateY(-1px);
   }
 
   .chip.active {
@@ -2663,6 +2768,19 @@
     border: 1px solid var(--line);
     background: #fff;
     font-size: 11px;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .inline-select:hover {
+    border-color: var(--mid);
+  }
+
+  .inline-select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(213, 166, 46, 0.2);
+    outline: 0;
   }
 
   .demo-strip {
@@ -2816,14 +2934,6 @@
       padding-inline: 5px;
       font-size: 7.5px;
     }
-
-    .partner-home > .shell {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .partner-home .shell > div:last-child {
-      grid-column: 2;
-    }
   }
 
   /* MOBILE NAV */
@@ -2854,6 +2964,14 @@
       border: 0;
       background: none;
       color: var(--ink);
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .menu:hover {
+      color: var(--mid);
+      background: var(--mist);
     }
 
     .mobile-nav {
@@ -2861,11 +2979,15 @@
       inset: 74px 0 0;
       z-index: 31;
       display: flex;
-      padding: 20px;
+      padding: 20px 20px 30px;
       flex-direction: column;
-      overflow-y: clip;
+      /* The panel fills the space below the header and scrolls internally, so
+         every link and both actions stay reachable on a short screen. */
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
       background: #fff;
-      height: 100svh;
+      max-height: calc(100svh - 74px);
     }
 
     .mobile-nav > a:not(.btn) {
@@ -2934,12 +3056,14 @@
     }
 
     .partner-home > .shell {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      align-items: stretch;
       gap: 25px;
     }
 
-    .partner-home .shell > div:last-child {
-      grid-column: auto;
+    .partner-home > .shell > div:not(:last-child),
+    .partner-home > .shell > p {
+      flex: 0 0 auto;
     }
 
     .detail > .shell {

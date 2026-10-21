@@ -38,6 +38,8 @@ import type {
   DemoDataset,
   DiasporaRegistration,
   FeedbackEntry,
+  ForumComment,
+  ForumReply,
   KnowledgeResource,
   MeetingRecord,
   Member,
@@ -88,6 +90,12 @@ interface DemoContextValue {
   }) => FeedbackEntry
   submitPartnership: (input: Omit<PartnershipEnquiry, 'id' | 'date' | 'status'>) => PartnershipEnquiry
   registerDiaspora: (input: Omit<DiasporaRegistration, 'id' | 'date' | 'status'>) => DiasporaRegistration
+  /** Adds a comment to a forum thread. Returns null when nobody is signed in. */
+  addForumComment: (threadSlug: string, body: string) => ForumComment | null
+  /** Adds a reply to a comment. Returns null when nobody is signed in. */
+  addForumReply: (threadSlug: string, commentId: string, body: string) => ForumReply | null
+  /** The comments on a thread, oldest first, with their replies. */
+  commentsForThread: (threadSlug: string) => ForumComment[]
   setFeedbackStatus: (id: string, status: ModerationStatus, response?: string | null) => void
   setApplicationStatus: (id: string, status: Application['status']) => void
   setVolunteerStatus: (id: string, status: Volunteer['status']) => void
@@ -392,6 +400,80 @@ export function DemoProvider({ children }: { children: ReactNode }) {
     return registration
   }, [])
 
+  const commentsForThread = useCallback(
+    (threadSlug: string) => data.forumComments.filter((comment) => comment.threadSlug === threadSlug),
+    [data.forumComments],
+  )
+
+  const addForumComment = useCallback<DemoContextValue['addForumComment']>((threadSlug, body) => {
+    if (!session || body.trim().length === 0) {
+      return null
+    }
+
+    const comment: ForumComment = {
+      id: nextId('cmt'),
+      threadSlug,
+      authorId: session.memberId,
+      body: body.trim(),
+      date: todayIso(),
+      replies: [],
+    }
+
+    setData((previous) => ({
+      ...previous,
+      forumComments: [...previous.forumComments, comment],
+      activity: [
+        {
+          id: nextId('act'),
+          date: todayIso(),
+          actor: 'Member',
+          action: 'Commented on a forum thread',
+          target: threadSlug,
+        },
+        ...previous.activity,
+      ],
+    }))
+
+    return comment
+  }, [session])
+
+  const addForumReply = useCallback<DemoContextValue['addForumReply']>(
+    (threadSlug, commentId, body) => {
+      if (!session || body.trim().length === 0) {
+        return null
+      }
+
+      const reply: ForumReply = {
+        id: nextId('rep'),
+        authorId: session.memberId,
+        body: body.trim(),
+        date: todayIso(),
+      }
+
+      setData((previous) => ({
+        ...previous,
+        forumComments: previous.forumComments.map((comment) =>
+          comment.id === commentId && comment.threadSlug === threadSlug
+            ? { ...comment, replies: [...comment.replies, reply] }
+            : comment,
+        ),
+        activity: [
+          {
+            id: nextId('act'),
+            date: todayIso(),
+            actor: 'Member',
+            action: 'Replied to a comment',
+            target: threadSlug,
+          },
+          ...previous.activity,
+        ],
+      }))
+
+      return reply
+    },
+    [session],
+  )
+
   const setFeedbackStatus = useCallback<DemoContextValue['setFeedbackStatus']>(
     (id, status, response) => {
       setData((previous) => ({
@@ -506,6 +588,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       submitFeedback,
       submitPartnership,
       registerDiaspora,
+      commentsForThread,
+      addForumComment,
+      addForumReply,
       setFeedbackStatus,
       setApplicationStatus,
       setVolunteerStatus,
@@ -534,6 +619,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       submitFeedback,
       submitPartnership,
       registerDiaspora,
+      commentsForThread,
+      addForumComment,
+      addForumReply,
       setFeedbackStatus,
       setApplicationStatus,
       setVolunteerStatus,

@@ -144,22 +144,20 @@ export default function RoadmapPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Next</span>
-            <h2>Explore the platform</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Next</span>
+          <h2>Explore the platform</h2>
+        </div>
 
-          <p>
-            Open the members’ portal to see the sign-in demonstration, or the project bank to see the
-            tracker.
-          </p>
+        <p>
+          Open the members’ portal to see the sign-in demonstration, or the project bank to see the
+          tracker.
+        </p>
 
-          <div>
-            <ButtonLink href="/portal" variant="outline">
-              Members’ portal
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/portal" variant="primary">
+            Members’ portal
+          </ButtonLink>
         </div>
       </Section>
     </>

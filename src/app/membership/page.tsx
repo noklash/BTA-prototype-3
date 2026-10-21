@@ -161,22 +161,20 @@ export default async function MembershipPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">See what’s coming up</span>
-            <h2>Our diary</h2>
-          </div>
+        <div>
+          <span className="eyebrow">See what’s coming up</span>
+          <h2>Our diary</h2>
+        </div>
 
-          <p>
-            Find an event to attend, or come back later — the diary grows as soon as gatherings are
-            confirmed.
-          </p>
+        <p>
+          Find an event to attend, or come back later — the diary grows as soon as gatherings are
+          confirmed.
+        </p>
 
-          <div>
-            <ButtonLink href="/events" variant="outline">
-              Browse events
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/events" variant="primary">
+            Browse events
+          </ButtonLink>
         </div>
       </Section>
     </>

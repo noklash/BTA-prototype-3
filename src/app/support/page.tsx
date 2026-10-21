@@ -83,20 +83,18 @@ export default async function SupportPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Accountability</span>
-            <h2>See where support goes</h2>
-          </div>
-          <p>
-            Illustrative statements, budgets and expenditure are published in the transparency
-            section, alongside the progress of every project.
-          </p>
-          <div>
-            <ButtonLink href="/transparency" variant="outline">
-              View transparency
-            </ButtonLink>
-          </div>
+        <div>
+          <span className="eyebrow">Accountability</span>
+          <h2>See where support goes</h2>
+        </div>
+        <p>
+          Illustrative statements, budgets and expenditure are published in the transparency
+          section, alongside the progress of every project.
+        </p>
+        <div>
+          <ButtonLink href="/transparency" variant="primary">
+            View transparency
+          </ButtonLink>
         </div>
       </Section>
     </>

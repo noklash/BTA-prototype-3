@@ -60,21 +60,18 @@ export function EditorialPage({
 
       {page.cta ? (
         <Section className="partner-home">
-          <div className="shell">
-            <div>
-              <span className="eyebrow">Take part</span>
-              <h2>{page.cta.heading}</h2>
-            </div>
-            {page.cta.body ? <p>{page.cta.body}</p> : null}
-            <div>
-              <ButtonLink
-                href={page.cta.buttonHref ?? '/membership'}
-                variant="outline"
-                
-              >
-                {page.cta.buttonLabel ?? 'Participate in BTA'}
-              </ButtonLink>
-            </div>
+          <div>
+            <span className="eyebrow">Take part</span>
+            <h2>{page.cta.heading}</h2>
+          </div>
+          {page.cta.body ? <p>{page.cta.body}</p> : null}
+          <div>
+            <ButtonLink
+              href={page.cta.buttonHref ?? '/membership'}
+              variant="primary"
+            >
+              {page.cta.buttonLabel ?? 'Participate in BTA'}
+            </ButtonLink>
           </div>
         </Section>
       ) : null}

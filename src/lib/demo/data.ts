@@ -949,6 +949,102 @@ export const DEMO_DATA: DemoDataset = {
       portrait: 'kalabari-obi',
     },
   ],
+
+  // Forum discussions. The articles themselves are editorial content in the
+  // CMS; these are the member comments and replies held in the demonstration
+  // layer so a thread can be discussed before it is read.
+  forumComments: [
+    {
+      id: 'cmt-001',
+      threadSlug: 'understanding-personal-investment-in-nigeria',
+      authorId: 'mem-004',
+      body: 'The order of the three steps is the part I had to learn the hard way. I spent a year investing before I had a buffer, and the first emergency took everything.',
+      date: '2026-10-19',
+      replies: [
+        {
+          id: 'rep-001',
+          authorId: 'mem-009',
+          body: 'That matches what we see in the club. The buffer is the part nobody writes about, and it is the part that decides whether the rest works.',
+          date: '2026-10-19',
+        },
+        {
+          id: 'rep-002',
+          authorId: 'mem-001',
+          body: 'Could you write a follow-up on how much of the monthly income you would treat as the committed part? That is the number people ask me for most.',
+          date: '2026-10-20',
+        },
+      ],
+    },
+    {
+      id: 'cmt-002',
+      threadSlug: 'understanding-personal-investment-in-nigeria',
+      authorId: 'mem-003',
+      body: 'Worth adding that the fees question in point three catches people who assume a product is free because no one mentions a charge at the counter.',
+      date: '2026-10-20',
+      replies: [],
+    },
+    {
+      id: 'cmt-003',
+      threadSlug: 'running-a-fisheries-cooperative',
+      authorId: 'mem-008',
+      body: 'The bookkeeping point is the one our cooperative is still paying for. We started with a spreadsheet and a WhatsApp group, and it is not enough once money is moving between members.',
+      date: '2026-10-02',
+      replies: [
+        {
+          id: 'rep-003',
+          authorId: 'mem-008',
+          body: 'Adding what helped us: a fixed monthly meeting date, and a second person who reads the books before the meeting rather than during it.',
+          date: '2026-10-03',
+        },
+      ],
+    },
+    {
+      id: 'cmt-004',
+      threadSlug: 'running-a-fisheries-cooperative',
+      authorId: 'mem-005',
+      body: 'We had a similar disagreement about a supplier, and it was only solved by writing down the buying rule before the next season rather than arguing about the past one.',
+      date: '2026-10-05',
+      replies: [],
+    },
+    {
+      id: 'cmt-005',
+      threadSlug: 'getting-a-first-role-in-technology',
+      authorId: 'mem-006',
+      body: 'As someone who came from a law background, the advice about answering with a specific example is the most useful thing in this article. My first interview went badly because I only described what I had studied.',
+      date: '2026-09-15',
+      replies: [
+        {
+          id: 'rep-004',
+          authorId: 'mem-003',
+          body: 'Glad it helped. The example does not have to be technical: reporting, filing, scheduling, teaching. It has to be real and yours.',
+          date: '2026-09-16',
+        },
+      ],
+    },
+    {
+      id: 'cmt-006',
+      threadSlug: 'oral-history-project-notes',
+      authorId: 'mem-002',
+      body: 'The pause point cannot be overstated. Our first recording was unusable because we filled every silence. We now count to five in our heads before speaking.',
+      date: '2026-08-24',
+      replies: [],
+    },
+    {
+      id: 'cmt-007',
+      threadSlug: 'building-in-public-project-numbers',
+      authorId: 'mem-007',
+      body: 'Publishing the shortfalls is the part that will test whether we mean it. If the numbers only appear when they are good, nobody will believe the ones that are not.',
+      date: '2026-08-08',
+      replies: [
+        {
+          id: 'rep-005',
+          authorId: 'mem-004',
+          body: 'Agreed, and that is why the statements page is written before the year starts rather than at the end of it.',
+          date: '2026-08-09',
+        },
+      ],
+    },
+  ],
 }
 
 /* ---------------------------------------------------------------------------

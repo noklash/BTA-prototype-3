@@ -17,6 +17,7 @@ import type {
   EventSlug,
   EventSummary,
   EventsPage,
+  ForumThread,
   Homepage,
   LibraryPage,
   MembershipPage,
@@ -36,6 +37,8 @@ import {
   eventsPageQuery,
   eventsQuery,
   eventBySlugQuery,
+  forumThreadBySlugQuery,
+  forumThreadsQuery,
   homepageQuery,
   libraryPageQuery,
   membershipPageQuery,
@@ -177,8 +180,35 @@ export function getMembershipPage(
   })
 }
 
-export function getEvents(options?: FetchContentOptions): Promise<ContentResult<EventSummary[]>> {
-  return fetchContent<EventSummary[]>({
+/**
+ * Every published forum thread, newest first.
+ */
+export function getForumThreads(
+  options?: FetchContentOptions,
+): Promise<ContentResult<ForumThread[]>> {
+  return fetchContent<ForumThread[]>({
+    query: forumThreadsQuery,
+    options: { tags: [CONTENT_TAGS.forumThread], ...options },
+    label: 'forumThreadsQuery',
+  })
+}
+
+/**
+ * A single forum thread by slug.
+ */
+export function getForumThreadBySlug(
+  slug: string,
+  options?: FetchContentOptions,
+): Promise<ContentResult<ForumThread | null>> {
+  return fetchContent<ForumThread | null>({
+    query: forumThreadBySlugQuery,
+    params: { slug },
+    options: { tags: [CONTENT_TAGS.forumThread, `${CONTENT_TAGS.forumThread}:${slug}`], ...options },
+    label: 'forumThreadBySlugQuery',
+  })
+}
+
+export function getEvents(options?: FetchContentOptions): Promise<ContentResult<EventSummary[]>> {  return fetchContent<EventSummary[]>({
     query: eventsQuery,
     options: { tags: [CONTENT_TAGS.events], ...options },
     label: 'eventsQuery',

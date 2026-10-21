@@ -50,22 +50,20 @@ export default function ProjectsPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Support a project</span>
-            <h2>Fund what matters to you</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Support a project</span>
+          <h2>Fund what matters to you</h2>
+        </div>
 
-          <p>
-            Contributions are simulated in this prototype. Each category maps to a real project in
-            the bank, so you can see where a contribution would be directed.
-          </p>
+        <p>
+          Contributions are simulated in this prototype. Each category maps to a real project in
+          the bank, so you can see where a contribution would be directed.
+        </p>
 
-          <div>
-            <ButtonLink href="/donate" variant="outline">
-              Contribute
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/donate" variant="primary">
+            Contribute
+          </ButtonLink>
         </div>
       </Section>
     </>

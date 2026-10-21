@@ -28,12 +28,18 @@ Browser ──▶ Next.js (App Router)
               │
               │  server components only (no client-side data fetching)
               ▼
-        src/lib/sanity/*           typed content layer
+        src/lib/sanity/*           typed content layer (public editorial content)
               │  GROQ + @sanity/client (server only)
               ▼
         Sanity Content Lake  ◀── Sanity Studio (embedded at /studio)
 
 Sanity webhook ──▶ POST /api/revalidate ──▶ revalidateTag / revalidatePath
+
+Prototype 3 platform layer (browser-local demonstration data)
+        src/lib/demo/data.ts ──▶ public server pages (SSR, baseline dataset)
+                    │
+                    ▼
+        src/lib/demo/store.tsx ──▶ forms, portal, admin  (localStorage overlay)
 ```
 
 Pages are React Server Components. They call typed functions in
@@ -45,6 +51,42 @@ Two route handlers exist for genuinely request/response concerns:
 
 - `POST /api/membership-inquiry` — validates a demonstration form submission.
 - `POST /api/revalidate` — the Sanity on-demand revalidation webhook.
+
+## 2a. The Prototype 3 platform layer
+
+Prototype 3 adds a community/membership platform on top of the same design system. It
+does not use the CMS, because it is a *demonstration of platform behaviour* rather
+than editorial content, and it must stay consistent with the portal and the admin
+area without a database.
+
+| Path | Responsibility |
+| --- | --- |
+| `src/lib/demo/types.ts` | Domain types shared by the public site, the portal and the admin area |
+| `src/lib/demo/data.ts` | The single baseline dataset and the derived statistics |
+| `src/lib/demo/format.ts` | Currency, date and label formatting for the platform |
+| `src/lib/demo/validate.ts` | The validation rules the demonstration forms share |
+| `src/lib/demo/store.tsx` | `DemoProvider` / `useDemo`: the client overlay and its `localStorage` persistence |
+| `src/components/demo/**` | Platform components: public forms, directories, donation flow, portal, admin, leadership |
+
+Three rules keep the layer honest:
+
+1. **One source of truth.** `data.ts` holds the baseline; every figure shown on the
+   site, in the portal and in the admin area is derived from it by
+   `computeDemoStats()`, so the numbers cannot disagree.
+2. **Server first.** Public pages that only read the dataset (the project bank, the
+   leadership directory, the knowledge library) are server components. Only the
+   interactive areas — forms, filters, the portal and the admin area — are client
+   components, and they read the same data through the store.
+3. **Browser-local mutations.** The store persists to `localStorage`
+   (`bta-prototype3-demo-v1`). A submission appears in the admin area and an admin
+   decision is reflected in the portal **in the same browser**. Because the
+   server-rendered pages read the baseline dataset directly, a mutation is not
+   guaranteed to survive a full reload of a server-rendered page. This is a
+   documented limitation of the demonstration, not an oversight.
+
+The leadership directory under `/our-people/leadership` follows the same rule: each
+leader points at a member record, so the name, town and profession on the leadership
+page are the same values the members' directory and the portal use.
 
 ## 3. Directory responsibilities
 
@@ -90,7 +132,7 @@ leaking the token into a cacheable URL). The client always reads with
 
 ```ts
 type ContentResult<T> =
-  | { ok: true; value: T }
+  | { ok: true; value: T; stale?: boolean }
   | { ok: false; reason: 'not-configured' | 'unavailable'; message: string }
 ```
 
@@ -98,10 +140,15 @@ type ContentResult<T> =
   environment-variable message.
 - Any other error is logged server-side (never forwarded) and becomes
   `reason: 'unavailable'` with a neutral, user-facing message.
+- If the process has already read that query successfully, the **last known good**
+  value is returned with `stale: true` instead of an error. A short Content Lake
+  outage therefore degrades to slightly stale content rather than replacing a live
+  page with an error box; the entry is replaced as soon as a fetch succeeds again.
 
 This is the key reliability decision: **failure is a value, not an exception**, so a page
 can pick the right state and a missing dataset can never be silently presented as real
-content.
+content. The `stale` flag is deliberately not shown in the UI: the site keeps showing
+the last good content, and the server log records that it is doing so.
 
 ### 4.4 `queries.ts` — GROQ in one place
 
@@ -281,6 +328,13 @@ is *derived* from the current pathname (`openedForPathname === pathname`) rather
 synced with an effect, so navigation closes the menu during render with no cascading
 update.
 
+The panel is rendered into `document.body` through a React portal. The site header is
+sticky and uses `backdrop-filter`, and a filtered ancestor becomes the containing
+block for `position: fixed` descendants — inside the header the panel would have been
+clipped to the header's own height and could never be scrolled. The portal keeps the
+panel anchored to the viewport, and it scrolls internally when the navigation is taller
+than a short screen.
+
 ## 13. Decisions and trade-offs
 
 | Decision | Alternative considered | Why this way |
@@ -293,6 +347,9 @@ update.
 | `revalidate = 120` + webhook | Purely time-based, or `no-store` | Keeps pages static/cacheable while still letting an editor publish instantly |
 | TypeScript 5.9 pin | TypeScript 7 preview | Keeps ESLint/Next/Sanity on a supported combination; documented rather than silently floating |
 | Seed script writes text only | Seeding uploaded assets | Deterministic ids are awkward for assets, and every image field already degrades gracefully |
+| Platform data in a local dataset + a browser store | A database, or storing platform content in Sanity | The platform must demonstrate cross-area behaviour (a form submission reaching the admin queue) without infrastructure. Cost: mutations are browser-local and the public pages read the baseline dataset. Documented in §2a and §14 |
+| Leadership resolved from the member records | A separate list of officers | The committee and the members' directory can never disagree, and one record drives the portal, the directory and the leadership page |
+| Last known good content on a CMS outage | An error state on every page | A short Content Lake outage should not replace live pages with an error box. Cost: the content served during an outage is slightly stale, and the server log records it |
 
 ## 14. Known limitations
 
@@ -309,6 +366,17 @@ update.
   are rendered on demand until the next build or revalidation.
 - The seed script targets the fictional dataset only and overwrites the documents it
   owns; it must not be run against real content.
+- **The platform layer is browser-local.** Changes made in the demonstration store live in
+  `localStorage` and are visible only in the browser that made them. Server-rendered
+  pages read the baseline dataset, so a mutation is not guaranteed to appear after a
+  full reload of a server-rendered page. This is the price of a demonstration that needs
+  no database; a real deployment replaces the store with server actions and a database.
+- **The admin area is not authenticated.** It is a demonstration of the moderation
+  workflow: `noindex`, disallowed in `robots.txt`, and labelled on every page. It must
+  not be exposed as-is in a real deployment.
+- **The leadership photographs are illustrations.** They show people of a similar age
+  and are not pictures of the named members; the page states this, and a real deployment
+  would publish each member's own portrait with their consent.
 
 ## 15. Possible next steps
 
@@ -316,3 +384,6 @@ update.
 - Introduce Sanity TypeGen once the schema settles, replacing the handwritten types.
 - Add a read-token-based draft preview mode.
 - Add Playwright end-to-end tests for the seeded-content path.
+- Move the platform layer behind server actions and a database: real authentication for
+  `/portal` and `/admin`, a payment provider for the dues and donation checkouts, and
+  transactional email for submissions and receipts.

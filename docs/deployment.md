@@ -107,6 +107,9 @@ preview origins you intend to use the Studio from.
       `{ "ok": true, "demonstration": true, ... }`.
 - [ ] The webhook returns `200`, and publishing a change updates the site within seconds.
 - [ ] `/sitemap.xml` and `/robots.txt` use the production origin.
+- [ ] `/our-people/leadership` lists the committee with portraits.
+- [ ] `/portal/login` signs in as a demonstration member, and `/admin` opens without a
+      sign-in (it is a demonstration area — see §10).
 
 ## 8. Rollback
 
@@ -124,3 +127,24 @@ work. Two things must carry over:
    Node 22.6+ for the TypeScript seed script.
 
 There is no database, queue or background worker to provision.
+
+## 10. The Prototype 3 platform layer in production
+
+The platform pages (`/projects`, `/donate`, `/diaspora`, `/youth`, `/library`,
+`/volunteer`, `/feedback`, `/transparency`, `/roadmap`, `/portal/*`, `/admin/*`) ship
+with the site and need no extra infrastructure, because their data is a local
+demonstration dataset:
+
+- **No server state.** `src/lib/demo/data.ts` is bundled with the application; the
+  browser-side store persists to `localStorage` on the visitor's own device. Nothing is
+  written to the server, and no database, payment provider, mail service or identity
+  provider is contacted.
+- **Nothing to configure.** No new environment variables, no migrations, no secrets.
+- **Not a real admin area.** `/admin` is deliberately ungated so the committee can walk
+  through it. It is marked `noindex` and disallowed in `robots.txt`, but anyone who knows
+  the URL can open it. Before a real deployment it must sit behind authentication and
+  authorisation, and its actions must be moved to a server with a database.
+- **The demonstration data must be replaced.** The seeded members, projects, businesses,
+  partnerships and figures are illustrative. The production path is: a real database
+  behind the same domain types, a real identity provider in front of `/portal` and
+  `/admin`, and a real payment provider in place of the simulated checkouts.

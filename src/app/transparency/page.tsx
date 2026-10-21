@@ -197,22 +197,20 @@ export default function TransparencyPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Questions</span>
-            <h2>Ask us anything</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Questions</span>
+          <h2>Ask us anything</h2>
+        </div>
 
-          <p>
-            Members can raise questions through the feedback form; the committee records how each
-            one is handled.
-          </p>
+        <p>
+          Members can raise questions through the feedback form; the committee records how each
+          one is handled.
+        </p>
 
-          <div>
-            <ButtonLink href="/feedback" variant="outline">
-              Send feedback
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/feedback" variant="primary">
+            Send feedback
+          </ButtonLink>
         </div>
       </Section>
     </>

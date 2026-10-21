@@ -107,6 +107,14 @@ moves the events back into the future.
 Images are not seeded. Every image field on the website degrades to a typographic
 placeholder, so the content is complete without them; add imagery in the Studio.
 
+> **Note (Prototype 3):** the platform pages — the project bank, the knowledge library,
+> the business directory, the volunteer database, the youth opportunities, the diaspora
+> hub, the feedback board and the leadership directory — are **not** stored in Sanity.
+> They read the demonstration dataset in `src/lib/demo/data.ts`, so they work with no
+> CMS content at all and never need seeding. The leadership page resolves each person
+> from the member records in that dataset, which is why the committee and the members'
+> directory can never disagree.
+
 If the script reports that a variable is not set, re-check `.env.local` and remember that
 Node only reads it because `npm run seed` passes `--env-file-if-exists`.
 

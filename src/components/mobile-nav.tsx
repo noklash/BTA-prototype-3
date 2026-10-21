@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useState, useSyncExternalStore } from 'react'
+import { createPortal } from 'react-dom'
 
 import { ButtonLink } from './ui/button-link'
-import { CloseIcon, MenuIcon } from './ui/icons'
+import { ArrowRightIcon, CloseIcon, MenuIcon } from './ui/icons'
 import type { NavItem } from './nav'
 
 /**
@@ -18,11 +19,36 @@ import type { NavItem } from './nav'
  * `aria-controls` always points at a real element), and the menu closes on
  * navigation and on Escape. It is an inline disclosure rather than a modal, so
  * there is no focus trap.
+ *
+ * The panel is rendered into `document.body` through a portal. The site header
+ * is sticky and uses `backdrop-filter`, which makes it the containing block for
+ * any `position: fixed` descendant — inside the header the panel would be
+ * clipped to the header's own height and could never be scrolled. Portalling
+ * it out of the header keeps the panel anchored to the viewport, and lets it
+ * scroll when the list of links is taller than a short screen.
  */
+/**
+ * `true` once the component has hydrated in the browser.
+ *
+ * The panel is portalled into `document.body`, which only exists in the browser.
+ * `useSyncExternalStore` is the supported way to tell server and client apart
+ * without setting state inside an effect.
+ */
+const noopSubscribe = () => () => {}
+
+function useHydrated(): boolean {
+  return useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  )
+}
+
 export function MobileNav({ navItems }: { navItems: readonly NavItem[] | null }) {
   const pathname = usePathname()
   const panelId = useId()
   const items = navItems ?? []
+  const mounted = useHydrated()
 
   /**
    * The menu is only open for the route it was opened on. Deriving open state
@@ -51,6 +77,38 @@ export function MobileNav({ navItems }: { navItems: readonly NavItem[] | null })
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
+  const panel = (
+    <div id={panelId} className="mobile-nav" hidden={!isOpen}>
+      {items.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          aria-current={item.href === '/' ? pathname === '/' : pathname.startsWith(item.href) ? 'page' : undefined}
+          onClick={() => setOpenedForPathname(null)}
+        >
+          {item.label}
+          <ArrowRightIcon size={14} />
+        </Link>
+      ))}
+
+      <ButtonLink
+        href="/membership"
+        variant="gold"
+        onClick={() => setOpenedForPathname(null)}
+      >
+        Join BTA
+      </ButtonLink>
+
+      <ButtonLink
+        href="/portal"
+        variant="outline"
+        onClick={() => setOpenedForPathname(null)}
+      >
+        Members Login
+      </ButtonLink>
+    </div>
+  )
+
   return (
     <>
       <button
@@ -64,34 +122,7 @@ export function MobileNav({ navItems }: { navItems: readonly NavItem[] | null })
         {isOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
       </button>
 
-      <div id={panelId} className="mobile-nav" hidden={!isOpen}>
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            aria-current={item.href === '/' ? pathname === '/' : pathname.startsWith(item.href) ? 'page' : undefined}
-            onClick={() => setOpenedForPathname(null)}
-          >
-            {item.label}
-          </Link>
-        ))}
-
-        <ButtonLink
-          href="/membership"
-          variant="gold"
-          onClick={() => setOpenedForPathname(null)}
-        >
-          Join BTA
-        </ButtonLink>
-
-        <ButtonLink
-          href="/portal"
-          variant="outline"
-          onClick={() => setOpenedForPathname(null)}
-        >
-          Members Login
-        </ButtonLink>
-      </div>
+      {mounted ? createPortal(panel, document.body) : null}
     </>
   )
 }

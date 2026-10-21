@@ -12,6 +12,7 @@ import { editorialPage } from './documents/editorialPage'
 import { event } from './documents/event'
 import { eventsPage } from './documents/eventsPage'
 import { featuredActivity } from './documents/featuredActivity'
+import { forumThread } from './documents/forumThread'
 import { homepage } from './documents/homepage'
 import { libraryPage } from './documents/libraryPage'
 import { membershipPage } from './documents/membershipPage'
@@ -51,6 +52,7 @@ export const documentSchemaTypes = [
   membershipPage,
   event,
   featuredActivity,
+  forumThread,
 ] as const
 
 export const objectSchemaTypes = [

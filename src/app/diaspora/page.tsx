@@ -82,22 +82,20 @@ export default function DiasporaPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Keep in touch</span>
-            <h2>See what is on</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Keep in touch</span>
+          <h2>See what is on</h2>
+        </div>
 
-          <p>
-            Remote attendance is offered where possible. Check the diary and the project bank for
-            ways to take part from abroad.
-          </p>
+        <p>
+          Remote attendance is offered where possible. Check the diary and the project bank for
+          ways to take part from abroad.
+        </p>
 
-          <div>
-            <ButtonLink href="/events" variant="outline">
-              Browse events
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/events" variant="primary">
+            Browse events
+          </ButtonLink>
         </div>
       </Section>
     </>

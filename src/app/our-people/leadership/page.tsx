@@ -54,22 +54,20 @@ export default function LeadershipPage() {
       </Section>
 
       <section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Take part</span>
-            <h2>Stand for election.</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Take part</span>
+          <h2>Stand for election.</h2>
+        </div>
 
-          <p>
-            Committee places are open to every active member. Nominations are considered at the annual
-            general meeting each October.
-          </p>
+        <p>
+          Committee places are open to every active member. Nominations are considered at the annual
+          general meeting each October.
+        </p>
 
-          <div>
-            <ButtonLink href="/membership" variant="outline">
-              Membership details
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/membership" variant="primary">
+            Membership details
+          </ButtonLink>
         </div>
       </section>
     </>

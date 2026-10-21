@@ -336,6 +336,37 @@ export interface DiasporaRegistration {
 }
 
 /**
+ * A reply to a comment on a forum thread.
+ */
+export interface ForumReply {
+  id: string
+  /** The member who wrote the reply. */
+  authorId: string
+  body: string
+  /** ISO date. */
+  date: string
+}
+
+/**
+ * A comment on a forum thread.
+ *
+ * The article is editorial content in the CMS; the discussion is member
+ * generated and lives in the demonstration layer, so a thread can be published
+ * before anyone has replied to it.
+ */
+export interface ForumComment {
+  id: string
+  /** The slug of the thread the comment belongs to. */
+  threadSlug: string
+  /** The member who wrote the comment. */
+  authorId: string
+  body: string
+  /** ISO date. */
+  date: string
+  replies: ForumReply[]
+}
+
+/**
  * A committee member shown on the public leadership page.
  *
  * The person's name, location and profession are read from `members` through
@@ -377,4 +408,5 @@ export interface DemoDataset {
   activity: ActivityEntry[]
   diasporaRegistrations: DiasporaRegistration[]
   leaders: Leader[]
+  forumComments: ForumComment[]
 }

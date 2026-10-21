@@ -304,8 +304,24 @@ export interface DetailPage {
   cta: CallToAction | null
 }
 
-/** Events page types */
+/**
+ * A forum thread: an article shared by a member, with an optional image, that
+ * members discuss in comments and replies.
+ */
+export interface ForumThread {
+  _id: string
+  title: string
+  slug: string
+  excerpt: string
+  body: RichTextValue | null
+  image: SanityImageValue | null
+  author: string
+  authorRole: string | null
+  category: string
+  publishedAt: string
+}
 
+/** Events page types */
 export interface EventsPageHero {
   eyebrow: string | null
   title: string

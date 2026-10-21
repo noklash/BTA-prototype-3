@@ -25,6 +25,7 @@ export const CONTENT_TAGS = {
   communityNeeds: 'communityNeeds',
   membershipPage: 'membershipPage',
   events: 'events',
+  forumThread: 'forumThread',
 } as const
 
 export const siteSettingsQuery = defineQuery(`
@@ -236,6 +237,42 @@ export const detailPageByTypeAndSlugQuery = defineQuery(`
     whatToExpect[]{ _key, text },
     atAGlance{ title, status },
     cta{ heading, body, buttonLabel, buttonHref }
+  }
+`)
+
+/**
+ * Every published forum thread, newest first.
+ */
+export const forumThreadsQuery = defineQuery(`
+  *[_type == "forumThread"] | order(publishedAt desc){
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    body,
+    image,
+    author,
+    authorRole,
+    category,
+    publishedAt
+  }
+`)
+
+/**
+ * A single forum thread by slug.
+ */
+export const forumThreadBySlugQuery = defineQuery(`
+  *[_type == "forumThread" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    body,
+    image,
+    author,
+    authorRole,
+    category,
+    publishedAt
   }
 `)
 

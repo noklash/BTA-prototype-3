@@ -45,6 +45,7 @@ export const structure: StructureResolver = (S) =>
       // Repeatable documents
       S.documentTypeListItem('editorialPage').title('Editorial pages'),
       S.documentTypeListItem('detailPage').title('Detail pages'),
+      S.documentTypeListItem('forumThread').title('Forum threads'),
       S.documentTypeListItem('event').title('Events'),
       S.documentTypeListItem('featuredActivity').title('Featured activities'),
     ])

@@ -113,22 +113,20 @@ export default async function BusinessHubPage() {
       </Section>
 
       <Section className="partner-home">
-        <div className="shell">
-          <div>
-            <span className="eyebrow">Cooperative opportunities</span>
-            <h2>Grow together</h2>
-          </div>
+        <div>
+          <span className="eyebrow">Cooperative opportunities</span>
+          <h2>Grow together</h2>
+        </div>
 
-          <p>
-            The directory also carries cooperative and community investment opportunities. No
-            investment is offered and no returns are promised.
-          </p>
+        <p>
+          The directory also carries cooperative and community investment opportunities. No
+          investment is offered and no returns are promised.
+        </p>
 
-          <div>
-            <ButtonLink href="/partner" variant="outline">
-              Partner with BTA
-            </ButtonLink>
-          </div>
+        <div>
+          <ButtonLink href="/partner" variant="primary">
+            Partner with BTA
+          </ButtonLink>
         </div>
       </Section>
     </>
