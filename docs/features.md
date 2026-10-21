@@ -10,7 +10,7 @@ The site has two layers:
 | **The public site** | The editorial website: home, about, knowledge, enterprise, community impact, heritage, events, news, membership, partner, support and the Prototype 3 public pages | **Sanity CMS** (published content) with the demonstration dataset as a fallback |
 | **The platform** | The Prototype 3 community platform: project bank, donations, transparency, diaspora, youth, knowledge hub, business directory, volunteer database, feedback, members' portal, admin area, forum | **The browser** (`localStorage`), because it needs authentication and a database that this demonstration does not have |
 
-> Bainbo Taria Awo Club (BTA) is fictional. Every figure, business, partnership,
+> Bainbo Taria Awo   (BTA) is fictional. Every figure, business, partnership,
 > document and photograph on the site is illustrative and labelled as such.
 
 ---
@@ -49,7 +49,7 @@ demonstration dataset and shows a short note saying so. Nothing throws.
 | --- | --- | --- |
 | `/` | Hero, who we are, figures, the BTA model, featured initiatives, community impact, knowledge, heritage, events, the 2035 vision, partner band | `homepage` (singleton) |
 | `/about` | History, mission, committee, values | `aboutPage` (singleton) |
-| `/about/story` | The story of the club, in four parts | `detailPage` |
+| `/about/story` | The story of the  , in four parts | `detailPage` |
 | `/about/leadership` | Leadership and governance, institutional records | `detailPage` |
 | `/about/bta-2035` | The eleven goals of BTA 2035 | `detailPage` |
 | `/our-people` | The people behind BTA, with a preview of the committee | `editorialPage` |

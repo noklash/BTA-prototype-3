@@ -13,14 +13,14 @@ import { ImageResponse } from 'next/og'
  */
 export const runtime = 'edge'
 
-export const alt = 'Bainbo Taria Awo Club'
+export const alt = 'Bainbo Taria Awo  '
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const title = (searchParams.get('title') ?? 'Bainbo Taria Awo Club').slice(0, 120)
-  const eyebrow = (searchParams.get('eyebrow') ?? 'Bainbo Taria Awo Club').slice(0, 60)
+  const title = (searchParams.get('title') ?? 'Bainbo Taria Awo  ').slice(0, 120)
+  const eyebrow = (searchParams.get('eyebrow') ?? 'Bainbo Taria Awo  ').slice(0, 60)
   const footer = (searchParams.get('footer') ?? 'Our heritage. Our people. Our future.').slice(0, 80)
 
   return new ImageResponse(

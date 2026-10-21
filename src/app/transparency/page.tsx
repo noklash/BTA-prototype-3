@@ -12,7 +12,7 @@ import { formatCompactNaira, formatNaira, progressPercent } from '@/lib/demo/for
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Transparency & Accountability',
-    description: 'Illustrative financial summaries, project budgets, expenditure and progress reporting for the Bainbo Taria Awo Club demonstration.',
+    description: 'Illustrative financial summaries, project budgets, expenditure and progress reporting for the Bainbo Taria Awo   demonstration.',
     path: "/transparency",
   }),
 }

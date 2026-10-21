@@ -14,7 +14,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: "What's happening at BTA",
-    description: 'A calendar of forums, member gatherings, heritage walks and partner events hosted by Bainbo Taria Awo Club.',
+    description: 'A calendar of forums, member gatherings, heritage walks and partner events hosted by Bainbo Taria Awo  .',
     path: "/events",
   }),
 }

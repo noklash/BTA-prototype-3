@@ -13,7 +13,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Community Needs',
-    description: 'Make local needs visible for review by the appropriate Bainbo Taria Awo Club committee.',
+    description: 'Make local needs visible for review by the appropriate Bainbo Taria Awo   committee.',
     path: "/community-needs",
   }),
 }

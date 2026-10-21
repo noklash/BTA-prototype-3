@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: EventRouteProps): Promise<Met
 
   return buildMetadata({
     title: event.title,
-    description: event.summary ?? 'An event from the Bainbo Taria Awo Club.',
+    description: event.summary ?? 'An event from the Bainbo Taria Awo  .',
     path: `/events/${event.slug}`,
     type: 'article',
     publishedTime: event.startDateTime ?? undefined,

@@ -14,7 +14,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Membership',
-    description: 'Who can join Bainbo Taria Awo Club, what membership includes, how the process works and how to express your interest.',
+    description: 'Who can join Bainbo Taria Awo  , what membership includes, how the process works and how to express your interest.',
     path: "/membership",
   }),
 }
@@ -25,7 +25,7 @@ const MEMBERSHIP_SECTIONS = [
     number: '01',
     heading: 'Who can join',
     paragraphs: [
-      'Bainbo Taria Awo Club is open to people from the community and the wider district, whether you live here or in the diaspora. Adults, young people and organisations can all take part.',
+      'Bainbo Taria Awo   is open to people from the community and the wider district, whether you live here or in the diaspora. Adults, young people and organisations can all take part.',
     ],
     list: [
       'Full members — adults who take part in the life of the association',

@@ -1,10 +1,10 @@
-# Bainbo Taria Awo Club
+# Bainbo Taria Awo  
 
 A community-association website for a **fictional** organisation, built as a
 portfolio demonstration of a production-minded **Next.js (App Router) + TypeScript +
 Tailwind CSS + Sanity CMS** integration.
 
-> Bainbo Taria Awo Club (BTA) is not a real association. It is not affiliated with any
+> Bainbo Taria Awo   (BTA) is not a real association. It is not affiliated with any
 > real organisation, and every form, payment, receipt, business listing and
 > partnership in this project is simulated.
 

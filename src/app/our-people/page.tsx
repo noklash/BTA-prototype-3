@@ -10,7 +10,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Our People',
-    description: 'The people behind Bainbo Taria Awo Club — the volunteer committee and programme leads.',
+    description: 'The people behind Bainbo Taria Awo   — the volunteer committee and programme leads.',
     path: "/our-people",
   }),
 }

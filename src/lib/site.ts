@@ -6,14 +6,14 @@
  * editor should be able to change — the displayed organization name, tagline,
  * logo, contact details — lives in Sanity instead (`siteSettings`).
  */
-export const BRAND_NAME = 'Bainbo Taria Awo Club'
+export const BRAND_NAME = 'Bainbo Taria Awo  '
 
 export const BRAND_DESCRIPTION =
   'A fictional community association website demonstrating a Next.js and Sanity CMS integration.'
 
 /** Shown in the site footer so the demonstration is never mistaken for the real organization. */
 export const DEMONSTRATION_NOTICE =
-  'Bainbo Taria Awo Club is a fictional organisation created for a portfolio demonstration. It is not affiliated with any real association.'
+  'Bainbo Taria Awo   is a fictional organisation created for a portfolio demonstration. It is not affiliated with any real association.'
 
 /**
  * The note carried by every inner page, above the content.

@@ -12,7 +12,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Support BTA',
-    description: 'Support Bainbo Taria Awo Club — one-off gifts, regular giving or partner-level contributions.',
+    description: 'Support Bainbo Taria Awo   — one-off gifts, regular giving or partner-level contributions.',
     path: "/support",
   }),
 }

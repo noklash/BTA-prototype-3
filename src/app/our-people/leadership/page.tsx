@@ -12,7 +12,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Leadership',
-    description: 'The Bainbo Taria Awo Club committee: names, offices, remits and the members who hold them.',
+    description: 'The Bainbo Taria Awo   committee: names, offices, remits and the members who hold them.',
     path: "/our-people/leadership",
   }),
 }
@@ -43,7 +43,7 @@ export default function LeadershipPage() {
         <SectionHeading
           eyebrow="Leadership"
           title="Who serves"
-          description="The officers and committee leads responsible for the club's work, drawn from the membership register."
+          description="The officers and committee leads responsible for the  's work, drawn from the membership register."
         />
 
         <LeadershipGrid entries={entries} />

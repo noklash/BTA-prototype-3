@@ -1,5 +1,5 @@
 /**
- * Seeds a Sanity dataset with the complete Bainbo Taria Awo Club (BTA)
+ * Seeds a Sanity dataset with the complete Bainbo Taria Awo   (BTA)
  * demonstration content, reproducing the exact contents, images and content
  * structure of the BTA prototype (BTA-prototype-2).
  *
@@ -224,7 +224,7 @@ const featuredActivities: SeedDocument[] = [
 const siteSettings: SeedDocument = {
   _id: SINGLETON_IDS.siteSettings,
   _type: 'siteSettings',
-  title: 'Bainbo Taria Awo Club',
+  title: 'Bainbo Taria Awo  ',
   shortName: 'BTA',
   tagline: 'Our heritage. Our people. Our future.',
   navItems: [
@@ -287,7 +287,7 @@ const homepage: SeedDocument = {
   introEyebrow: 'Who we are',
   introHeading: 'A community<br/>built to last.',
   introLead:
-    'Bainbo Taria Awo Club brings people together through shared heritage, knowledge, enterprise and a commitment to community development.',
+    'Bainbo Taria Awo   brings people together through shared heritage, knowledge, enterprise and a commitment to community development.',
   introBody:
     'We create space for generations to connect, learn from one another and build opportunities beyond the present.',
   introCta: {
@@ -1023,7 +1023,7 @@ const forumThreads: SeedDocument[] = [
       textBlock(
         'thread-investment-1',
         'normal',
-        'Every month someone in the club asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
+        'Every month someone in the   asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
       ),
       textBlock('thread-investment-2', 'h3', 'Start with the boring part'),
       textBlock(
@@ -1038,7 +1038,7 @@ const forumThreads: SeedDocument[] = [
       textBlock(
         'thread-investment-8',
         'normal',
-        'None of this is financial advice, and no member is a licensed adviser. It is what has worked for people in this club, written down so that the next person can start from a clearer place.',
+        'None of this is financial advice, and no member is a licensed adviser. It is what has worked for people in this  , written down so that the next person can start from a clearer place.',
       ),
     ],
     author: 'Tamuno Georgewill',
@@ -1169,7 +1169,7 @@ const forumThreads: SeedDocument[] = [
       textBlock(
         'thread-public-6',
         'normal',
-        'A project that fell short and was published is worth more to the club than a project that succeeded quietly and taught us nothing.',
+        'A project that fell short and was published is worth more to the   than a project that succeeded quietly and taught us nothing.',
       ),
     ],
     author: 'Soala Ogan',

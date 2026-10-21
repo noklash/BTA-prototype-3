@@ -37,7 +37,7 @@ export function prototypeImage(key: PrototypeImageKey | null | undefined): strin
  * Placeholder portraits for the leadership directory.
  *
  * The committee members are fictional, so these are photographs of real people
- * used as illustrations of the roles — chosen to represent a mature club — and
+ * used as illustrations of the roles — chosen to represent a mature   — and
  * not pictures of the named members. They are only used when no CMS image is
  * set, and the page states that the people and photographs are illustrative.
  */

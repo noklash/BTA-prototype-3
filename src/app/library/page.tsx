@@ -15,7 +15,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Knowledge Hub',
-    description: 'Articles, research, webinars and resources shared by community professionals, academics, entrepreneurs and leaders, plus the club knowledge library.',
+    description: 'Articles, research, webinars and resources shared by community professionals, academics, entrepreneurs and leaders, plus the   knowledge library.',
     path: "/library",
   }),
 }
@@ -41,7 +41,7 @@ export default async function LibraryPage() {
         title={page?.pageHero?.title ?? 'Knowledge, kept in motion.'}
         intro={
           page?.pageHero?.intro ??
-          'Articles, research, webinars and resources contributed by members — and the club’s curated library of session materials and reports.'
+          'Articles, research, webinars and resources contributed by members — and the  ’s curated library of session materials and reports.'
         }
         image={page?.pageHero?.image ?? null}
       />
@@ -79,9 +79,9 @@ export default async function LibraryPage() {
 
       <Section className="model">
         <SectionHeading
-          eyebrow="Club library"
+          eyebrow="  library"
           title={page?.pageHero?.eyebrow ?? 'Curated resources'}
-          description="Session recordings, presentations, reports and research curated by the club."
+          description="Session recordings, presentations, reports and research curated by the  ."
         />
 
         {resources.length > 0 ? (

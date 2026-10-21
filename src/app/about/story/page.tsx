@@ -9,7 +9,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Our Story',
-    description: "A place for Bainbo Taria Awo Club's verified history, milestones, people and records.",
+    description: "A place for Bainbo Taria Awo  's verified history, milestones, people and records.",
     path: "/about/story",
   }),
 }

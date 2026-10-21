@@ -9,7 +9,7 @@ import { Section } from '@/components/ui/section'
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Members’ Portal — Sign in',
-    description: 'Demonstration sign-in for the Bainbo Taria Awo Club members’ portal.',
+    description: 'Demonstration sign-in for the Bainbo Taria Awo   members’ portal.',
     path: "/portal/login",
     noIndex: true,
   }),

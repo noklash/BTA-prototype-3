@@ -65,7 +65,7 @@ export default async function BusinessHubPage() {
 
         <DemoNotice>
           These businesses are fictional or illustrative. Listing here is not an endorsement and does
-          not imply any verification by the club.
+          not imply any verification by the  .
         </DemoNotice>
 
         <BusinessDirectory />
@@ -75,7 +75,7 @@ export default async function BusinessHubPage() {
         <Section className="model">
           <SectionHeading
             eyebrow="Featured"
-            title="Selected by the club"
+            title="Selected by the  "
             description="Curated listings published by editors in Sanity Studio."
           />
 

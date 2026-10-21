@@ -14,7 +14,7 @@ import { getProjects } from '@/lib/sanity/content'
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Project Bank',
-    description: 'A searchable directory of proposed, approved, ongoing and completed Bainbo Taria Awo Club community projects, with budgets, funding targets and progress.',
+    description: 'A searchable directory of proposed, approved, ongoing and completed Bainbo Taria Awo   community projects, with budgets, funding targets and progress.',
     path: "/projects",
   }),
 }

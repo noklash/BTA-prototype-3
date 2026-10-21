@@ -99,7 +99,7 @@ export function LeadershipTeaser() {
       <SectionHeading
         eyebrow="Our People"
         title="Meet the committee."
-        description="Volunteers elected each October run the club's work. Their offices, remits and towns are published in full."
+        description="Volunteers elected each October run the  's work. Their offices, remits and towns are published in full."
       />
 
       <ul className="leadership-teaser">

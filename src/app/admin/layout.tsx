@@ -6,7 +6,7 @@ import { AppFrame } from '@/components/demo/app-shell'
 export const metadata: Metadata = {
   title: {
     default: 'Admin',
-    template: '%s · Admin · Bainbo Taria Awo Club',
+    template: '%s · Admin · Bainbo Taria Awo  ',
   },
   robots: { index: false, follow: false },
 }

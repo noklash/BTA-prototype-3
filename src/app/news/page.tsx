@@ -16,7 +16,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'News',
-    description: 'Latest news and stories from Bainbo Taria Awo Club.',
+    description: 'Latest news and stories from Bainbo Taria Awo  .',
     path: "/news",
   }),
 }

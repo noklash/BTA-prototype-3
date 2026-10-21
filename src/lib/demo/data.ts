@@ -904,7 +904,7 @@ export const DEMO_DATA: DemoDataset = {
       id: 'lead-001',
       memberId: 'mem-009',
       role: 'President',
-      remit: 'Leads the club, chairs the annual general meeting and represents BTA to partners.',
+      remit: 'Leads the  , chairs the annual general meeting and represents BTA to partners.',
       since: '2024',
       portrait: 'georgewill',
     },
@@ -962,11 +962,11 @@ export const DEMO_DATA: DemoDataset = {
       body: [
         {
           kind: 'paragraph',
-          text: 'Every month someone in the club asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
+          text: 'Every month someone in the   asks where to start with money they do not have much of. This article is the answer we agreed to write down properly: what personal investment means here, the three rules we follow, and the mistakes we have seen other people make.',
         },
         {
           kind: 'paragraph',
-          text: 'Nothing here is financial advice, and no member of the club is a licensed adviser. It is what has worked for people in this club, written down so that the next person can start from a clearer place than we did.',
+          text: 'Nothing here is financial advice, and no member of the   is a licensed adviser. It is what has worked for people in this  , written down so that the next person can start from a clearer place than we did.',
         },
         { kind: 'heading', text: 'Start with the boring part' },
         {
@@ -996,16 +996,16 @@ export const DEMO_DATA: DemoDataset = {
         },
         {
           kind: 'paragraph',
-          text: 'Those three questions have removed more bad decisions in this club than any product recommendation ever has. They are deliberately dull. That is the point.',
+          text: 'Those three questions have removed more bad decisions in this   than any product recommendation ever has. They are deliberately dull. That is the point.',
         },
         {
           kind: 'quote',
           text: 'The best time to start was ten years ago. The second best time is after the month is already under control.',
         },
-        { kind: 'heading', text: 'What the club does with it' },
+        { kind: 'heading', text: 'What the   does with it' },
         {
           kind: 'paragraph',
-          text: 'Once the month and the surprise are covered, several members in the club set aside a small monthly amount for the projects we run together: the school hall, the water work, the scholarships. It is the same discipline as above, pointed at something the whole club can see.',
+          text: 'Once the month and the surprise are covered, several members in the   set aside a small monthly amount for the projects we run together: the school hall, the water work, the scholarships. It is the same discipline as above, pointed at something the whole   can see.',
         },
         {
           kind: 'paragraph',
@@ -1095,7 +1095,7 @@ export const DEMO_DATA: DemoDataset = {
         {
           kind: 'list',
           items: [
-            'The club membership list, searchable and mobile friendly. A real problem, a real user, a real deadline.',
+            'The   membership list, searchable and mobile friendly. A real problem, a real user, a real deadline.',
             'A tool that turns a printed record into a searchable one for a small organisation.',
             'A page that loads on a slow connection. Unglamorous, and rarer than it should be.',
           ],
@@ -1191,11 +1191,11 @@ export const DEMO_DATA: DemoDataset = {
         { kind: 'heading', text: 'Why it is uncomfortable' },
         {
           kind: 'paragraph',
-          text: 'Publishing a project that fell short feels like an attack on the people who ran it. We have learned that the opposite is true: a shortfall that is published is the cheapest lesson the club will ever buy, and the one that protects the members who fund it.',
+          text: 'Publishing a project that fell short feels like an attack on the people who ran it. We have learned that the opposite is true: a shortfall that is published is the cheapest lesson the   will ever buy, and the one that protects the members who fund it.',
         },
         {
           kind: 'quote',
-          text: 'A project that fell short and was published is worth more to the club than a project that succeeded quietly and taught us nothing.',
+          text: 'A project that fell short and was published is worth more to the   than a project that succeeded quietly and taught us nothing.',
         },
         { kind: 'heading', text: 'How to read a statement' },
         {
@@ -1230,7 +1230,7 @@ export const DEMO_DATA: DemoDataset = {
         {
           id: 'rep-001',
           authorId: 'mem-009',
-          body: 'That matches what we see in the club. The buffer is the part nobody writes about, and it is the part that decides whether the rest works.',
+          body: 'That matches what we see in the  . The buffer is the part nobody writes about, and it is the part that decides whether the rest works.',
           date: '2026-10-19',
         },
         {

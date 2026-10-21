@@ -68,7 +68,7 @@ export function articleSchema({
     ...(wordCount ? { wordCount } : {}),
     publisher: {
       '@type': 'Organization',
-      name: 'Bainbo Taria Awo Club',
+      name: 'Bainbo Taria Awo  ',
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': path },
   }
@@ -102,7 +102,7 @@ export function eventSchema({
     ...(location ? { location: { '@type': 'Place', name: location } } : {}),
     ...(image ? { image } : {}),
     eventStatus: 'https://schema.org/EventScheduled',
-    organizer: { '@type': 'Organization', name: 'Bainbo Taria Awo Club' },
+    organizer: { '@type': 'Organization', name: 'Bainbo Taria Awo  ' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': path },
   }
 }

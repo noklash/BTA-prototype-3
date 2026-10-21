@@ -7,7 +7,7 @@ import { AppHead } from '@/components/demo/ui'
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Members’ Portal',
-    description: 'Demonstration members’ portal for Bainbo Taria Awo Club.',
+    description: 'Demonstration members’ portal for Bainbo Taria Awo  .',
     path: "/portal",
     noIndex: true,
   }),

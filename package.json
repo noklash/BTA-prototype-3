@@ -2,7 +2,7 @@
   "name": "Bainbo Tariya Awo",
   "version": "1.0.0",
   "private": true,
-  "description": "Bainbo Taria Awo Club - a community association website and Prototype 3 platform built with Next.js and Sanity CMS.",
+  "description": "Bainbo Taria Awo   - a community association website and Prototype 3 platform built with Next.js and Sanity CMS.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

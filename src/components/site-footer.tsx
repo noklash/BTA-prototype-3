@@ -63,7 +63,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
     <footer>
       <div className="shell footer-grid">
         <div>
-          <Link href="/" className="logo-link" aria-label="Bainbo Taria Awo Club — home">
+          <Link href="/" className="logo-link" aria-label="Bainbo Taria Awo   — home">
             <Logo light settings={settings} />
           </Link>
 

@@ -35,7 +35,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings | null }) {
       </div>
 
       <div className="shell head">
-        <Link href="/" className="logo-link" aria-label="Bainbo Taria Awo Club — home">
+        <Link href="/" className="logo-link" aria-label="Bainbo Taria Awo   — home">
           <Logo settings={settings} />
         </Link>
 

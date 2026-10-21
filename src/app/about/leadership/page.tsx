@@ -9,7 +9,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Leadership & Governance',
-    description: 'Clear governance, responsible leadership and accessible institutional records strengthen Bainbo Taria Awo Club.',
+    description: 'Clear governance, responsible leadership and accessible institutional records strengthen Bainbo Taria Awo  .',
     path: "/about/leadership",
   }),
 }

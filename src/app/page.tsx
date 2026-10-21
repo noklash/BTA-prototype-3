@@ -44,7 +44,7 @@ export default async function HomePage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'Bainbo Taria Awo Club',
+          name: 'Bainbo Taria Awo  ',
           alternateName: 'BTA',
           slogan: 'Our heritage. Our people. Our future.',
           url: '/',
@@ -87,7 +87,7 @@ function emptyHomepage(): Homepage {
   return {
     _id: 'homepage-missing',
     // 1. Hero
-    heroHeading: 'Bainbo Taria Awo Club',
+    heroHeading: 'Bainbo Taria Awo  ',
     heroDescription: null,
     heroAside: null,
     heroImage: null,
@@ -148,7 +148,7 @@ function Hero({ homepage }: { homepage: Homepage }) {
       <div className="shade" />
 
       <div className="shell hero-copy">
-        <span className="eyebrow">Bainbo Taria Awo Club</span>
+        <span className="eyebrow">Bainbo Taria Awo  </span>
 
         <h1>
           <RichTextFragments value={homepage.heroHeading} />

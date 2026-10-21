@@ -49,7 +49,7 @@ const studioTheme = {
 
 export const studioConfig = defineConfig({
   name: 'heritage-circle',
-  title: 'Bainbo Taria Awo Club',
+  title: 'Bainbo Taria Awo  ',
   projectId: getSanityProjectId() ?? '',
   dataset: getSanityDataset() ?? '',
   basePath: '/studio',
@@ -70,7 +70,7 @@ export const studioConfig = defineConfig({
   },
   workspace: {
     name: 'default',
-    title: 'Bainbo Taria Awo Club',
+    title: 'Bainbo Taria Awo  ',
     basePath: '/studio',
     theme: studioTheme,
   },
