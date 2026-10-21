@@ -1127,13 +1127,13 @@
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 0.8fr;
-    gap: 65px;
-    padding-bottom: 60px;
+    grid-template-columns: 1fr 1.6fr 0.9fr;
+    gap: 80px;
+    padding-bottom: 70px;
   }
 
   .footer-statement {
-    max-width: 290px;
+    max-width: 320px;
     /* The statement sits under the mark with room to breathe, so it reads as a
        separate line rather than running into the logo's tagline. */
     margin: 20px 0 0;
@@ -1144,7 +1144,7 @@
   .footlinks {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 34px;
   }
 
   .footlinks > div,
@@ -1252,11 +1252,11 @@
   /* Prototype 3 routes, kept on a compact line so the three editorial columns
      above stay identical to the reference. */
   .platform-strip {
-    padding: 16px 0;
+    padding: 18px 0 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 8px 22px;
+    gap: 10px 26px;
     border-top: 1px solid #2c4258;
     font-size: 8px;
     letter-spacing: 0.1em;

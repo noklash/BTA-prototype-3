@@ -8,6 +8,7 @@ import { ButtonLink } from '@/components/ui/button-link'
 import { Section, SectionHeading } from '@/components/ui/section'
 import { computeDemoStats } from '@/lib/demo/data'
 import { formatCompactNaira } from '@/lib/demo/format'
+import { getProjects } from '@/lib/sanity/content'
 
 export const metadata: Metadata = {
   title: 'Project Bank',
@@ -16,8 +17,20 @@ export const metadata: Metadata = {
   alternates: { canonical: '/projects' },
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
   const stats = computeDemoStats()
+  const cmsProjects = await getProjects()
+  const published = cmsProjects.ok ? (cmsProjects.value ?? []) : []
+
+  // The stories come from the CMS; the figures come from the demonstration
+  // layer, so a stage change in the admin area shows here straight away.
+  const overrides = published.map((project) => ({
+    slug: project.slug,
+    name: project.title,
+    summary: project.summary,
+    location: project.location,
+    category: project.category,
+  }))
 
   return (
     <>
@@ -46,7 +59,7 @@ export default function ProjectsPage() {
           description="Filter by category or search by name, location or summary. Stages and funding figures update as the demonstration admin area is used."
         />
 
-        <ProjectDirectory />
+        <ProjectDirectory overrides={overrides} />
       </Section>
 
       <Section className="partner-home">

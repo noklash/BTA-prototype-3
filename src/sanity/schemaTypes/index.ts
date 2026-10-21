@@ -16,6 +16,7 @@ import { forumThread } from './documents/forumThread'
 import { homepage } from './documents/homepage'
 import { libraryPage } from './documents/libraryPage'
 import { membershipPage } from './documents/membershipPage'
+import { project } from './documents/project'
 import { siteSettings } from './documents/siteSettings'
 import { businessEntry } from './objects/businessEntry'
 import { callToAction } from './objects/callToAction'
@@ -53,6 +54,7 @@ export const documentSchemaTypes = [
   event,
   featuredActivity,
   forumThread,
+  project,
 ] as const
 
 export const objectSchemaTypes = [

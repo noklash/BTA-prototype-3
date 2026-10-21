@@ -10,6 +10,7 @@ import { cache } from 'react'
 import type {
   AboutPage,
   BusinessHub,
+  CmsProject,
   CommunityNeeds,
   DetailPage,
   EditorialPage,
@@ -43,6 +44,8 @@ import {
   libraryPageQuery,
   membershipPageQuery,
   publishedEventSlugsQuery,
+  projectBySlugQuery,
+  projectsQuery,
   siteSettingsQuery,
 } from './queries'
 
@@ -177,6 +180,32 @@ export function getMembershipPage(
     query: membershipPageQuery,
     options: { tags: [CONTENT_TAGS.membershipPage], ...options },
     label: 'membershipPageQuery',
+  })
+}
+
+/**
+ * Every published project in the bank.
+ */
+export function getProjects(options?: FetchContentOptions): Promise<ContentResult<CmsProject[]>> {
+  return fetchContent<CmsProject[]>({
+    query: projectsQuery,
+    options: { tags: [CONTENT_TAGS.project], ...options },
+    label: 'projectsQuery',
+  })
+}
+
+/**
+ * A single published project by slug.
+ */
+export function getProjectBySlug(
+  slug: string,
+  options?: FetchContentOptions,
+): Promise<ContentResult<CmsProject | null>> {
+  return fetchContent<CmsProject | null>({
+    query: projectBySlugQuery,
+    params: { slug },
+    options: { tags: [CONTENT_TAGS.project, `${CONTENT_TAGS.project}:${slug}`], ...options },
+    label: 'projectBySlugQuery',
   })
 }
 

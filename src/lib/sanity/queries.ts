@@ -26,6 +26,7 @@ export const CONTENT_TAGS = {
   membershipPage: 'membershipPage',
   events: 'events',
   forumThread: 'forumThread',
+  project: 'project',
 } as const
 
 export const siteSettingsQuery = defineQuery(`
@@ -244,7 +245,7 @@ export const detailPageByTypeAndSlugQuery = defineQuery(`
  * Every published forum thread, newest first.
  */
 export const forumThreadsQuery = defineQuery(`
-  *[_type == "forumThread"] | order(publishedAt desc){
+  *[_type == "forumThread" && status == "published"] | order(publishedAt desc){
     _id,
     title,
     "slug": slug.current,
@@ -259,10 +260,10 @@ export const forumThreadsQuery = defineQuery(`
 `)
 
 /**
- * A single forum thread by slug.
+ * A single published forum thread by slug.
  */
 export const forumThreadBySlugQuery = defineQuery(`
-  *[_type == "forumThread" && slug.current == $slug][0]{
+  *[_type == "forumThread" && status == "published" && slug.current == $slug][0]{
     _id,
     title,
     "slug": slug.current,
@@ -273,6 +274,44 @@ export const forumThreadBySlugQuery = defineQuery(`
     authorRole,
     category,
     publishedAt
+  }
+`)
+
+/**
+ * Every published project in the bank, newest first.
+ */
+export const projectsQuery = defineQuery(`
+  *[_type == "project" && status == "published"] | order(title asc){
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    description,
+    image,
+    milestones[]{ label, done },
+    category,
+    location,
+    beneficiaries,
+    communityBenefits[]
+  }
+`)
+
+/**
+ * A single published project by slug.
+ */
+export const projectBySlugQuery = defineQuery(`
+  *[_type == "project" && status == "published" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    description,
+    image,
+    milestones[]{ label, done },
+    category,
+    location,
+    beneficiaries,
+    communityBenefits[]
   }
 `)
 

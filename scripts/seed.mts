@@ -227,7 +227,6 @@ const siteSettings: SeedDocument = {
   title: 'Bainbo Taria Awo Club',
   shortName: 'BTA',
   tagline: 'Our heritage. Our people. Our future.',
-  logo: null,
   navItems: [
     { _key: 'nav-about-bta', label: 'About BTA', href: '/about', hasChevron: true },
     { _key: 'nav-our-people', label: 'Our People', href: '/our-people', hasChevron: true },
@@ -265,7 +264,6 @@ const homepage: SeedDocument = {
   heroDescription:
     'Connecting generations, sharing knowledge, creating opportunities and building a lasting legacy.',
   heroAside: '01 A digital home for heritage, knowledge, enterprise and community.',
-  heroImage: null,
   heroCtaPrimary: {
     heading: 'Join BTA',
     body: null,
@@ -333,7 +331,6 @@ const homepage: SeedDocument = {
         'Practical knowledge across finance, technology, career and care, led by members for members.',
       status: 'ACTIVE',
       link: '/knowledge/forum',
-      image: null,
       displayOrder: 0,
     },
     {
@@ -344,7 +341,6 @@ const homepage: SeedDocument = {
         'Stories, music and food shared at the Old Library Hall each quarter.',
       status: 'LAUNCHING',
       link: '/heritage',
-      image: null,
       displayOrder: 1,
     },
     {
@@ -355,7 +351,6 @@ const homepage: SeedDocument = {
         'Members pool boats, gear and knowledge so the river stays productive.',
       status: 'PLANNED',
       link: '/blue-economy',
-      image: null,
       displayOrder: 2,
     },
     {
@@ -366,7 +361,6 @@ const homepage: SeedDocument = {
         'Repairing classrooms and restoring the school garden with community labour.',
       status: 'ACTIVE',
       link: '/community-impact/school-rehabilitation',
-      image: null,
       displayOrder: 3,
     },
     {
@@ -377,7 +371,6 @@ const homepage: SeedDocument = {
         'Connecting school leavers with mentors, work placements and enterprise training.',
       status: 'VISION_2035',
       link: '/knowledge',
-      image: null,
       displayOrder: 4,
     },
   ],
@@ -385,7 +378,6 @@ const homepage: SeedDocument = {
   // 6. Impact
   impact: {
     _key: 'impact-1',
-    image: null,
     eyebrow: 'Community impact',
     heading: 'Goodwill, made measurable.',
     body:
@@ -427,7 +419,6 @@ const homepage: SeedDocument = {
   // 8. Heritage
   heritage: {
     _key: 'heritage-1',
-    image: null,
     eyebrow: 'The Oral History Project',
     heading: 'Preserving what we know.',
     body:
@@ -556,7 +547,6 @@ const aboutPage: SeedDocument = {
     { _key: 'value-3', title: 'Careful with people', description: 'Personal stories are shared only with permission, and never sold or handed to third parties.' },
     { _key: 'value-4', title: 'Useful to the present', description: 'History that is never used is only nostalgia, so we look for decisions it can inform today.' },
   ],
-  featuredImage: null,
 }
 
 // ---------------------------------------------------------------------------
@@ -573,7 +563,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Our People',
       title: 'The people behind BTA.',
       intro: 'A community run by volunteers, for volunteers.',
-      image: null,
     },
     articles: [
       {
@@ -612,7 +601,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Knowledge',
       title: 'Knowledge, shared openly.',
       intro: 'Practical sessions across finance, technology, career and care — led by members, for members.',
-      image: null,
     },
     articles: [
       {
@@ -651,7 +639,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Enterprise',
       title: 'Buy BTA. Support a BTA business.',
       intro: 'A prototype member directory for trusted services, expertise and enterprise.',
-      image: null,
     },
     articles: [
       {
@@ -690,7 +677,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Community Impact',
       title: 'Goodwill, made measurable.',
       intro: 'We identify needs, assess priorities and deliver with transparent reporting.',
-      image: null,
     },
     articles: [
       {
@@ -729,7 +715,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Blue Economy',
       title: 'Protecting the river, together.',
       intro: 'The river sustains this community. The Blue Economy programme keeps it productive for the next generation.',
-      image: null,
     },
     articles: [
       {
@@ -768,7 +753,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Heritage',
       title: 'Preserving what we know.',
       intro: 'Recording the stories, experiences and knowledge of our elders before they are lost.',
-      image: null,
     },
     articles: [
       {
@@ -807,7 +791,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Partner with BTA',
       title: 'Build something that lasts.',
       intro: 'Partnerships that create measurable value for members, communities and future generations.',
-      image: null,
     },
     articles: [
       {
@@ -846,7 +829,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Our Story',
       title: 'Continuity is our inheritance.',
       intro: "A place for BTA's verified history, milestones, people and records.",
-      image: null,
     },
     articles: [
       {
@@ -891,7 +873,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'Leadership & Governance',
       title: 'Trust requires accountability.',
       intro: 'Clear governance, responsible leadership and accessible institutional records strengthen BTA.',
-      image: null,
     },
     articles: [
       {
@@ -948,7 +929,6 @@ const editorialPages: SeedDocument[] = [
       eyebrow: 'BTA 2035',
       title: 'Looking toward 2035.',
       intro: 'Our long-term framework for a stronger institution and the heritage we pass forward.',
-      image: null,
     },
     articles: [
       {
@@ -1061,11 +1041,11 @@ const forumThreads: SeedDocument[] = [
         'None of this is financial advice, and no member is a licensed adviser. It is what has worked for people in this club, written down so that the next person can start from a clearer place.',
       ),
     ],
-    image: null,
     author: 'Tamuno Georgewill',
     authorRole: 'Treasurer',
     category: 'Knowledge & Ideas',
     publishedAt: '2026-10-18T09:00:00.000Z',
+    status: 'published',
   },
   {
     _id: 'forumThread-cooperative-lessons',
@@ -1096,11 +1076,11 @@ const forumThreads: SeedDocument[] = [
         'The record of a decision is worth more than the decision itself.',
       ),
     ],
-    image: null,
     author: 'Precious Abbey',
     authorRole: 'Committee member',
     category: 'Aquaculture & Blue Economy',
     publishedAt: '2026-09-29T09:00:00.000Z',
+    status: 'published',
   },
   {
     _id: 'forumThread-first-role-in-technology',
@@ -1128,11 +1108,11 @@ const forumThreads: SeedDocument[] = [
         'Expect to be asked what you have changed in the work of others. Answer with a specific example: a process you shortened, a report you automated, a colleague you handed something to that used to be lost.',
       ),
     ],
-    image: null,
     author: 'Ibifuro Amachree',
     authorRole: 'Diaspora member',
     category: 'Technology',
     publishedAt: '2026-09-12T09:00:00.000Z',
+    status: 'published',
   },
   {
     _id: 'forumThread-oral-history-notes',
@@ -1163,11 +1143,11 @@ const forumThreads: SeedDocument[] = [
         'Every generation holds a part of the story. Our responsibility is to carry it forward.',
       ),
     ],
-    image: null,
     author: 'Ada Nwosu',
     authorRole: 'Vice President',
     category: 'Heritage',
     publishedAt: '2026-08-20T09:00:00.000Z',
+    status: 'published',
   },
   {
     _id: 'forumThread-building-in-public',
@@ -1192,11 +1172,317 @@ const forumThreads: SeedDocument[] = [
         'A project that fell short and was published is worth more to the club than a project that succeeded quietly and taught us nothing.',
       ),
     ],
-    image: null,
     author: 'Soala Ogan',
     authorRole: 'Secretary',
     category: 'Leadership & Governance',
     publishedAt: '2026-08-04T09:00:00.000Z',
+    status: 'published',
+  },
+  {
+    // A draft article: it must not appear in the forum until it is published,
+    // exactly like the draft event.
+    _id: 'forumThread-untitled-draft',
+    _type: 'forumThread',
+    title: 'Draft: notes towards a mentoring circle',
+    slug: { _type: 'slug', current: 'notes-towards-a-mentoring-circle' },
+    excerpt:
+      'A working draft. It is still being written and must not be visible in the forum.',
+    body: [
+      textBlock(
+        'thread-draft-1',
+        'normal',
+        'This article is still a draft. It is in the dataset so that the publishing rule can be checked: a draft thread is not listed in the forum, and its page is not reachable.',
+      ),
+    ],
+    author: 'Boma Tariah',
+    authorRole: 'Committee member',
+    category: 'Leadership & Governance',
+    publishedAt: '2026-10-21T09:00:00.000Z',
+    status: 'draft',
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Projects (seeded from the shared demonstration dataset)
+// ---------------------------------------------------------------------------
+
+const projects: SeedDocument[] = [
+  {
+    _id: 'project-buguma-community-hall-rehabilitation',
+    _type: 'project',
+    title: 'Community hall rehabilitation',
+    slug: { _type: 'slug', current: 'buguma-community-hall-rehabilitation' },
+    summary:
+      'Re-roofing, re-wiring and accessibility works at the community hall used for general meetings and youth programmes.',
+    description: [
+      textBlock(
+        'project-buguma-community-hall-rehabilitation-1',
+        'normal',
+        'The hall is the association’s main gathering space. The rehabilitation replaces the leaking roof, modernises the electrical installation and adds a ramped entrance and accessible toilet. Works are carried out in phases so the hall can stay in use.',
+      ),
+      textBlock(
+        'project-buguma-community-hall-rehabilitation-2',
+        'h3',
+        'Expected community benefits: About 1,200 residents who use the hall each year',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-buguma-community-hall-rehabilitation-milestone-0', _type: 'projectMilestone', label: 'Structural survey completed', done: true },
+      { _key: 'project-buguma-community-hall-rehabilitation-milestone-1', _type: 'projectMilestone', label: 'Roof and trusses replaced', done: true },
+      { _key: 'project-buguma-community-hall-rehabilitation-milestone-2', _type: 'projectMilestone', label: 'Electrical installation', done: false },
+      { _key: 'project-buguma-community-hall-rehabilitation-milestone-3', _type: 'projectMilestone', label: 'Accessibility works', done: false },
+      { _key: 'project-buguma-community-hall-rehabilitation-milestone-4', _type: 'projectMilestone', label: 'Handover to the community', done: false },
+    ],
+    category: 'Infrastructure',
+    location: 'Buguma, Asari-Toru',
+    beneficiaries: 'About 1,200 residents who use the hall each year',
+    communityBenefits: [
+      'A safe, dry venue for general meetings and community events',
+      'Step-free access for older members and wheelchair users',
+      'Reliable power for the youth reading room',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-water-sanitation-upgrade',
+    _type: 'project',
+    title: 'Water and sanitation upgrade',
+    slug: { _type: 'slug', current: 'water-sanitation-upgrade' },
+    summary:
+      'A solar-powered borehole and a community sanitation block serving three streets near the waterfront.',
+    description: [
+      textBlock(
+        'project-water-sanitation-upgrade-1',
+        'normal',
+        'The project delivers a solar-powered borehole with a 10,000-litre storage tank and a small sanitation block. A local water committee is trained to maintain the pump, and a modest tariff covers replacement parts.',
+      ),
+      textBlock(
+        'project-water-sanitation-upgrade-2',
+        'h3',
+        'Expected community benefits: Roughly 300 households within walking distance',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-water-sanitation-upgrade-milestone-0', _type: 'projectMilestone', label: 'Hydrogeological survey', done: true },
+      { _key: 'project-water-sanitation-upgrade-milestone-1', _type: 'projectMilestone', label: 'Borehole drilling', done: false },
+      { _key: 'project-water-sanitation-upgrade-milestone-2', _type: 'projectMilestone', label: 'Solar array and tank', done: false },
+      { _key: 'project-water-sanitation-upgrade-milestone-3', _type: 'projectMilestone', label: 'Sanitation block', done: false },
+    ],
+    category: 'Water and sanitation',
+    location: 'Buguma waterfront',
+    beneficiaries: 'Roughly 300 households within walking distance',
+    communityBenefits: [
+      'Reliable clean water during the dry season',
+      'Reduced reliance on vendors and sachet water',
+      'Local maintenance work for two technicians',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-secondary-school-scholarships',
+    _type: 'project',
+    title: 'Secondary school scholarships',
+    slug: { _type: 'slug', current: 'secondary-school-scholarships' },
+    summary:
+      'Means-tested scholarships covering fees, books and transport for twelve students each academic year.',
+    description: [
+      textBlock(
+        'project-secondary-school-scholarships-1',
+        'normal',
+        'The scholarship scheme supports students from households that would otherwise struggle to keep them in school. Awards are means-tested by a panel and reviewed each term. This project page tracks the fund, not individual students.',
+      ),
+      textBlock(
+        'project-secondary-school-scholarships-2',
+        'h3',
+        'Expected community benefits: 12 students each academic year',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-secondary-school-scholarships-milestone-0', _type: 'projectMilestone', label: 'Panel constituted', done: true },
+      { _key: 'project-secondary-school-scholarships-milestone-1', _type: 'projectMilestone', label: 'First cohort awarded', done: true },
+      { _key: 'project-secondary-school-scholarships-milestone-2', _type: 'projectMilestone', label: 'Second cohort awarded', done: true },
+      { _key: 'project-secondary-school-scholarships-milestone-3', _type: 'projectMilestone', label: 'Endowment target reached', done: false },
+    ],
+    category: 'Education',
+    location: 'Buguma and surrounding communities',
+    beneficiaries: '12 students each academic year',
+    communityBenefits: [
+      'Reduced dropout among lower-income households',
+      'A pipeline of young people into tertiary education',
+      'Mentoring by member professionals',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-primary-health-post-equipment',
+    _type: 'project',
+    title: 'Primary health post equipment',
+    slug: { _type: 'slug', current: 'primary-health-post-equipment' },
+    summary:
+      'Diagnostic equipment, a vaccine fridge and maternity supplies for the primary health post.',
+    description: [
+      textBlock(
+        'project-primary-health-post-equipment-1',
+        'normal',
+        'The health post is the first point of care for many families. This project equips it with a working vaccine cold chain, basic diagnostics and safe maternity supplies, and supports refresher training for two nurses.',
+      ),
+      textBlock(
+        'project-primary-health-post-equipment-2',
+        'h3',
+        'Expected community benefits: Families within the health post catchment',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-primary-health-post-equipment-milestone-0', _type: 'projectMilestone', label: 'Needs assessment', done: true },
+      { _key: 'project-primary-health-post-equipment-milestone-1', _type: 'projectMilestone', label: 'Equipment procurement', done: false },
+      { _key: 'project-primary-health-post-equipment-milestone-2', _type: 'projectMilestone', label: 'Nurse refresher training', done: false },
+    ],
+    category: 'Healthcare',
+    location: 'Buguma',
+    beneficiaries: 'Families within the health post catchment',
+    communityBenefits: [
+      'A reliable vaccine cold chain',
+      'Basic diagnostics available locally',
+      'Safer maternity care',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-oral-history-archive',
+    _type: 'project',
+    title: 'Oral history archive',
+    slug: { _type: 'slug', current: 'oral-history-archive' },
+    summary:
+      'Recording, transcribing and archiving the stories of elders, with a public listening room.',
+    description: [
+      textBlock(
+        'project-oral-history-archive-1',
+        'normal',
+        'The archive records interviews with elders, transcribes them, and stores both audio and transcripts. A small listening room lets members and school groups access the collection under supervision.',
+      ),
+      textBlock(
+        'project-oral-history-archive-2',
+        'h3',
+        'Expected community benefits: Members, researchers and school groups',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-oral-history-archive-milestone-0', _type: 'projectMilestone', label: 'Recording equipment acquired', done: true },
+      { _key: 'project-oral-history-archive-milestone-1', _type: 'projectMilestone', label: 'First 40 interviews recorded', done: true },
+      { _key: 'project-oral-history-archive-milestone-2', _type: 'projectMilestone', label: 'Transcription backlog cleared', done: false },
+      { _key: 'project-oral-history-archive-milestone-3', _type: 'projectMilestone', label: 'Listening room opened', done: false },
+    ],
+    category: 'Cultural preservation',
+    location: 'Buguma',
+    beneficiaries: 'Members, researchers and school groups',
+    communityBenefits: [
+      'A permanent record of local knowledge',
+      'Teaching material for schools',
+      'A shared heritage for the diaspora',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-youth-vocational-workshop',
+    _type: 'project',
+    title: 'Youth vocational workshop',
+    slug: { _type: 'slug', current: 'youth-vocational-workshop' },
+    summary:
+      'A shared workshop for tailoring, carpentry and solar maintenance training for young people.',
+    description: [
+      textBlock(
+        'project-youth-vocational-workshop-1',
+        'normal',
+        'The workshop gives school leavers practical skills and a route into work or self-employment. Training runs in short cycles with local artisans as instructors and a starter-toolkit grant on completion.',
+      ),
+      textBlock(
+        'project-youth-vocational-workshop-2',
+        'h3',
+        'Expected community benefits: 40 trainees a year',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-youth-vocational-workshop-milestone-0', _type: 'projectMilestone', label: 'Site identified', done: true },
+      { _key: 'project-youth-vocational-workshop-milestone-1', _type: 'projectMilestone', label: 'Curriculum agreed', done: false },
+      { _key: 'project-youth-vocational-workshop-milestone-2', _type: 'projectMilestone', label: 'Building works', done: false },
+    ],
+    category: 'Youth empowerment',
+    location: 'Buguma',
+    beneficiaries: '40 trainees a year',
+    communityBenefits: [
+      'Practical skills for school leavers',
+      'Support for local artisans',
+      'A route into self-employment',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-river-cleanup-and-mangrove-restoration',
+    _type: 'project',
+    title: 'River clean-up and mangrove restoration',
+    slug: { _type: 'slug', current: 'river-cleanup-and-mangrove-restoration' },
+    summary:
+      'Community clean-ups and mangrove replanting along the creeks with the fisheries cooperative.',
+    description: [
+      textBlock(
+        'project-river-cleanup-and-mangrove-restoration-1',
+        'normal',
+        'Working with the fisheries cooperative, volunteers clear plastic waste from the creeks and replant mangroves in degraded areas. The project also collects simple data on the fish catch to track recovery.',
+      ),
+      textBlock(
+        'project-river-cleanup-and-mangrove-restoration-2',
+        'h3',
+        'Expected community benefits: Fishing households and the wider creek ecosystem',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-river-cleanup-and-mangrove-restoration-milestone-0', _type: 'projectMilestone', label: 'Baseline survey', done: true },
+      { _key: 'project-river-cleanup-and-mangrove-restoration-milestone-1', _type: 'projectMilestone', label: 'First planting season', done: true },
+      { _key: 'project-river-cleanup-and-mangrove-restoration-milestone-2', _type: 'projectMilestone', label: 'Second planting season', done: false },
+    ],
+    category: 'Water and sanitation',
+    location: 'Buguma creeks',
+    beneficiaries: 'Fishing households and the wider creek ecosystem',
+    communityBenefits: [
+      'Healthier nursery grounds for fish',
+      'Less plastic in the creeks',
+      'Better data on the local fishery',
+    ],
+    status: 'published',
+  },
+  {
+    _id: 'project-members-welfare-fund',
+    _type: 'project',
+    title: 'Members’ welfare fund',
+    slug: { _type: 'slug', current: 'members-welfare-fund' },
+    summary:
+      'A modest, confidential fund for members facing bereavement or sudden hardship.',
+    description: [
+      textBlock(
+        'project-members-welfare-fund-1',
+        'normal',
+        'The welfare fund makes small, confidential grants to members and their immediate families at times of bereavement or sudden hardship. Disbursements are recorded in aggregate only, to protect privacy.',
+      ),
+      textBlock(
+        'project-members-welfare-fund-2',
+        'h3',
+        'Expected community benefits: Members and their families',
+      ),
+    ],
+    milestones: [
+      { _key: 'project-members-welfare-fund-milestone-0', _type: 'projectMilestone', label: 'Fund established', done: true },
+      { _key: 'project-members-welfare-fund-milestone-1', _type: 'projectMilestone', label: 'First full year of operation', done: true },
+      { _key: 'project-members-welfare-fund-milestone-2', _type: 'projectMilestone', label: 'Reviewed and re-endowed', done: true },
+    ],
+    category: 'Cultural preservation',
+    location: 'Association-wide',
+    beneficiaries: 'Members and their families',
+    communityBenefits: [
+      'A dignified response to bereavement',
+      'Immediate support in a crisis',
+      'Strengthened member solidarity',
+    ],
+    status: 'published',
   },
 ]
 
@@ -1216,7 +1502,6 @@ const detailPages: SeedDocument[] = [
       title: 'Bring an idea. Share knowledge.',
       intro:
         'A place where members publish what they know, and where the conversation continues in comments and replies.',
-      image: null,
     },
     about: {
       lead:
@@ -1261,7 +1546,6 @@ const detailPages: SeedDocument[] = [
       eyebrow: 'Community Project',
       title: 'School Rehabilitation',
       intro: 'Repairing classrooms and restoring the school garden with community labour.',
-      image: null,
     },
     about: {
       lead:
@@ -1301,7 +1585,6 @@ const detailPages: SeedDocument[] = [
       eyebrow: 'Event',
       title: 'Understanding Personal Investment in Nigeria',
       intro: 'With Dr. Tamuno Briggs · 18 October 2026',
-      image: null,
     },
     about: {
       lead:
@@ -1341,7 +1624,6 @@ const detailPages: SeedDocument[] = [
       eyebrow: 'Article',
       title: 'Community Education in Northbridge',
       intro: 'A look at how local schools and the association work together.',
-      image: null,
     },
     about: {
       lead:
@@ -1381,7 +1663,6 @@ const detailPages: SeedDocument[] = [
       eyebrow: 'Oral History',
       title: 'The Oral History Project',
       intro: 'Recording the stories, experiences and knowledge of our elders before they are lost.',
-      image: null,
     },
     about: {
       lead:
@@ -1421,7 +1702,6 @@ const detailPages: SeedDocument[] = [
       eyebrow: 'Blue Economy Centre',
       title: 'A centre on the water.',
       intro: 'Training, equipment storage and community research for the river economy.',
-      image: null,
     },
     about: {
       lead:
@@ -1463,7 +1743,6 @@ const eventsPage: SeedDocument = {
     eyebrow: 'Events & Media',
     title: "What's happening at BTA",
     intro: 'A calendar of forums, member gatherings, heritage walks and partner events. All times are local.',
-    image: null,
   },
   note: true,
   categories: ['All', 'Knowledge', 'Members', 'Heritage', 'Our People'],
@@ -1476,7 +1755,6 @@ const businessHub: SeedDocument = {
     eyebrow: 'BTA Business Hub',
     title: 'Buy BTA. Support a BTA business.',
     intro: 'A prototype member directory for trusted services, expertise and enterprise.',
-    image: null,
   },
   note: true,
   searchPlaceholder: 'Search by name, expertise or location',
@@ -1496,7 +1774,6 @@ const libraryPage: SeedDocument = {
     eyebrow: 'Knowledge Library',
     title: 'Knowledge, kept in motion.',
     intro: 'Videos, presentations, articles, session summaries, research and community reports.',
-    image: null,
   },
   note: true,
   resources: [
@@ -1550,7 +1827,6 @@ const communityNeeds: SeedDocument = {
     eyebrow: 'Community Needs Register',
     title: "What does your community need?",
     intro: 'Make local needs visible for review by the appropriate BTA committee.',
-    image: null,
   },
   note: true,
   formTitle: 'Submit a community need',
@@ -1574,7 +1850,6 @@ const membershipPage: SeedDocument = {
     eyebrow: 'Membership',
     title: 'Belong. Contribute. Build.',
     intro: 'Join a community of people who care about heritage, knowledge and community development.',
-    image: null,
   },
   note: true,
   steps: [
@@ -1615,7 +1890,6 @@ const events: SeedDocument[] = [
     startDateTime: daysFromNow(0, 10, 0), // 18 October 2026 (today), 10:00 UTC
     location: 'The Old Library Hall, 12 Market Street',
     category: 'knowledge',
-    coverImage: null,
     status: 'published',
     fullDescription: [
       textBlock(
@@ -1639,7 +1913,6 @@ const events: SeedDocument[] = [
     startDateTime: daysFromNow(34, 18, 0), // 21 November 2026
     location: 'The Old Library Hall, 12 Market Street',
     category: 'members',
-    coverImage: null,
     status: 'published',
     fullDescription: [
       textBlock(
@@ -1659,7 +1932,6 @@ const events: SeedDocument[] = [
     startDateTime: daysFromNow(55, 18, 0), // 12 December 2026
     location: 'The Old Library Hall, 12 Market Street',
     category: 'heritage',
-    coverImage: null,
     status: 'published',
     fullDescription: [
       textBlock(
@@ -1679,7 +1951,6 @@ const events: SeedDocument[] = [
     startDateTime: daysFromNow(98, 18, 0), // 24 January 2027
     location: 'The Old Library Hall, 12 Market Street',
     category: 'our-people',
-    coverImage: null,
     status: 'published',
     fullDescription: [
       textBlock(
@@ -1699,7 +1970,6 @@ const events: SeedDocument[] = [
     startDateTime: daysFromNow(14, 19, 0),
     location: 'The Old Library Room, 12 Market Street',
     category: 'members',
-    coverImage: null,
     // Deliberately draft: the website must never show this event even though the
     // document itself is written.
     status: 'draft',
@@ -1737,6 +2007,7 @@ async function main(): Promise<void> {
     ...editorialPages,
     ...detailPages,
     ...forumThreads,
+    ...projects,
     eventsPage,
     businessHub,
     libraryPage,

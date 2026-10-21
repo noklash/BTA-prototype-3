@@ -1,11 +1,10 @@
 /**
  * Studio structure.
  *
- * The desk mirrors the structure of the website: the single pages an editor
- * changes most often come first, then the repeatable content grouped the way
- * the site groups it — pages, the forum, and the event calendar. A document
- * that is a singleton is pinned to its id, so there is never more than one of
- * it and the editor always lands on the right one.
+ * The desk mirrors the structure of the website, but it stays flat: an editor
+ * sees every document type in one scrollable list, with the single pages first
+ * because they are what changes most often. Nothing is nested more than one
+ * level, so the desk never becomes a maze of sub-menus.
  */
 import type { StructureResolver } from 'sanity/structure'
 
@@ -33,74 +32,24 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      // The pages the site is built from
-      S.listItem()
-        .title('Site')
-        .id('site')
-        .child(
-          S.list()
-            .title('Site')
-            .id('site-list')
-            .items([
-              singletonPane(S, 'siteSettings', 'Site settings'),
-              singletonPane(S, 'homepage', 'Home page'),
-              singletonPane(S, 'aboutPage', 'About page'),
-              singletonPane(S, 'eventsPage', 'Events page'),
-              singletonPane(S, 'businessHub', 'Business Hub'),
-              singletonPane(S, 'libraryPage', 'Knowledge Library'),
-              singletonPane(S, 'communityNeeds', 'Community Needs'),
-              singletonPane(S, 'membershipPage', 'Membership page'),
-            ]),
-        ),
+      S.divider(),
+      singletonPane(S, 'siteSettings', 'Site settings'),
+      singletonPane(S, 'homepage', 'Home page'),
+      singletonPane(S, 'aboutPage', 'About page'),
+      singletonPane(S, 'eventsPage', 'Events page'),
+      singletonPane(S, 'businessHub', 'Business Hub'),
+      singletonPane(S, 'libraryPage', 'Knowledge Library'),
+      singletonPane(S, 'communityNeeds', 'Community Needs'),
+      singletonPane(S, 'membershipPage', 'Membership page'),
 
       S.divider(),
+      S.documentTypeListItem('editorialPage').title('Editorial pages'),
+      S.documentTypeListItem('detailPage').title('Detail pages'),
 
-      // Editorial pages and the detail pages behind them
-      S.listItem()
-        .title('Pages')
-        .id('pages')
-        .child(
-          S.list()
-            .title('Pages')
-            .id('pages-list')
-            .items([
-              S.documentTypeListItem('editorialPage').title('Editorial pages'),
-              S.documentTypeListItem('detailPage').title('Detail pages'),
-            ]),
-        ),
+      S.divider(),
+      S.documentTypeListItem('forumThread').title('Forum threads'),
 
-      // The Knowledge & Ideas Forum
-      S.listItem()
-        .title('Forum')
-        .id('forum')
-        .child(
-          S.list()
-            .title('Forum')
-            .id('forum-list')
-            .items([
-              S.documentTypeListItem('forumThread').title('Forum threads'),
-              S.divider(),
-              S.documentTypeListItem('detailPage')
-                .title('Forum landing page')
-                .child(
-                  S.documentList()
-                    .title('Forum landing page')
-                    .filter('_type == "detailPage" && type == "forum"'),
-                ),
-            ]),
-        ),
-
-      // The event calendar and the activities on the home page
-      S.listItem()
-        .title('Events')
-        .id('events')
-        .child(
-          S.list()
-            .title('Events')
-            .id('events-list')
-            .items([
-              S.documentTypeListItem('event').title('Events'),
-              S.documentTypeListItem('featuredActivity').title('Featured activities'),
-            ]),
-        ),
+      S.divider(),
+      S.documentTypeListItem('event').title('Events'),
+      S.documentTypeListItem('featuredActivity').title('Featured activities'),
     ])

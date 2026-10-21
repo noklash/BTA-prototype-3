@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 
 import { formatNaira, progressPercent } from '@/lib/demo/format'
 import { useDemo } from '@/lib/demo/store'
-import type { Application, BusinessListing, KnowledgeResource, Member, MeetingRecord, ModerationStatus, ProjectStage, Volunteer } from '@/lib/demo/types'
+import type { Application, BusinessListing, ForumComment, KnowledgeResource, Member, MeetingRecord, ModerationStatus, ProjectStage, Volunteer } from '@/lib/demo/types'
 
 import { Avatar, Badge, DemoNotice, Metric, MetricGrid, Panel, StatusBadge, Tracker } from './ui'
 
@@ -624,6 +624,75 @@ export function FeedbackTable() {
                     options={['Submitted', 'Under review', 'Published']}
                     onChange={(status) => setFeedbackStatus(entry.id, status)}
                     label={`Status for ${entry.subject}`}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Panel>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Forum moderation.
+ *
+ * The articles themselves are published from Sanity by an editor; what arrives
+ * in this panel is the member discussion under them. A hidden comment stays in
+ * the record and can be published again.
+ */
+export function ForumCommentsTable() {
+  const { data, memberById, setForumCommentStatus } = useDemo()
+
+  const comments = useMemo(
+    () =>
+      [...data.forumComments].sort((a, b) => (a.date < b.date ? 1 : -1)),
+    [data.forumComments],
+  )
+
+  return (
+    <Panel>
+      <h3>Forum discussion</h3>
+      <p>
+        Comments and replies posted by members under the forum articles. Articles themselves are
+        published in Sanity Studio; this panel moderates the conversation.
+      </p>
+
+      <div className="table-wrap">
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Article</th>
+              <th scope="col">Comment</th>
+              <th scope="col">Member</th>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comments.map((comment) => (
+              <tr key={comment.id}>
+                <td className="muted">
+                  {data.forumThreads.find((thread) => thread.slug === comment.threadSlug)?.title ??
+                    comment.threadSlug}
+                </td>
+                <td>
+                  {comment.body}
+                  {comment.replies.length > 0 ? (
+                    <span className="muted"> · {comment.replies.length} replies</span>
+                  ) : null}
+                </td>
+                <td className="muted">{memberById(comment.authorId)?.name ?? 'A member'}</td>
+                <td className="muted">{comment.date}</td>
+                <td>
+                  <StatusSelect<ForumComment['status']>
+                    value={comment.status}
+                    options={['Published', 'Hidden']}
+                    onChange={(status) => setForumCommentStatus(comment.id, status)}
+                    label={`Status for the comment by ${memberById(comment.authorId)?.name ?? 'a member'}`}
                   />
                 </td>
               </tr>

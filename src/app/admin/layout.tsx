@@ -21,6 +21,7 @@ const ADMIN_NAV = [
   { href: '/admin/volunteers', label: 'Volunteers' },
   { href: '/admin/businesses', label: 'Businesses' },
   { href: '/admin/feedback', label: 'Feedback & proposals' },
+  { href: '/admin/forum', label: 'Forum discussion' },
   { href: '/admin/partnerships', label: 'Partnerships' },
   { href: '/admin/roles', label: 'Roles & activity' },
 ]

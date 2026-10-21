@@ -8,9 +8,11 @@ import { PageHero } from '@/components/page-hero'
 import { ButtonLink } from '@/components/ui/button-link'
 import { Section, SectionHeading } from '@/components/ui/section'
 import { ArrowRightIcon } from '@/components/ui/icons'
+import { RichText } from '@/components/portable-text'
 import { DEMO_DATA, findProject } from '@/lib/demo/data'
 import { formatNaira } from '@/lib/demo/format'
 import type { ProjectCategory } from '@/lib/demo/types'
+import { getProjectBySlug } from '@/lib/sanity/content'
 
 interface ProjectRouteProps {
   params: Promise<{ slug: string }>
@@ -48,6 +50,8 @@ export async function generateMetadata({ params }: ProjectRouteProps): Promise<M
 export default async function ProjectPage({ params }: ProjectRouteProps) {
   const { slug } = await params
   const project = findProject(slug)
+  const cmsResult = await getProjectBySlug(slug)
+  const cmsProject = cmsResult.ok ? cmsResult.value : null
 
   if (!project) {
     notFound()
@@ -55,12 +59,23 @@ export default async function ProjectPage({ params }: ProjectRouteProps) {
 
   const budgetLines = DEMO_DATA.budgetLines.filter((line) => line.projectId === project.id)
 
+  // The story is editorial content and comes from the CMS; the figures stay in
+  // the demonstration layer, where the admin area can move a project between
+  // stages and the site has to show it.
+  const title = cmsProject?.title ?? project.name
+  const summary = cmsProject?.summary ?? project.summary
+  const category = cmsProject?.category ?? project.category
+  const location = cmsProject?.location ?? project.location
+  const beneficiaries = cmsProject?.beneficiaries ?? project.beneficiaries
+  const benefits = cmsProject?.communityBenefits ?? project.communityBenefits
+  const milestones = cmsProject?.milestones ?? project.milestones
+
   return (
     <>
       <PageHero
-        eyebrow={`Project · ${project.category}`}
-        title={project.name}
-        intro={project.summary}
+        eyebrow={`Project · ${category}`}
+        title={title}
+        intro={summary}
         prototypeKey={HERO_IMAGE[project.category]}
       />
 
@@ -77,18 +92,22 @@ export default async function ProjectPage({ params }: ProjectRouteProps) {
               </DemoNotice>
 
               <h2>About this project</h2>
-              <p>{project.description}</p>
+              {cmsProject?.description ? (
+                <RichText value={cmsProject.description} />
+              ) : (
+                <p>{project.description}</p>
+              )}
 
               <h3>Expected community benefits</h3>
               <ul>
-                {project.communityBenefits.map((benefit) => (
+                {benefits.map((benefit) => (
                   <li key={benefit}>{benefit}</li>
                 ))}
               </ul>
 
               <h3>Milestones</h3>
               <ul className="timeline">
-                {project.milestones.map((milestone) => (
+                {milestones.map((milestone) => (
                   <li key={milestone.label}>
                     <b>{milestone.label}</b>
                     <small>{milestone.done ? 'Completed' : 'Not yet started'}</small>
@@ -182,7 +201,7 @@ export default async function ProjectPage({ params }: ProjectRouteProps) {
               </p>
 
               <h3>Location</h3>
-              <p>{project.location}</p>
+              <p>{location}</p>
 
               <h3>Funding target</h3>
               <p>{formatNaira(project.fundingTargetNgn)}</p>
@@ -190,7 +209,7 @@ export default async function ProjectPage({ params }: ProjectRouteProps) {
               <Tracker raised={project.raisedNgn} target={project.fundingTargetNgn} formatValue={formatNaira} leftLabel="Raised" />
 
               <h3>Beneficiaries</h3>
-              <p>{project.beneficiaries}</p>
+              <p>{beneficiaries}</p>
 
               <div>
                 <ButtonLink href="/donate" variant="gold">

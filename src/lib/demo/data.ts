@@ -1225,6 +1225,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-004',
       body: 'The order of the three steps is the part I had to learn the hard way. I spent a year investing before I had a buffer, and the first emergency took everything.',
       date: '2026-10-19',
+      status: 'Published',
       replies: [
         {
           id: 'rep-001',
@@ -1246,6 +1247,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-003',
       body: 'Worth adding that the fees question in point three catches people who assume a product is free because no one mentions a charge at the counter.',
       date: '2026-10-20',
+      status: 'Published',
       replies: [],
     },
     {
@@ -1254,6 +1256,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-008',
       body: 'The bookkeeping point is the one our cooperative is still paying for. We started with a spreadsheet and a WhatsApp group, and it is not enough once money is moving between members.',
       date: '2026-10-02',
+      status: 'Published',
       replies: [
         {
           id: 'rep-003',
@@ -1269,6 +1272,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-005',
       body: 'We had a similar disagreement about a supplier, and it was only solved by writing down the buying rule before the next season rather than arguing about the past one.',
       date: '2026-10-05',
+      status: 'Published',
       replies: [],
     },
     {
@@ -1277,6 +1281,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-006',
       body: 'As someone who came from a law background, the advice about answering with a specific example is the most useful thing in this article. My first interview went badly because I only described what I had studied.',
       date: '2026-09-15',
+      status: 'Published',
       replies: [
         {
           id: 'rep-004',
@@ -1292,6 +1297,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-002',
       body: 'The pause point cannot be overstated. Our first recording was unusable because we filled every silence. We now count to five in our heads before speaking.',
       date: '2026-08-24',
+      status: 'Published',
       replies: [],
     },
     {
@@ -1300,6 +1306,7 @@ export const DEMO_DATA: DemoDataset = {
       authorId: 'mem-007',
       body: 'Publishing the shortfalls is the part that will test whether we mean it. If the numbers only appear when they are good, nobody will believe the ones that are not.',
       date: '2026-08-08',
+      status: 'Published',
       replies: [
         {
           id: 'rep-005',

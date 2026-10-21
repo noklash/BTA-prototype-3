@@ -305,6 +305,23 @@ export interface DetailPage {
 }
 
 /**
+ * A project in the bank, as published from the CMS.
+ */
+export interface CmsProject {
+  _id: string
+  title: string
+  slug: string
+  summary: string
+  description: RichTextValue | null
+  image: SanityImageValue | null
+  milestones: { label: string; done: boolean }[] | null
+  category: string
+  location: string
+  beneficiaries: string | null
+  communityBenefits: string[] | null
+}
+
+/**
  * A forum thread: an article shared by a member, with an optional image, that
  * members discuss in comments and replies.
  */

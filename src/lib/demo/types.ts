@@ -398,6 +398,8 @@ export interface ForumComment {
   /** ISO date. */
   date: string
   replies: ForumReply[]
+  /** Whether the comment is visible in the discussion. */
+  status: 'Published' | 'Hidden'
 }
 
 /**

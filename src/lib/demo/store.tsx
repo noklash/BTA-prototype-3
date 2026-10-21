@@ -96,6 +96,8 @@ interface DemoContextValue {
   addForumReply: (threadSlug: string, commentId: string, body: string) => ForumReply | null
   /** The comments on a thread, oldest first, with their replies. */
   commentsForThread: (threadSlug: string) => ForumComment[]
+  /** Publishes or hides a comment. Hidden comments stay in the record. */
+  setForumCommentStatus: (id: string, status: ForumComment['status']) => void
   setFeedbackStatus: (id: string, status: ModerationStatus, response?: string | null) => void
   setApplicationStatus: (id: string, status: Application['status']) => void
   setVolunteerStatus: (id: string, status: Volunteer['status']) => void
@@ -401,7 +403,10 @@ export function DemoProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const commentsForThread = useCallback(
-    (threadSlug: string) => data.forumComments.filter((comment) => comment.threadSlug === threadSlug),
+    (threadSlug: string) =>
+      data.forumComments.filter(
+        (comment) => comment.threadSlug === threadSlug && comment.status === 'Published',
+      ),
     [data.forumComments],
   )
 
@@ -417,6 +422,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       body: body.trim(),
       date: todayIso(),
       replies: [],
+      status: 'Published',
     }
 
     setData((previous) => ({
@@ -472,6 +478,28 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       return reply
     },
     [session],
+  )
+
+  const setForumCommentStatus = useCallback<DemoContextValue['setForumCommentStatus']>(
+    (id, status) => {
+      setData((previous) => ({
+        ...previous,
+        forumComments: previous.forumComments.map((comment) =>
+          comment.id === id ? { ...comment, status } : comment,
+        ),
+        activity: [
+          {
+            id: nextId('act'),
+            date: todayIso(),
+            actor: 'Administrator',
+            action: `${status === 'Hidden' ? 'Hid' : 'Published'} a forum comment`,
+            target: id,
+          },
+          ...previous.activity,
+        ],
+      }))
+    },
+    [],
   )
 
   const setFeedbackStatus = useCallback<DemoContextValue['setFeedbackStatus']>(
@@ -591,6 +619,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       commentsForThread,
       addForumComment,
       addForumReply,
+      setForumCommentStatus,
       setFeedbackStatus,
       setApplicationStatus,
       setVolunteerStatus,
@@ -622,6 +651,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       commentsForThread,
       addForumComment,
       addForumReply,
+      setForumCommentStatus,
       setFeedbackStatus,
       setApplicationStatus,
       setVolunteerStatus,

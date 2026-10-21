@@ -105,16 +105,31 @@ export const forumThread = defineType({
       group: 'meta',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      group: 'meta',
+      description: 'Only published threads appear in the forum.',
+      options: {
+        layout: 'radio',
+        list: [
+          { title: 'Published', value: 'published' },
+          { title: 'Draft', value: 'draft' },
+        ],
+      },
+      initialValue: 'published',
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {
       title: 'title',
       author: 'author',
       category: 'category',
-      publishedAt: 'publishedAt',
       media: 'image',
     },
-    prepare: ({ title, author, category, publishedAt, media }) => ({
+    prepare: ({ title, author, category, media }) => ({
       title: title ?? 'Forum thread',
       subtitle: [author, category].filter(Boolean).join(' · ') || undefined,
       media,

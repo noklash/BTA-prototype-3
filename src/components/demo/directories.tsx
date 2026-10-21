@@ -30,16 +30,50 @@ function matches(text: string, query: string): boolean {
 
 /* -------------------------------------------------------------------------- */
 
-export function ProjectDirectory() {
+/**
+ * The project bank directory.
+ *
+ * The stories (title, summary, location, category) come from the CMS and are
+ * passed in by the server-rendered page; the figures (stage, budget, funding
+ * raised) come from the demonstration store, so a stage change made in the
+ * admin area is reflected here immediately, in the same browser.
+ */
+export function ProjectDirectory({
+  overrides = [],
+}: {
+  overrides?: { slug: string; name: string; summary: string; location: string; category: string }[]
+}) {
   const { data } = useDemo()
   const { query, setQuery, filter, setFilter } = useFilterState()
 
-  const categories = useMemo(
-    () => ['All', ...Array.from(new Set(data.projects.map((project) => project.category)))],
-    [data.projects],
+  const bySlug = useMemo(
+    () => new Map(overrides.map((project) => [project.slug, project])),
+    [overrides],
   )
 
-  const filtered = data.projects.filter((project) => {
+  const projects = useMemo(
+    () =>
+      data.projects.map((project) => {
+        const override = bySlug.get(project.slug)
+        return override
+          ? {
+              ...project,
+              name: override.name,
+              summary: override.summary,
+              location: override.location,
+              category: override.category,
+            }
+          : project
+      }),
+    [data.projects, bySlug],
+  )
+
+  const categories = useMemo(
+    () => ['All', ...Array.from(new Set(projects.map((project) => project.category)))],
+    [projects],
+  )
+
+  const filtered = projects.filter((project) => {
     const inCategory = filter === 'all' || filter === 'All' || project.category === filter
     return inCategory && matches(`${project.name} ${project.summary} ${project.location}`, query)
   })
