@@ -2979,7 +2979,7 @@
       inset: 74px 0 0;
       z-index: 31;
       display: flex;
-      padding: 20px 20px 30px;
+      padding: 16px 20px 24px;
       flex-direction: column;
       /* The panel fills the space below the header and scrolls internally, so
          every link and both actions stay reachable on a short screen. */
@@ -2991,11 +2991,14 @@
     }
 
     .mobile-nav > a:not(.btn) {
-      padding: 13px 4px;
+      /* The link rows are sized against the viewport height, so the whole menu
+         fits on one screen on a phone without needing to scroll. */
+      padding: clamp(7px, 1.3vh, 13px) 4px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--line);
-      font: 600 23px var(--serif);
+      font: 600 clamp(18px, 2.4vh, 23px) var(--serif);
     }
 
     .mobile-nav > a[aria-current='page'] {
@@ -3003,7 +3006,7 @@
     }
 
     .mobile-nav .btn {
-      margin-top: 12px;
+      margin-top: clamp(8px, 1.2vh, 12px);
     }
 
     .hero {

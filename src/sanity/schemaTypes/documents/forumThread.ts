@@ -92,7 +92,7 @@ export const forumThread = defineType({
       group: 'meta',
       options: {
         layout: 'radio',
-        list: FORUM_CATEGORIES,
+        list: [...FORUM_CATEGORIES],
       },
       validation: (rule) => rule.required(),
     }),
