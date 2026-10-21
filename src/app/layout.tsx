@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Manrope } from 'next/font/google'
+import localFont from 'next/font/local'
 import type { ReactNode } from 'react'
 
 import { SiteFooter } from '@/components/site-footer'
@@ -14,22 +14,37 @@ import './globals.css'
 /**
  * Two typefaces only: Cormorant Garamond for display type and Manrope for
  * everything else — the pairing the design system in `globals.css` expects
- * (`--serif` / `--sans`). Both are self-hosted by `next/font`, so there is no
- * render-blocking request to a third-party font CDN and no layout shift.
+ * (`--serif` / `--sans`).
+ *
+ * Both are self-hosted from `src/app/fonts` with `next/font/local`, so the
+ * build never downloads a font, the page never makes a third-party font
+ * request, and there is no layout shift. (The woff2 files are the Latin subset
+ * of the Google Fonts originals, redistributed under the SIL Open Font License;
+ * see `src/app/fonts/OFL.txt`.)
  */
-const bodyFont = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+const bodyFont = localFont({
+  src: [
+    { path: './fonts/manrope-400-latin.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/manrope-500-latin.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/manrope-600-latin.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/manrope-700-latin.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-body',
+  display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
+  adjustFontFallback: false,
 })
 
-const displayFont = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  style: ['normal', 'italic'],
-  display: 'swap',
+const displayFont = localFont({
+  src: [
+    { path: './fonts/cormorant-garamond-500-latin.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/cormorant-garamond-600-latin.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/cormorant-garamond-500-italic-latin.woff2', weight: '500', style: 'italic' },
+  ],
   variable: '--font-display-family',
+  display: 'swap',
+  fallback: ['Georgia', 'serif'],
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
