@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { CommunityNeedsForm } from '@/components/demo/community-needs-form'
@@ -10,9 +11,11 @@ import { getCommunityNeeds } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Community Needs',
-  description: 'Make local needs visible for review by the appropriate Bainbo Taria Awo Club committee.',
-  alternates: { canonical: '/community-needs' },
+  ...buildMetadata({
+    title: 'Community Needs',
+    description: 'Make local needs visible for review by the appropriate Bainbo Taria Awo Club committee.',
+    path: "/community-needs",
+  }),
 }
 
 export default async function CommunityNeedsPage() {

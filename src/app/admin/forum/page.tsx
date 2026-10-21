@@ -1,12 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { ForumCommentsTable } from '@/components/demo/admin'
 import { AppHead, DemoNotice } from '@/components/demo/ui'
 
 export const metadata: Metadata = {
-  title: 'Forum',
-  description: 'Moderate the discussion under the forum articles.',
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Forum',
+    description: 'Moderate the discussion under the forum articles.',
+    path: "/admin/forum",
+    noIndex: true,
+  }),
 }
 
 /**

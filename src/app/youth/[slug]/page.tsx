@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -26,11 +27,14 @@ export async function generateMetadata({ params }: OpportunityRouteProps): Promi
     return { title: 'Opportunity not found', robots: { index: false, follow: false } }
   }
 
-  return {
+  return buildMetadata({
     title: opportunity.title,
     description: opportunity.summary,
-    alternates: { canonical: `/youth/${opportunity.slug}` },
-  }
+    path: `/youth/${opportunity.slug}`,
+    type: 'article',
+    publishedTime: opportunity.deadline ?? undefined,
+    section: opportunity.kind,
+  })
 }
 
 export default async function OpportunityPage({ params }: OpportunityRouteProps) {

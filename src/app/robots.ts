@@ -16,7 +16,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/studio', '/api/', '/portal', '/admin'],
+        // The social sharing image is a public asset and must stay crawlable.
+        disallow: ['/studio', '/api/membership-inquiry', '/api/revalidate', '/portal', '/admin'],
       },
     ],
     sitemap: new URL('/sitemap.xml', baseUrl).toString(),

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { Badge, DemoNotice, Panel } from '@/components/demo/ui'
@@ -7,10 +8,11 @@ import { ButtonLink } from '@/components/ui/button-link'
 import { Section, SectionHeading } from '@/components/ui/section'
 
 export const metadata: Metadata = {
-  title: 'Roadmap',
-  description:
-    'The committee’s phased implementation roadmap, showing what Prototype 3 demonstrates, what is simulated, and what requires future production development.',
-  alternates: { canonical: '/roadmap' },
+  ...buildMetadata({
+    title: 'Roadmap',
+    description: 'The committee’s phased implementation roadmap, showing what Prototype 3 demonstrates, what is simulated, and what requires future production development.',
+    path: "/roadmap",
+  }),
 }
 
 interface Phase {

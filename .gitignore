@@ -29,3 +29,9 @@ yarn-debug.log*
 yarn-error.log*
 .vercel
 *.tsbuildinfo
+
+build.log
+buiild2.log
+build3.log
+build4.log
+build5.log

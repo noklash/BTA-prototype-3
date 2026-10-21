@@ -1,13 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DuesPanel } from '@/components/demo/portal'
 import { AppHead } from '@/components/demo/ui'
 
 export const metadata: Metadata = {
-  title: 'Dues & receipts · Members’ Portal',
-  description: 'Demonstration dues status, payment history and simulated receipts.',
-  alternates: { canonical: '/portal/dues' },
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Dues & receipts · Members’ Portal',
+    description: 'Demonstration dues status, payment history and simulated receipts.',
+    path: "/portal/dues",
+    noIndex: true,
+  }),
 }
 
 export default function PortalDuesPage() {

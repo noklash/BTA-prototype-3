@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DemonstrationNote } from '@/components/demonstration-note'
@@ -12,10 +13,11 @@ import { PartnerBand } from '@/components/call-to-action'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'About BTA',
-  description:
-    'The background, history, mission and values of Bainbo Taria Awo Club.',
-  alternates: { canonical: '/about' },
+  ...buildMetadata({
+    title: 'About BTA',
+    description: 'The background, history, mission and values of Bainbo Taria Awo Club.',
+    path: "/about",
+  }),
 }
 
 export default async function AboutPage() {

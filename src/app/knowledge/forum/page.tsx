@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { ForumIndex, type ForumListItem } from '@/components/demo/forum'
@@ -16,10 +17,11 @@ import type { ForumThread } from '@/types/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Knowledge & Ideas Forum',
-  description:
-    'The BTA Knowledge & Ideas Forum: articles shared by members, with comments and replies that keep the conversation going.',
-  alternates: { canonical: '/knowledge/forum' },
+  ...buildMetadata({
+    title: 'Knowledge & Ideas Forum',
+    description: 'The BTA Knowledge & Ideas Forum: articles shared by members, with comments and replies that keep the conversation going.',
+    path: "/knowledge/forum",
+  }),
 }
 
 /** The copy used when the CMS copy for the forum cannot be read. */

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { BusinessDirectory } from '@/components/demo/directories'
@@ -13,10 +14,11 @@ import { getBusinessHub } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Business Hub',
-  description:
-    'Buy BTA. A searchable directory of illustrative member businesses, professional services and cooperative opportunities, with a submission form.',
-  alternates: { canonical: '/enterprise/business-hub' },
+  ...buildMetadata({
+    title: 'Business Hub',
+    description: 'Buy BTA. A searchable directory of illustrative member businesses, professional services and cooperative opportunities, with a submission form.',
+    path: "/enterprise/business-hub",
+  }),
 }
 
 /**

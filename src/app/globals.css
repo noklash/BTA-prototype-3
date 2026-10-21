@@ -127,7 +127,7 @@
   }
 
   .section {
-    padding: 108px 0;
+    padding: 84px 0;
   }
 
   .eyebrow {
@@ -150,7 +150,7 @@
 
   .section-head {
     max-width: 700px;
-    margin-bottom: 55px;
+    margin-bottom: 40px;
   }
 
   .section-head h1,
@@ -587,8 +587,8 @@
   }
 
   .note {
-    margin-top: 34px;
-    padding: 10px 15px;
+    margin-top: 26px;
+    padding: 9px 14px;
     border-left: 2px solid var(--gold);
     background: #f8f3e5;
     color: #75694b;
@@ -3083,7 +3083,7 @@
   }
 
   .demo-strip {
-    margin: 0 0 26px;
+    margin: 0 0 20px;
     padding: 12px 16px;
     border-left: 2px solid var(--gold);
     background: #f8f3e5;
@@ -3271,7 +3271,7 @@
     }
 
     .section {
-      padding: 78px 0;
+      padding: 68px 0;
     }
 
     .utility,
@@ -3421,7 +3421,7 @@
     }
 
     .section {
-      padding: 62px 0;
+      padding: 54px 0;
     }
 
     .section-head {

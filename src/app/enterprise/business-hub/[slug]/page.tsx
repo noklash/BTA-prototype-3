@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -27,11 +28,14 @@ export async function generateMetadata({ params }: BusinessRouteProps): Promise<
     return { title: 'Listing not found', robots: { index: false, follow: false } }
   }
 
-  return {
+  return buildMetadata({
     title: business.name,
     description: business.description,
-    alternates: { canonical: `/enterprise/business-hub/${business.slug}` },
-  }
+    path: `/enterprise/business-hub/${business.slug}`,
+    type: 'article',
+    section: business.category,
+    keywords: [business.category, business.location, 'BTA member business'].filter(Boolean),
+  })
 }
 
 export default async function BusinessPage({ params }: BusinessRouteProps) {

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { FeedbackBoard } from '@/components/demo/directories'
@@ -8,10 +9,11 @@ import { PageHero } from '@/components/page-hero'
 import { Section, SectionHeading } from '@/components/ui/section'
 
 export const metadata: Metadata = {
-  title: 'Feedback & Engagement',
-  description:
-    'Send suggestions, survey responses, project proposals or general feedback, and follow how each entry is handled.',
-  alternates: { canonical: '/feedback' },
+  ...buildMetadata({
+    title: 'Feedback & Engagement',
+    description: 'Send suggestions, survey responses, project proposals or general feedback, and follow how each entry is handled.',
+    path: "/feedback",
+  }),
 }
 
 export default function FeedbackPage() {

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { OpportunityDirectory } from '@/components/demo/directories'
@@ -9,10 +10,11 @@ import { Section, SectionHeading } from '@/components/ui/section'
 import { DEMO_DATA, computeDemoStats } from '@/lib/demo/data'
 
 export const metadata: Metadata = {
-  title: 'Youth & Scholarships',
-  description:
-    'Scholarships, internships, mentoring, vocational training and career resources for young people, with an application workflow.',
-  alternates: { canonical: '/youth' },
+  ...buildMetadata({
+    title: 'Youth & Scholarships',
+    description: 'Scholarships, internships, mentoring, vocational training and career resources for young people, with an application workflow.',
+    path: "/youth",
+  }),
 }
 
 export default function YouthPage() {

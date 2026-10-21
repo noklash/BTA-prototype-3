@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { LeadershipTeaser } from '@/components/demo/leadership'
@@ -7,9 +8,11 @@ import { getEditorialPageByKind } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Our People',
-  description: 'The people behind Bainbo Taria Awo Club — the volunteer committee and programme leads.',
-  alternates: { canonical: '/our-people' },
+  ...buildMetadata({
+    title: 'Our People',
+    description: 'The people behind Bainbo Taria Awo Club — the volunteer committee and programme leads.',
+    path: "/our-people",
+  }),
 }
 
 export default async function OurPeoplePage() {

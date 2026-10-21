@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DemonstrationNote } from '@/components/demonstration-note'
@@ -11,10 +12,11 @@ import { valueOrNull } from '@/lib/sanity/fetch'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Membership',
-  description:
-    'Who can join Bainbo Taria Awo Club, what membership includes, how the process works and how to express your interest.',
-  alternates: { canonical: '/membership' },
+  ...buildMetadata({
+    title: 'Membership',
+    description: 'Who can join Bainbo Taria Awo Club, what membership includes, how the process works and how to express your interest.',
+    path: "/membership",
+  }),
 }
 
 const MEMBERSHIP_SECTIONS = [

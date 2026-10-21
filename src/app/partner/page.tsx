@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { PartnershipForm } from '@/components/demo/public-forms'
@@ -13,10 +14,11 @@ import { getEditorialPageByKind } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Partner',
-  description:
-    'Development priorities, sample project briefs, accountability information and a partnership enquiry form for agencies, foundations, sponsors and diaspora contributors.',
-  alternates: { canonical: '/partner' },
+  ...buildMetadata({
+    title: 'Partner',
+    description: 'Development priorities, sample project briefs, accountability information and a partnership enquiry form for agencies, foundations, sponsors and diaspora contributors.',
+    path: "/partner",
+  }),
 }
 
 /**

@@ -1,13 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { MemberDirectory } from '@/components/demo/portal'
 import { AppHead } from '@/components/demo/ui'
 
 export const metadata: Metadata = {
-  title: 'Members’ directory · Members’ Portal',
-  description: 'An opt-in, privacy-conscious members’ directory.',
-  alternates: { canonical: '/portal/directory' },
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Members’ directory · Members’ Portal',
+    description: 'An opt-in, privacy-conscious members’ directory.',
+    path: "/portal/directory",
+    noIndex: true,
+  }),
 }
 
 export default function PortalDirectoryPage() {

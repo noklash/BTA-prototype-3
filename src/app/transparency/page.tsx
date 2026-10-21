@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { BeforeAfter, Badge, DemoNotice, Metric, MetricGrid, Tracker } from '@/components/demo/ui'
@@ -9,10 +10,11 @@ import { DEMO_DATA, computeDemoStats } from '@/lib/demo/data'
 import { formatCompactNaira, formatNaira, progressPercent } from '@/lib/demo/format'
 
 export const metadata: Metadata = {
-  title: 'Transparency & Accountability',
-  description:
-    'Illustrative financial summaries, project budgets, expenditure and progress reporting for the Bainbo Taria Awo Club demonstration.',
-  alternates: { canonical: '/transparency' },
+  ...buildMetadata({
+    title: 'Transparency & Accountability',
+    description: 'Illustrative financial summaries, project budgets, expenditure and progress reporting for the Bainbo Taria Awo Club demonstration.',
+    path: "/transparency",
+  }),
 }
 
 export default function TransparencyPage() {

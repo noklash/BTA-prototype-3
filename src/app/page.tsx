@@ -6,6 +6,7 @@ import { PartnerBand } from '@/components/call-to-action'
 import { SanityImage } from '@/components/sanity-image'
 import { ButtonLink } from '@/components/ui/button-link'
 import { Section, SectionHeading } from '@/components/ui/section'
+import { StructuredData } from '@/components/structured-data'
 import { ContentErrorState, StateMessage } from '@/components/ui/state-message'
 import { getEvents, getHomepage } from '@/lib/sanity/content'
 import { partitionEvents } from '@/lib/events'
@@ -39,6 +40,18 @@ export default async function HomePage() {
 
   return (
     <>
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Bainbo Taria Awo Club',
+          alternateName: 'BTA',
+          slogan: 'Our heritage. Our people. Our future.',
+          url: '/',
+          logo: '/icon.svg',
+        }}
+      />
+
       <Hero homepage={homepage} />
 
       <IntroBlock intro={homepage} />

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { VolunteerForm } from '@/components/demo/public-forms'
@@ -9,10 +10,11 @@ import { Section, SectionHeading } from '@/components/ui/section'
 import { DEMO_DATA } from '@/lib/demo/data'
 
 export const metadata: Metadata = {
-  title: 'Volunteer Skills',
-  description:
-    'Register professional skills and areas of expertise so volunteers can be matched with community projects, locally or remotely.',
-  alternates: { canonical: '/volunteer' },
+  ...buildMetadata({
+    title: 'Volunteer Skills',
+    description: 'Register professional skills and areas of expertise so volunteers can be matched with community projects, locally or remotely.',
+    path: "/volunteer",
+  }),
 }
 
 const CATEGORIES = [

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { KnowledgeDirectory } from '@/components/demo/directories'
@@ -12,10 +13,11 @@ import { getLibraryPage } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Knowledge Hub',
-  description:
-    'Articles, research, webinars and resources shared by community professionals, academics, entrepreneurs and leaders, plus the club knowledge library.',
-  alternates: { canonical: '/library' },
+  ...buildMetadata({
+    title: 'Knowledge Hub',
+    description: 'Articles, research, webinars and resources shared by community professionals, academics, entrepreneurs and leaders, plus the club knowledge library.',
+    path: "/library",
+  }),
 }
 
 /**

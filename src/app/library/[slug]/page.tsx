@@ -7,8 +7,10 @@ import { DemonstrationNote } from '@/components/demonstration-note'
 import { PageHero } from '@/components/page-hero'
 import { ButtonLink } from '@/components/ui/button-link'
 import { Section, SectionHeading } from '@/components/ui/section'
+import { articleSchema, breadcrumbSchema, StructuredData } from '@/components/structured-data'
 import { DEMO_DATA, findKnowledgeResource } from '@/lib/demo/data'
 import { formatDemoDate } from '@/lib/demo/format'
+import { buildMetadata } from '@/lib/metadata'
 
 interface KnowledgeRouteProps {
   params: Promise<{ slug: string }>
@@ -26,11 +28,15 @@ export async function generateMetadata({ params }: KnowledgeRouteProps): Promise
     return { title: 'Contribution not found', robots: { index: false, follow: false } }
   }
 
-  return {
+  return buildMetadata({
     title: item.title,
     description: item.summary,
-    alternates: { canonical: `/library/${item.slug}` },
-  }
+    path: `/library/${item.slug}`,
+    type: 'article',
+    authors: [item.author],
+    section: item.kind,
+    keywords: [item.kind, ...item.topics].filter(Boolean),
+  })
 }
 
 export default async function KnowledgeResourcePage({ params }: KnowledgeRouteProps) {
@@ -43,6 +49,25 @@ export default async function KnowledgeResourcePage({ params }: KnowledgeRoutePr
 
   return (
     <>
+      <StructuredData
+        data={{
+          ...articleSchema({
+            headline: item.title,
+            description: item.summary,
+            path: `/library/${item.slug}`,
+            publishedAt: item.date,
+            author: item.author,
+            section: item.kind,
+            wordCount: item.body.join(' ').split(/\s+/).length,
+          }),
+          ...breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Knowledge hub', path: '/library' },
+            { name: item.title, path: `/library/${item.slug}` },
+          ]),
+        }}
+      />
+
       <PageHero
         eyebrow={`${item.kind} · Knowledge hub`}
         title={item.title}

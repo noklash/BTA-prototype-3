@@ -5,10 +5,12 @@ import { ForumDiscussion } from '@/components/demo/forum'
 import { DemonstrationNote } from '@/components/demonstration-note'
 import { PageHero } from '@/components/page-hero'
 import { RichText } from '@/components/portable-text'
+import { articleSchema, breadcrumbSchema, StructuredData } from '@/components/structured-data'
 import { ButtonLink } from '@/components/ui/button-link'
 import { Section } from '@/components/ui/section'
 import { prototypeImage, type PrototypeImageKey } from '@/content/prototype-images'
 import { DEMO_DATA } from '@/lib/demo/data'
+import { buildMetadata } from '@/lib/metadata'
 import { getForumThreadBySlug, getForumThreads } from '@/lib/sanity/content'
 
 export const revalidate = 120
@@ -45,11 +47,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ? thread.value.excerpt
       : (mock?.excerpt ?? 'A discussion on the BTA Knowledge & Ideas Forum.')
 
-  return {
+  const author = thread.ok && thread.value ? thread.value.author : mock?.author
+  const published = thread.ok && thread.value ? thread.value.publishedAt : mock?.date
+  const category = thread.ok && thread.value ? thread.value.category : mock?.category
+
+  return buildMetadata({
     title,
     description,
-    alternates: { canonical: `/knowledge/forum/${slug}` },
-  }
+    path: `/knowledge/forum/${slug}`,
+    type: 'article',
+    publishedTime: published,
+    authors: author ? [author] : undefined,
+    section: category,
+    keywords: [category, 'BTA forum', 'members’ discussion'].filter(Boolean) as string[],
+  })
 }
 
 /**
@@ -77,6 +88,25 @@ export default async function ForumThreadPage({ params }: PageProps) {
 
   return (
     <>
+      <StructuredData
+        data={{
+          ...articleSchema({
+            headline: title,
+            description: excerpt,
+            path: `/knowledge/forum/${slug}`,
+            publishedAt: thread?.publishedAt ?? mock?.date,
+            author,
+            section: category,
+          }),
+          ...breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Knowledge', path: '/knowledge' },
+            { name: 'Forum', path: '/knowledge/forum' },
+            { name: title, path: `/knowledge/forum/${slug}` },
+          ]),
+        }}
+      />
+
       <PageHero
         eyebrow={category}
         title={title}

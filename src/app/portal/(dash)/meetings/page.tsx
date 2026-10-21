@@ -1,13 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { AppHead, Badge, DemoNotice, Panel } from '@/components/demo/ui'
 import { DEMO_DATA } from '@/lib/demo/data'
 
 export const metadata: Metadata = {
-  title: 'Meetings & records · Members’ Portal',
-  description: 'Meeting notices, agendas, approved minutes and official circulars.',
-  alternates: { canonical: '/portal/meetings' },
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Meetings & records · Members’ Portal',
+    description: 'Meeting notices, agendas, approved minutes and official circulars.',
+    path: "/portal/meetings",
+    noIndex: true,
+  }),
 }
 
 const KINDS = ['Notice', 'Agenda', 'Minutes', 'Circular'] as const

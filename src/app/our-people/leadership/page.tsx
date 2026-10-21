@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { LeadershipGrid, leadershipEntries } from '@/components/demo/leadership'
@@ -9,10 +10,11 @@ import { Section, SectionHeading } from '@/components/ui/section'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Leadership',
-  description:
-    'The Bainbo Taria Awo Club committee: names, offices, remits and the members who hold them.',
-  alternates: { canonical: '/our-people/leadership' },
+  ...buildMetadata({
+    title: 'Leadership',
+    description: 'The Bainbo Taria Awo Club committee: names, offices, remits and the members who hold them.',
+    path: "/our-people/leadership",
+  }),
 }
 
 /**

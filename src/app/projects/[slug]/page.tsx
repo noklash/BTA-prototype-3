@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -40,11 +41,14 @@ export async function generateMetadata({ params }: ProjectRouteProps): Promise<M
     return { title: 'Project not found', robots: { index: false, follow: false } }
   }
 
-  return {
+  return buildMetadata({
     title: project.name,
     description: project.summary,
-    alternates: { canonical: `/projects/${project.slug}` },
-  }
+    path: `/projects/${project.slug}`,
+    type: 'article',
+    section: project.category,
+    keywords: [project.category, project.location, 'BTA project'].filter(Boolean),
+  })
 }
 
 export default async function ProjectPage({ params }: ProjectRouteProps) {

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -13,9 +14,11 @@ import { ArrowRightIcon } from '@/components/ui/icons'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'News',
-  description: 'Latest news and stories from Bainbo Taria Awo Club.',
-  alternates: { canonical: '/news' },
+  ...buildMetadata({
+    title: 'News',
+    description: 'Latest news and stories from Bainbo Taria Awo Club.',
+    path: "/news",
+  }),
 }
 
 export default async function NewsPage() {

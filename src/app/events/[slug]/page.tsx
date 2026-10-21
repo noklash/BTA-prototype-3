@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -41,17 +42,15 @@ export async function generateMetadata({ params }: EventRouteProps): Promise<Met
   const event = result.value
   const coverImageUrl = buildImageUrl(event.coverImage, 1200)
 
-  return {
+  return buildMetadata({
     title: event.title,
-    description: event.summary ?? undefined,
-    alternates: { canonical: `/events/${event.slug}` },
-    openGraph: {
-      type: 'article',
-      title: event.title,
-      description: event.summary ?? undefined,
-      images: coverImageUrl ? [{ url: coverImageUrl, alt: event.coverImage?.alt ?? event.title }] : undefined,
-    },
-  }
+    description: event.summary ?? 'An event from the Bainbo Taria Awo Club.',
+    path: `/events/${event.slug}`,
+    type: 'article',
+    publishedTime: event.startDateTime ?? undefined,
+    section: event.category ?? undefined,
+    image: coverImageUrl ?? undefined,
+  })
 }
 
 export default async function EventPage({ params }: EventRouteProps) {

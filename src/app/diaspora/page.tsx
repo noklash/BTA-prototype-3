@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DiasporaForm } from '@/components/demo/public-forms'
@@ -9,10 +10,11 @@ import { Section, SectionHeading } from '@/components/ui/section'
 import { DEMO_DATA, computeDemoStats } from '@/lib/demo/data'
 
 export const metadata: Metadata = {
-  title: 'Diaspora Hub',
-  description:
-    'For members abroad: register with the diaspora hub, volunteer remotely, mentor young people and take part in community projects.',
-  alternates: { canonical: '/diaspora' },
+  ...buildMetadata({
+    title: 'Diaspora Hub',
+    description: 'For members abroad: register with the diaspora hub, volunteer remotely, mentor young people and take part in community projects.',
+    path: "/diaspora",
+  }),
 }
 
 const WAYS = [

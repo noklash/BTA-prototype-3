@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { ProjectDirectory } from '@/components/demo/directories'
@@ -11,10 +12,11 @@ import { formatCompactNaira } from '@/lib/demo/format'
 import { getProjects } from '@/lib/sanity/content'
 
 export const metadata: Metadata = {
-  title: 'Project Bank',
-  description:
-    'A searchable directory of proposed, approved, ongoing and completed Bainbo Taria Awo Club community projects, with budgets, funding targets and progress.',
-  alternates: { canonical: '/projects' },
+  ...buildMetadata({
+    title: 'Project Bank',
+    description: 'A searchable directory of proposed, approved, ongoing and completed Bainbo Taria Awo Club community projects, with budgets, funding targets and progress.',
+    path: "/projects",
+  }),
 }
 
 export default async function ProjectsPage() {

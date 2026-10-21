@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DemonstrationNote } from '@/components/demonstration-note'
@@ -11,10 +12,11 @@ import { getEvents, getEventsPage } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: "What's happening at BTA",
-  description:
-    'A calendar of forums, member gatherings, heritage walks and partner events hosted by Bainbo Taria Awo Club.',
-  alternates: { canonical: '/events' },
+  ...buildMetadata({
+    title: "What's happening at BTA",
+    description: 'A calendar of forums, member gatherings, heritage walks and partner events hosted by Bainbo Taria Awo Club.',
+    path: "/events",
+  }),
 }
 
 export default async function EventsPage() {

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DemonstrationNote } from '@/components/demonstration-note'
@@ -9,9 +10,11 @@ import { getMembershipPage } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Support BTA',
-  description: 'Support Bainbo Taria Awo Club — one-off gifts, regular giving or partner-level contributions.',
-  alternates: { canonical: '/support' },
+  ...buildMetadata({
+    title: 'Support BTA',
+    description: 'Support Bainbo Taria Awo Club — one-off gifts, regular giving or partner-level contributions.',
+    path: "/support",
+  }),
 }
 
 export default async function SupportPage() {

@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { PortalLogin } from '@/components/demo/portal'
@@ -6,10 +7,12 @@ import { PageHero } from '@/components/page-hero'
 import { Section } from '@/components/ui/section'
 
 export const metadata: Metadata = {
-  title: 'Members’ Portal — Sign in',
-  description: 'Demonstration sign-in for the Bainbo Taria Awo Club members’ portal.',
-  alternates: { canonical: '/portal/login' },
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Members’ Portal — Sign in',
+    description: 'Demonstration sign-in for the Bainbo Taria Awo Club members’ portal.',
+    path: "/portal/login",
+    noIndex: true,
+  }),
 }
 
 export default function PortalLoginPage() {

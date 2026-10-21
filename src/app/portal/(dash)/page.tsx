@@ -1,13 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { PortalDashboard } from '@/components/demo/portal'
 import { AppHead } from '@/components/demo/ui'
 
 export const metadata: Metadata = {
-  title: 'Members’ Portal',
-  description: 'Demonstration members’ portal for Bainbo Taria Awo Club.',
-  alternates: { canonical: '/portal' },
-  robots: { index: false, follow: false },
+  ...buildMetadata({
+    title: 'Members’ Portal',
+    description: 'Demonstration members’ portal for Bainbo Taria Awo Club.',
+    path: "/portal",
+    noIndex: true,
+  }),
 }
 
 export default function PortalDashboardPage() {

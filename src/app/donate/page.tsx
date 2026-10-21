@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DonationFlow } from '@/components/demo/donation-flow'
@@ -10,10 +11,11 @@ import { DEMO_DATA, computeDemoStats } from '@/lib/demo/data'
 import { formatCompactNaira } from '@/lib/demo/format'
 
 export const metadata: Metadata = {
-  title: 'Contribute',
-  description:
-    'Choose a cause, enter an amount and complete a simulated contribution. No payment provider is connected in this prototype.',
-  alternates: { canonical: '/donate' },
+  ...buildMetadata({
+    title: 'Contribute',
+    description: 'Choose a cause, enter an amount and complete a simulated contribution. No payment provider is connected in this prototype.',
+    path: "/donate",
+  }),
 }
 
 export default function DonatePage() {

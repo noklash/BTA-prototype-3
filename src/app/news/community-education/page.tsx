@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import type { Metadata } from 'next'
 
 import { DetailPageRoute } from '@/components/detail-page'
@@ -6,9 +7,11 @@ import { getDetailPageByTypeAndSlug } from '@/lib/sanity/content'
 export const revalidate = 120
 
 export const metadata: Metadata = {
-  title: 'Community Education',
-  description: 'A look at how local schools and the association work together.',
-  alternates: { canonical: '/news/community-education' },
+  ...buildMetadata({
+    title: 'Community Education',
+    description: 'A look at how local schools and the association work together.',
+    path: "/news/community-education",
+  }),
 }
 
 export default async function ArticlePage() {
